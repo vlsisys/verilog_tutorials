@@ -1,4 +1,5 @@
-module	mux2(
+module	mux2
+(
 	output		o_out,
 	input		i_sel,
 	input		i_in0,

@@ -2,35 +2,52 @@
 //	Define Global Variables
 // --------------------------------------------------
 //	Clock
-`define	CLKFREQ		100					// Unit: MHz
-`define	SIMCYCLE	100
-//	Multibit
-`define NBIT		8
-//	Fixed-Point Number
-`define NBIT_I		8					// Integer Part
-`define NBIT_F		8					// Fractional Part
-`define NBIT_T		`NBIT_I+`NBIT_F
+`define	CLKFREQ		100		// Unit: MHz
+`define	SIMCYCLE	10
 
-`include	"mux2_tb.v"
+`include	"mux2.v"
+
 module	mux2_tb;
 // --------------------------------------------------
-//	Instanciation
+//	DUT Signals & Instantiate
 // --------------------------------------------------
+	wire		o_out;
+	reg			i_sel;
+	reg			i_in0;
+	reg			i_in1;
 
+	mux2		u_mux2
+	(	
+		.o_out		(o_out			),
+		.i_sel		(i_sel			),
+		.i_in0		(i_in0			),
+		.i_in1		(i_in1			)
+	);
+	
 // --------------------------------------------------
 //	Clock
 // --------------------------------------------------
-	initial					i_clk	= 1'b1   ;
-	always	#(500/`CLKFREQ)	i_clk	= ~i_clk ;
 
 // --------------------------------------------------
-//	Test Bench
+//	Tasks
 // --------------------------------------------------
-	integer		i, j;
+// --------------------------------------------------
+//	Test Stimulus
+// --------------------------------------------------
+	integer		i, j, k, n;
 	initial begin
 		for (i=0; i<`SIMCYCLE; i++) begin
+			{i_sel, i_in0, i_in1} <= $urandom_range(0,7);
+			#(1000/`CLKFREQ);
 		end
-		$finish;
+	end
+
+	reg	[8*32-1:0]	vcd_file;
+	initial begin
+		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
+			$dumpfile(vcd_file);
+			$dumpvars;
+		end
 	end
 
 endmodule
