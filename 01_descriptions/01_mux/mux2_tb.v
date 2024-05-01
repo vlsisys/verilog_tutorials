@@ -3,7 +3,7 @@
 // --------------------------------------------------
 //	Clock
 `define	CLKFREQ		100		// Unit: MHz
-`define	SIMCYCLE	10
+`define	SIMCYCLE	100
 
 `include	"mux2.v"
 
@@ -11,33 +11,58 @@ module	mux2_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire		o_out;
+	wire		o_out_primitive;
+	wire		o_out_assign;
+	wire		o_out_if;
+	wire		o_out_case;
 	reg			i_sel;
 	reg			i_in0;
 	reg			i_in1;
 
-	mux2		u_mux2
+	mux2_primitive
+	u_mux2_primitive
 	(	
-		.o_out		(o_out			),
-		.i_sel		(i_sel			),
-		.i_in0		(i_in0			),
-		.i_in1		(i_in1			)
+		.o_out		(o_out_primitive	),
+		.i_sel		(i_sel				),
+		.i_in0		(i_in0				),
+		.i_in1		(i_in1				)
 	);
 	
-// --------------------------------------------------
-//	Clock
-// --------------------------------------------------
+	mux2_assign
+	u_mux2_assign
+	(	
+		.o_out		(o_out_assign		),
+		.i_sel		(i_sel				),
+		.i_in0		(i_in0				),
+		.i_in1		(i_in1				)
+	);
 
-// --------------------------------------------------
-//	Tasks
-// --------------------------------------------------
+	mux2_if
+	u_mux2_if
+	(	
+		.o_out		(o_out_if			),
+		.i_sel		(i_sel				),
+		.i_in0		(i_in0				),
+		.i_in1		(i_in1				)
+	);
+
+	mux2_case
+	u_mux2_case
+	(	
+		.o_out		(o_out_case			),
+		.i_sel		(i_sel				),
+		.i_in0		(i_in0				),
+		.i_in1		(i_in1				)
+	);
+
 // --------------------------------------------------
 //	Test Stimulus
 // --------------------------------------------------
 	integer		i, j, k, n;
 	initial begin
 		for (i=0; i<`SIMCYCLE; i++) begin
-			{i_sel, i_in0, i_in1} <= $urandom_range(0,7);
+			{i_sel, i_in0, i_in1} = $urandom_range(0,7);
+			//i_sel = 1;
 			#(1000/`CLKFREQ);
 		end
 	end
