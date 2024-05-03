@@ -3,16 +3,13 @@
 //	* Filename		: dff_async_rstn_tb.v
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Description	: 
-//		- Key Points
-//			1. 
-//			2. 
 // ==================================================
 
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	100		// Sim. Cycles
+`define	SIMCYCLE	20		// Sim. Cycles
 `define NBIT		8		// Total BitWidth
 
 `include	"dff_async_rstn.v"
@@ -21,7 +18,6 @@ module	dff_async_rstn_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-
 	wire	[`NBIT-1:0]		o_q;
 	reg		[`NBIT-1:0]		i_d;
 	reg						i_clk;
@@ -70,8 +66,8 @@ module	dff_async_rstn_tb;
 		init();
 		resetReleaseAfterNCycles(10);
 		for (i=0; i<`SIMCYCLE; i++) begin
-			#(1000/`CLKFREQ);
 			i_d	= $urandom_range(0, 2**`NBIT-1);
+			#(1000/`CLKFREQ);
 		end
 		$finish;
 	end

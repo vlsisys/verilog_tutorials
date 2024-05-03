@@ -1,3 +1,10 @@
+// ==================================================
+//	[ VLSISYS Lab. ]
+//	* Filename		: mux2.v
+//	* Author		: Woong Choi (woongchoi@sm.ac.kr)
+//	* Description	: 
+// ==================================================
+
 module	mux2_primitive
 (
 	output		o_out,
