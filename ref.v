@@ -165,7 +165,8 @@ endmodule
 //	Practice 01 : 2:4 Decoder
 //		- Dataflow
 // ==================================================
-module dec2_dataflow(
+module dec2_dataflow
+(
 	output 		[3:0]	out,
 	input		[1:0]	in,
 	input				en
@@ -179,7 +180,8 @@ endmodule
 //	Practice 01 : 2:4 Decoder
 //		- Behavior
 // ==================================================
-module dec2_behavior(
+module dec2_behavior
+(
 	output reg	[3:0]	out,
 	input		[1:0]	in,
 	input				en
