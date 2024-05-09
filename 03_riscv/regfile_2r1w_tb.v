@@ -11,7 +11,6 @@
 `define	CLKFREQ			100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE		32		// Sim. Cycles
 `define BW				32		// Total BitWidth
-`define DEBUG_REGFILE	1
 
 `include	"regfile_2r1w.v"
 
