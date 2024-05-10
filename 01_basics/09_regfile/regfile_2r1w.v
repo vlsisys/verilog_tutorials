@@ -63,7 +63,7 @@ module regfile_2r1w
 			reg_q[31] <= {BW{1'b0}}; // $t6end
 		end else begin
 			//	"Write" and  "Write Address != 0"
-			if (i_wr_en && |i_wr_addr) begin
+			if (i_wr_en && i_wr_addr) begin
 				reg_q[i_wr_addr] <= i_wr_data;
 			//	Hold Data
 			end else begin
