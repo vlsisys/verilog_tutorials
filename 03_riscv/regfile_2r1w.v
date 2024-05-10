@@ -10,18 +10,18 @@ module regfile_2r1w
 	parameter	BW	= 32
 )
 (
-	output		[BW-1         : 0]	o_rd_data0,
-	output		[BW-1         : 0]	o_rd_data1,
-	input		[$clog2(BW)-1 : 0]	i_rd_addr0,
-	input		[$clog2(BW)-1 : 0]	i_rd_addr1,
-	input		[BW-1         : 0]	i_wr_data,
-	input		[$clog2(BW)-1 : 0]	i_wr_addr,
-	input							i_wr_en,
-	input							i_clk,
-	input							i_rstn
+	output		[BW-1:0]	o_rd_data0,
+	output		[BW-1:0]	o_rd_data1,
+	input		[   4:0]	i_rd_addr0,
+	input		[   4:0]	i_rd_addr1,
+	input		[BW-1:0]	i_wr_data,
+	input		[   4:0]	i_wr_addr,
+	input					i_wr_en,
+	input					i_clk,
+	input					i_rstn
 );
 
-	reg			[BW-1         : 0]	reg_q[0:31];
+	reg			[BW-1:0]	reg_q[0:31];
 
 	// Async. Read 
 	assign		o_rd_data0	= reg_q[i_rd_addr0];

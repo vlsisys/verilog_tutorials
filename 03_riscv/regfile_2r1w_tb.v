@@ -19,15 +19,15 @@ module	regfile_2r1w_tb;
 //	DUT Signals & Instantiate
 // --------------------------------------------------
 
-	wire	[`BW-1         : 0]		o_rd_data0;
-	wire	[`BW-1         : 0]		o_rd_data1;
-	reg		[$clog2(`BW)-1 : 0]		i_rd_addr0;
-	reg		[$clog2(`BW)-1 : 0]		i_rd_addr1;
-	reg		[`BW-1         : 0]		i_wr_data;
-	reg		[$clog2(`BW)-1 : 0]		i_wr_addr;
-	reg								i_wr_en;
-	reg								i_clk;
-	reg								i_rstn;
+	wire	[`BW-1:0]		o_rd_data0;
+	wire	[`BW-1:0]		o_rd_data1;
+	reg		[    4:0]		i_rd_addr0;
+	reg		[    4:0]		i_rd_addr1;
+	reg		[`BW-1:0]		i_wr_data;
+	reg		[    4:0]		i_wr_addr;
+	reg						i_wr_en;
+	reg						i_clk;
+	reg						i_rstn;
 
 	regfile_2r1w
 	#(
@@ -83,8 +83,8 @@ module	regfile_2r1w_tb;
 	endtask
 
 	task regWR;
-		input	[$clog2(`BW)-1 : 0]	ti_wr_addr;
-		input	[`BW-1         : 0]	ti_wr_data;
+		input	[    4:0]	ti_wr_addr;
+		input	[`BW-1:0]	ti_wr_data;
 		begin
 			taskState	= "WR";
 			@(negedge i_clk) begin
@@ -98,8 +98,8 @@ module	regfile_2r1w_tb;
 	endtask
 
 	task regRD;
-		input	[$clog2(`BW)-1 : 0]	ti_rd_addr0;
-		input	[$clog2(`BW)-1 : 0]	ti_rd_addr1;
+		input	[    4:0]	ti_rd_addr0;
+		input	[    4:0]	ti_rd_addr1;
 		begin
 			taskState	= "RD";
 			@(negedge i_clk) begin
@@ -127,7 +127,7 @@ module	regfile_2r1w_tb;
 			singleCycle;
 		end
 		for (i=0; i<`SIMCYCLE; i++) begin
-			regRD($urandom_range(0, 2**($clog2(`BW)-1)), $urandom_range(0, 2**($clog2(`BW)-1)));
+			regRD($urandom_range(0, 31), $urandom_range(0, 31));
 			singleCycle;
 		end
 		resetReleaseAfterNCycles(4);
