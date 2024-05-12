@@ -5,6 +5,7 @@
 //	* Description	: 
 // ==================================================
 
+`include	"params.v"
 module regfile_2r1w
 #(
 	parameter	BW	= 32
