@@ -20,21 +20,27 @@ module	riscv_alu_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire	[`ALU_DATA_BUS]		o_alu_result;
+	localparam	BW_DATA			= 32;
+	localparam	BW_CTRL			= 4;
+
+	wire	[BW_DATA-1:0]		o_alu_result;
 	wire						o_alu_zero;
-	reg		[3:0]				i_alu_ctrl;
-	reg		[`ALU_DATA_BUS]		i_alu_a;
-	reg		[`ALU_DATA_BUS]		i_alu_b;
+	reg		[BW_DATA-1:0]		i_alu_a;
+	reg		[BW_DATA-1:0]		i_alu_b;
+	reg		[BW_CTRL-1:0]		i_alu_ctrl;
 
 	riscv_alu
+	#(
+		.BW_DATA			(BW_DATA			),
+		.BW_CTRL			(BW_CTRL			)
+	)
 	u_riscv_alu(
-		.o_alu_result	(o_alu_result	),
-		.o_alu_zero		(o_alu_zero		),
-		.i_alu_ctrl		(i_alu_ctrl		),
-		.i_alu_a		(i_alu_a		),
-		.i_alu_b		(i_alu_b		)
+		.o_alu_result		(o_alu_result		),
+		.o_alu_zero			(o_alu_zero			),
+		.i_alu_a			(i_alu_a			),
+		.i_alu_b			(i_alu_b			),
+		.i_alu_ctrl			(i_alu_ctrl			)
 	);
-
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
@@ -42,16 +48,16 @@ module	riscv_alu_tb;
 
 	task init;
 		begin
-			i_alu_ctrl	= 0;
-			i_alu_a		= 0;
-			i_alu_b		= 0;
+			i_alu_a			= 0;
+			i_alu_b			= 0;
+			i_alu_ctrl		= 0;
 		end
 	endtask
 
 	task ADD;
 		begin
 			taskState	= "ADD";
-			i_alu_ctrl	= `ALU_OP_ADD;
+			i_alu_ctrl	= `ALU_CTRL_ADD;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -60,7 +66,7 @@ module	riscv_alu_tb;
 	task SUB;
 		begin
 			taskState	= "SUB";
-			i_alu_ctrl	= `ALU_OP_SUB;
+			i_alu_ctrl	= `ALU_CTRL_SUB;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -69,7 +75,7 @@ module	riscv_alu_tb;
 	task SLL;
 		begin
 			taskState	= "SLL";
-			i_alu_ctrl	= `ALU_OP_SLL;
+			i_alu_ctrl	= `ALU_CTRL_SLL;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -78,7 +84,7 @@ module	riscv_alu_tb;
 	task SLT;
 		begin
 			taskState	= "SLT";
-			i_alu_ctrl	= `ALU_OP_SLT;
+			i_alu_ctrl	= `ALU_CTRL_SLT;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -87,7 +93,7 @@ module	riscv_alu_tb;
 	task SLTU;
 		begin
 			taskState	= "SLTU";
-			i_alu_ctrl	= `ALU_OP_SLTU;
+			i_alu_ctrl	= `ALU_CTRL_SLTU;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -96,7 +102,7 @@ module	riscv_alu_tb;
 	task XOR;
 		begin
 			taskState	= "XOR";
-			i_alu_ctrl	= `ALU_OP_XOR;
+			i_alu_ctrl	= `ALU_CTRL_XOR;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -105,7 +111,7 @@ module	riscv_alu_tb;
 	task SRL;
 		begin
 			taskState	= "SRL";
-			i_alu_ctrl	= `ALU_OP_SRL;
+			i_alu_ctrl	= `ALU_CTRL_SRL;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -114,7 +120,7 @@ module	riscv_alu_tb;
 	task SRA;
 		begin
 			taskState	= "SRA";
-			i_alu_ctrl	= `ALU_OP_SRA;
+			i_alu_ctrl	= `ALU_CTRL_SRA;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -123,7 +129,7 @@ module	riscv_alu_tb;
 	task OR;
 		begin
 			taskState	= "OR";
-			i_alu_ctrl	= `ALU_OP_OR;
+			i_alu_ctrl	= `ALU_CTRL_OR;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end
@@ -132,7 +138,7 @@ module	riscv_alu_tb;
 	task AND;
 		begin
 			taskState	= "AND";
-			i_alu_ctrl	= `ALU_OP_AND;
+			i_alu_ctrl	= `ALU_CTRL_AND;
 			i_alu_a		= $urandom;
 			i_alu_b		= $urandom;
 		end

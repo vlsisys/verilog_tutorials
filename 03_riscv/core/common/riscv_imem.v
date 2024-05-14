@@ -5,19 +5,23 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_params.v"
+`include	"riscv_configs.v"
 
-module riscv_imem 
+module riscv_imem
+#(	
+	parameter	BW_DATA	= 32,
+	parameter	BW_ADDR	= 4
+)
 (	
-	output		[`IMEM_DATA_BUS]	o_mem_data,
-	input		[`IMEM_DATA_BUS]	i_mem_data,
-	input		[`IMEM_ADDR_BUS]	i_mem_addr,
-	input							i_mem_wr_en,
-	input							i_clk
+	output		[BW_DATA-1:0]	o_mem_data,
+	input		[BW_DATA-1:0]	i_mem_data,
+	input		[BW_ADDR-1:0]	i_mem_addr,
+	input						i_mem_wr_en,
+	input						i_clk
 );
 
-	reg			[`IMEM_DATA_BUS]	mem_arr[0:2**`IMEM_ADDR_BIT-1];
-	initial		$readmemh(`IMEM_INIT_FILE, mem_arr);
+	reg			[BW_DATA-1:0]	mem_arr[0:2**BW_ADDR-1];
+	initial		$readmemh(`IME_INIT_FILE, mem_arr);
 
 	assign		o_mem_data = (i_mem_wr_en) ? o_mem_data : mem_arr[i_mem_addr];
 

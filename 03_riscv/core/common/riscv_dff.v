@@ -5,14 +5,15 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_params.v"
-
 module riscv_dff
+#(
+	parameter	BW_DATA	= 32
+)
 (	
-	output reg	[`DFF_DATA_BUS]		o_dff_q,
-	input		[`DFF_DATA_BUS]		i_dff_d,
-	input							i_clk,
-	input							i_rstn
+	output reg	[BW_DATA-1:0]	o_dff_q,
+	input		[BW_DATA-1:0]	i_dff_d,
+	input						i_clk,
+	input						i_rstn
 );
 
 	always @(posedge i_clk or negedge i_rstn) begin

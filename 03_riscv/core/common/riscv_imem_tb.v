@@ -9,7 +9,7 @@
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	2**`IMEM_ADDR_BIT
+`define	SIMCYCLE	2**BW_ADDR
 
 `include	"riscv_imem.v"
 
@@ -17,20 +17,26 @@ module riscv_imem_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
+	localparam	BW_DATA			= 32;
+	localparam	BW_ADDR			= 5;
 
-	wire	[`IMEM_DATA_BUS]	o_mem_data;
-	reg		[`IMEM_DATA_BUS]	i_mem_data;
-	reg		[`IMEM_ADDR_BUS]	i_mem_addr;
-	reg							i_mem_wr_en;
-	reg							i_clk;
+	wire	[BW_DATA-1:0]	o_mem_data;
+	reg		[BW_DATA-1:0]	i_mem_data;
+	reg		[BW_ADDR-1:0]	i_mem_addr;
+	reg						i_mem_wr_en;
+	reg						i_clk;
 
 	riscv_imem
+	#(
+		.BW_DATA			(BW_DATA			),
+		.BW_ADDR			(BW_ADDR			)
+	)
 	u_riscv_imem(
-		.o_mem_data		(o_mem_data		),
-		.i_mem_data		(i_mem_data		),
-		.i_mem_addr		(i_mem_addr		),
-		.i_mem_wr_en	(i_mem_wr_en	),
-		.i_clk			(i_clk			)
+		.o_mem_data			(o_mem_data			),
+		.i_mem_data			(i_mem_data			),
+		.i_mem_addr			(i_mem_addr			),
+		.i_mem_wr_en		(i_mem_wr_en		),
+		.i_clk				(i_clk				)
 	);
 // --------------------------------------------------
 //	Clock
@@ -44,16 +50,16 @@ module riscv_imem_tb;
 
 	task init;
 		begin
-			i_mem_data	= 0;
-			i_mem_addr	= 0;
-			i_mem_wr_en	= 0;
-			i_clk		= 0;
+			i_mem_data			= 0;
+			i_mem_addr			= 0;
+			i_mem_wr_en			= 0;
+			i_clk				= 0;
 		end
 	endtask
 
 	task memWR;
-		input	[`IMEM_ADDR_BUS]	ti_mem_addr;
-		input	[`IMEM_DATA_BUS]	ti_mem_data;
+		input	[BW_ADDR-1:0]	ti_mem_addr;
+		input	[BW_DATA-1:0]	ti_mem_data;
 		begin
 			taskState	= "WR";
 			@(negedge i_clk) begin
@@ -67,7 +73,7 @@ module riscv_imem_tb;
 	endtask
 
 	task memRD;
-		input	[`IMEM_ADDR_BUS]	ti_mem_addr;
+		input	[BW_ADDR-1:0]	ti_mem_addr;
 		begin
 			taskState	= "RD";
 			@(negedge i_clk) begin
@@ -128,7 +134,7 @@ module riscv_imem_tb;
 	initial begin
 		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
 			$dumpfile(vcd_file);
-			for (i=0; i<2**`IMEM_ADDR_BIT; i++) begin
+			for (i=0; i<2**BW_ADDR; i++) begin
 				$dumpvars(0, u_riscv_imem.mem_arr[i]);
 			end
 			$dumpvars;

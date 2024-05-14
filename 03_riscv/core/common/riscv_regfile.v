@@ -5,22 +5,24 @@
 //	* Description	: 
 // ==================================================
 
-`include		"riscv_params.v"
-
 module riscv_regfile
+#(	
+	parameter	BW_DATA	= 32,
+	parameter	BW_ADDR	= 4
+)
 (
-	output		[`REG_DATA_BUS]	o_reg_rd_data0,
-	output		[`REG_DATA_BUS]	o_reg_rd_data1,
-	input		[`REG_ADDR_BUS]	i_reg_rd_addr0,
-	input		[`REG_ADDR_BUS]	i_reg_rd_addr1,
-	input		[`REG_DATA_BUS]	i_reg_wr_data,
-	input		[`REG_ADDR_BUS]	i_reg_wr_addr,
+	output		[BW_DATA-1:0]	o_reg_rd_data0,
+	output		[BW_DATA-1:0]	o_reg_rd_data1,
+	input		[BW_ADDR-1:0]	i_reg_rd_addr0,
+	input		[BW_ADDR-1:0]	i_reg_rd_addr1,
+	input		[BW_DATA-1:0]	i_reg_wr_data,
+	input		[BW_ADDR-1:0]	i_reg_wr_addr,
 	input						i_reg_wr_en,
 	input						i_clk,
 	input						i_rstn
 );
 
-	reg			[`REG_DATA_BUS]	reg_arr[0:2**`REG_ADDR_BIT-1];
+	reg			[BW_DATA-1:0]	reg_arr[0:2**BW_ADDR-1];
 
 	// Async. Read 
 	assign		o_reg_rd_data0	= reg_arr[i_reg_rd_addr0];
@@ -29,7 +31,7 @@ module riscv_regfile
 	integer		i;
 	always @(posedge i_clk or negedge i_rstn) begin
 		if(!i_rstn) begin
-			for (i=0; i<2**`REG_ADDR_BIT-1; i++) begin
+			for (i=0; i<2**BW_ADDR-1; i++) begin
 				reg_arr[i_reg_wr_addr] <= 0;
 			end
 		end else begin
