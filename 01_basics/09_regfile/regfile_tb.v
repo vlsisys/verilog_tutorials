@@ -96,7 +96,7 @@ module	regfile_tb;
 
 	task regRD;
 		input	[BW_ADDR-1:0]	ti_reg_rd_addr0;
-		input	[BW_DATA-1:0]	ti_reg_rd_addr1;
+		input	[BW_ADDR-1:0]	ti_reg_rd_addr1;
 		begin
 			taskState	= "RD";
 			@(negedge i_clk) begin
