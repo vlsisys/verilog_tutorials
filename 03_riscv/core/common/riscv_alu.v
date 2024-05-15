@@ -14,7 +14,7 @@ module riscv_alu
 )
 (	
 	output reg	[BW_DATA-1:0]	o_alu_result,
-	output reg					o_alu_zero,
+	output						o_alu_zero,
 	input		[BW_DATA-1:0]	i_alu_a,
 	input		[BW_DATA-1:0]	i_alu_b,
 	input		[BW_CTRL-1:0]	i_alu_ctrl
@@ -22,25 +22,19 @@ module riscv_alu
 
 	always @(*) begin
 		case (i_alu_ctrl)
-			`ALU_CTRL_ADD	:	o_alu_result = i_alu_a + i_alu_b;
-			`ALU_CTRL_SUB	:	o_alu_result = i_alu_a - i_alu_b;
+			`ALU_CTRL_ADD	:	o_alu_result = i_alu_a +  i_alu_b;
+			`ALU_CTRL_SUB	:	o_alu_result = i_alu_a -  i_alu_b;
 			`ALU_CTRL_SLL	:	o_alu_result = i_alu_a << i_alu_b[4:0];
 			`ALU_CTRL_SLT	:	o_alu_result = $signed(i_alu_a) < $signed(i_alu_b);
-			`ALU_CTRL_SLTU	:	o_alu_result = i_alu_a < i_alu_b;
-			`ALU_CTRL_XOR	:	o_alu_result = i_alu_a ^ i_alu_b;
+			`ALU_CTRL_SLTU	:	o_alu_result = i_alu_a <  i_alu_b;
+			`ALU_CTRL_XOR	:	o_alu_result = i_alu_a ^  i_alu_b;
 			`ALU_CTRL_SRL	:	o_alu_result = i_alu_a >> i_alu_b[4:0];
 			`ALU_CTRL_SRA	:	o_alu_result = $signed(i_alu_a) >>> $signed(i_alu_b[4:0]);
-			`ALU_CTRL_OR	:	o_alu_result = i_alu_a | i_alu_b;
-			`ALU_CTRL_AND	:	o_alu_result = i_alu_a & i_alu_b;
+			`ALU_CTRL_OR	:	o_alu_result = i_alu_a |  i_alu_b;
+			`ALU_CTRL_AND	:	o_alu_result = i_alu_a &  i_alu_b;
 		endcase
 	end
 
-	always @(*) begin
-		if (o_alu_result == 0) begin
-			o_alu_zero	= 1;
-		end else begin
-			o_alu_zero	= 0;
-		end
-	end
+	assign	o_alu_zero	= (o_alu_result == 0);
 
 endmodule

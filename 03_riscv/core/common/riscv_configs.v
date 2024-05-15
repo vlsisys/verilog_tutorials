@@ -4,30 +4,11 @@
 //	* Filename		: riscv_params.v
 //	* Description	: 
 // ==================================================
-
-// --------------------------------------------------
-//	Overall
-// --------------------------------------------------
-`define	CPU_DATA_BIT		32
-`define	CPU_INST_BIT		32
-`define	CPU_DATA_BUS		`CPU_DATA_BIT-1:0
-`define	CPU_INST_BUS		`CPU_INST_BIT-1:0
-
-// --------------------------------------------------
-//	Data Path
-// --------------------------------------------------
-`define	ADD_DATA_BIT		32
-`define	ADD_DATA_BUS		`ADD_DATA_BIT-1:0
-`define	ADD_DATA_BIT		32
-`define	ADD_DATA_BUS		`ADD_DATA_BIT-1:0
-
+`def
 // --------------------------------------------------
 //	ALU (Arithmetic & Logical Unit)
 // --------------------------------------------------
-`define	ALU_DATA_BIT		32
-`define	ALU_DATA_BUS		`ALU_DATA_BIT-1:0
-`define	ALU_CTRL_BIT		4
-`define	ALU_CTRL_BUS		`ALU_CTRL_BIT-1:0
+//							{func7[5], func3}
 `define	ALU_CTRL_ADD		4'b0000
 `define	ALU_CTRL_SUB		4'b1000
 `define	ALU_CTRL_SLL		4'b0001	// Shift Left Logical
@@ -42,11 +23,6 @@
 // --------------------------------------------------
 //	Immidiate Generate
 // --------------------------------------------------
-`define	IMM_DATA_BIT			32
-`define	IMM_CTRL_BIT			3
-`define	IMM_DATA_BUS			`IMM_DATA_BIT-1:0
-`define	IMM_CTRL_BUS			`IMM_CTRL_BIT-1:0
-`define	IMM_INST_BUS			31:7
 //	IMM Type
 `define	IMM_TYPE_I				3'b000
 `define	IMM_TYPE_S				3'b001
