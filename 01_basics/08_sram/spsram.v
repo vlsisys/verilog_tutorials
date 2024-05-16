@@ -33,7 +33,7 @@ module spsram
 	end
 
 	`ifdef	SPSRAM_ASYNC
-		assign	o_data	= (!i_cen && i_wen && !i_oen) ? mem[i_addr] : 'bz;
+		assign	o_data	= (i_cen && !i_wen && i_oen) ? mem[i_addr] : 'bz;
 
 	`else
 		reg		[BW_DATA-1:0]	o_data;

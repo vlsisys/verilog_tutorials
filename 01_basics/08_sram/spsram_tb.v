@@ -15,7 +15,7 @@
 `define BW_ADDR		5
 `define BW_CTRL		4
 
-//`define	SPSRAM_ASYNC
+`define	SPSRAM_ASYNC
 
 // --------------------------------------------------
 //	Includes

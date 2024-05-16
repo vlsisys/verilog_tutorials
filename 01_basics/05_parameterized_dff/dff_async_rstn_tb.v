@@ -1,7 +1,7 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
-//	* Filename		: dff_async_rstn_tb.v
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
+//	* Filename		: dff_async_rstn_tb.v
 //	* Description	: 
 // ==================================================
 
@@ -9,23 +9,27 @@
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	20		// Sim. Cycles
-`define NBIT		8		// Total BitWidth
+`define	SIMCYCLE	10		// Sim. Cycles
+`define BW_DATA		32
 
+// --------------------------------------------------
+//	Includes
+// --------------------------------------------------
 `include	"dff_async_rstn.v"
 
 module	dff_async_rstn_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire	[`NBIT-1:0]		o_q;
-	reg		[`NBIT-1:0]		i_d;
+
+	wire	[`BW_DATA-1:0]	o_q;
+	reg		[`BW_DATA-1:0]	i_d;
 	reg						i_clk;
 	reg						i_rstn;
 
 	dff_async_rstn
 	#(
-		.NBIT			(`NBIT			)
+		.BW_DATA		(`BW_DATA		)
 	)
 	u_dff_async_rstn(
 		.o_q			(o_q			),
@@ -34,40 +38,52 @@ module	dff_async_rstn_tb;
 		.i_rstn			(i_rstn			)
 	);
 
-	task init;
-		begin
-			i_d		= 0;
-			i_clk	= 0;
-			i_rstn	= 0;
-		end
-	endtask
-
 // --------------------------------------------------
 //	Clock
 // --------------------------------------------------
-	always	#(500/`CLKFREQ)	i_clk = ~i_clk;
+//	reg							i_clk = 0;
+	always	#(500/`CLKFREQ)		i_clk = ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
+	reg		[4*32-1:0] taskState;	// Length is limitted to 32
+
+	task init;
+		begin
+			i_d				= 0;
+			i_clk			= 0;
+			i_rstn			= 0;
+		end
+	endtask
+
 	task resetReleaseAfterNCycles;
 		input	[  9:0]		n;
 		begin
+			taskState	= "Reset";
+			i_rstn = 1'b0;
 			#(n*1000/`CLKFREQ);
 			i_rstn = 1'b1;
+		end
+	endtask
+
+	task singleCycle;
+		begin
+			#(1000/`CLKFREQ);
 		end
 	endtask
 
 // --------------------------------------------------
 //	Test Stimulus
 // --------------------------------------------------
-	integer		i, j, k, n;
+	integer		i, j;
 	initial begin
 		init();
-		resetReleaseAfterNCycles(10);
+		resetReleaseAfterNCycles(4);
+
 		for (i=0; i<`SIMCYCLE; i++) begin
-			i_d	= $urandom_range(0, 2**`NBIT-1);
 			#(1000/`CLKFREQ);
+			{i_d} = $random;
 		end
 		$finish;
 	end

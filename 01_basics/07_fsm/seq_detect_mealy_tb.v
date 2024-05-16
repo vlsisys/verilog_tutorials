@@ -1,36 +1,35 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: upcnt_tb.v
+//	* Filename		: seq_detect_mealy_tb.v
 //	* Description	: 
 // ==================================================
+
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	`UPBND	// Sim. Cycles
-`define	UPBND		63
+`define	SIMCYCLE	100		// Sim. Cycles
 
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
-`include	"upcnt.v"
+`include	"seq_detect_mealy.v"
 
-module	upcnt_tb;
+module	seq_detect_mealy_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
 
-	wire	[$clog2(`UPBND+1)-1:0]	o_cnt;
-	reg								i_clk;
-	reg								i_rstn;
+	wire					o_out;
+	reg						i_seq;
+	reg						i_clk;
+	reg						i_rstn;
 
-	upcnt
-	#(
-		.UPBND			(`UPBND			)
-	)
-	u_upcnt(
-		.o_cnt			(o_cnt			),
+	seq_detect_mealy
+	u_seq_detect_mealy(
+		.o_out			(o_out			),
+		.i_seq			(i_seq			),
 		.i_clk			(i_clk			),
 		.i_rstn			(i_rstn			)
 	);
@@ -48,6 +47,7 @@ module	upcnt_tb;
 
 	task init;
 		begin
+			i_seq			= 0;
 			i_clk			= 0;
 			i_rstn			= 0;
 		end
@@ -60,6 +60,7 @@ module	upcnt_tb;
 			i_rstn = 1'b0;
 			#(n*1000/`CLKFREQ);
 			i_rstn = 1'b1;
+			taskState	= "";
 		end
 	endtask
 
@@ -70,8 +71,9 @@ module	upcnt_tb;
 	initial begin
 		init();
 		resetReleaseAfterNCycles(4);
-		taskState	= "Count";
+
 		for (i=0; i<`SIMCYCLE; i++) begin
+			i_seq	= $random;
 			#(1000/`CLKFREQ);
 		end
 		$finish;
@@ -86,7 +88,7 @@ module	upcnt_tb;
 			$dumpfile(vcd_file);
 			$dumpvars;
 		end else begin
-			$dumpfile("upcnt_tb.vcd");
+			$dumpfile("seq_detect_mealy_tb.vcd");
 			$dumpvars;
 		end
 	end
