@@ -15,6 +15,7 @@ module seq_detect_mealy
 
 	reg		[1:0]	cState;
 	reg		[1:0]	nState;
+	reg				seq;
 	
 	// States
 	localparam	S_IDLE	=	2'b00;
@@ -26,14 +27,16 @@ module seq_detect_mealy
 	always @(posedge i_clk or negedge i_rstn) begin
 		if(!i_rstn) begin
 			cState	<= S_IDLE;
+			seq		<= 1'b0;
 		end else begin
 			cState	<= nState;
+			seq		<= i_seq;
 		end
 	end
 
 	// 'Next State' Comb. Logic
 	always @(*) begin
-		if(i_seq == 1'b0) begin
+		if(seq == 1'b0) begin
 			case(cState)
 				S_IDLE	:	nState	= S_IDLE;
 				S_H		:	nState	= S_HL;
@@ -52,9 +55,9 @@ module seq_detect_mealy
 	
 	// 'Output' Comb. Logic
 	always @(*) begin
-		case({cState, nState, i_seq})
-			{S_HLH, S_IDLE, 1'b1}	:	o_out	= 1'b1;
-			default					:	o_out	= 1'b0;
+		case({cState, seq})
+			{S_HLH, 1'b1}	:	o_out	= 1'b1;
+			default			:	o_out	= 1'b0;
 		endcase
 	end
 

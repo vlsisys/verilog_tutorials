@@ -15,6 +15,7 @@ module seq_detect_moore
 
 	reg		[2:0]	cState;
 	reg		[2:0]	nState;
+	reg				seq;
 	
 	// States
 	localparam	S_IDLE	=	3'b000;
@@ -27,14 +28,16 @@ module seq_detect_moore
 	always @(posedge i_clk or negedge i_rstn) begin
 		if(!i_rstn) begin
 			cState	<= S_IDLE;
+			seq		<= 1'b0;
 		end else begin
 			cState	<= nState;
+			seq		<= i_seq;
 		end
 	end
 
 	// 'Next State' Comb. Logic
 	always @(*) begin
-		if(i_seq == 1'b0) begin
+		if(seq == 1'b0) begin
 			case(cState)
 				S_IDLE	:	nState	= S_IDLE;
 				S_H		:	nState	= S_HL;
