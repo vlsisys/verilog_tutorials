@@ -52,15 +52,9 @@ module seq_detect_mealy
 	
 	// 'Output' Comb. Logic
 	always @(*) begin
-		case({cState, i_seq})
-			{S_IDLE	, 1'b0}:	o_out	= 1'b0;
-			{S_H	, 1'b0}:	o_out	= 1'b0;
-			{S_HL	, 1'b0}:	o_out	= 1'b0;
-			{S_HLH	, 1'b0}:	o_out	= 1'b0;
-			{S_IDLE	, 1'b1}:	o_out	= 1'b0;
-			{S_H	, 1'b1}:	o_out	= 1'b0;
-			{S_HL	, 1'b1}:	o_out	= 1'b0;
-			{S_HLH	, 1'b1}:	o_out	= 1'b1;
+		case({cState, nState, i_seq})
+			{S_HLH, S_IDLE, 1'b1}	:	o_out	= 1'b1;
+			default					:	o_out	= 1'b0;
 		endcase
 	end
 

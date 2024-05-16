@@ -56,11 +56,8 @@ module seq_detect_moore
 	// 'Output' Comb. Logic
 	always @(*) begin
 		case(cState)
-			S_IDLE	:	o_out	= 1'b0;
-			S_H		:	o_out	= 1'b0;
-			S_HL	:   o_out	= 1'b0;
-			S_HLH	:   o_out	= 1'b0;
 			S_HLHH	:   o_out	= 1'b1;
+			default	:	o_out	= 1'b0;
 		endcase
 	end
 

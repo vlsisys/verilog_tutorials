@@ -47,7 +47,7 @@ module seq_detect_moore_tb;
 	task init;
 		begin
 			i_seq			= 0;
-			i_clk			= 0;
+			i_clk			= 1;
 			i_rstn			= 0;
 		end
 	endtask
