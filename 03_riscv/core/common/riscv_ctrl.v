@@ -6,19 +6,18 @@
 // ==================================================
 
 module riscv_ctrl
-#(	
-	parameter	BW_CTRL	= 4
-)
 (	
 	output						o_pc_src,
 	output		[1:0]			o_result_src,
 	output						o_mem_wr,
-	output						o_alu_src,
-	output		[1:0]			o_imm_src,
-	output						o_reg_wr,
 	output		[3:0]			o_alu_ctrl,
+	output						o_alu_src,
+	output		[2:0]			o_imm_src,
+	output						o_reg_wr,
 	input						i_zero,
-	input		[6:0]			i_opcode
+	input		[6:0]			i_opcode,
+	input		[2:0]			i_func3,
+	input		[6:0]			i_func7
 );
 	wire			jump;
 	wire			branch;

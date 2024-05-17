@@ -14,7 +14,7 @@ module riscv_immgen
 (	
 	output reg	[BW_DATA-1:0]		o_imm_ext,
 	input		[BW_DATA-1:0]		i_imm_instr,
-	input							i_imm_type
+	input		[2:0]				i_imm_type
 );
 
 	always @(*) begin
