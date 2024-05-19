@@ -2,7 +2,6 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: adder_tb.v
-//	* Date			: 2024-05-17 13:24:24
 //	* Description	: 
 // ==================================================
 // --------------------------------------------------
@@ -18,12 +17,12 @@
 // --------------------------------------------------
 `include	"adder.v"
 
-module	adder_tb;
+module adder_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
 
-	localparam	BW_DATA		= 32;
+	//localparam	BW_DATA		= 32;
 
 	wire	[`BW_DATA-1:0]	o_s;
 	wire					o_c;
@@ -89,8 +88,8 @@ module	adder_tb;
 		input	[$clog2(`NVEC)-1:0]	i;
 		begin
 			#(0.1*1000/`CLKFREQ);
-			if (o_s	 != vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
-			if (o_c	 != vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
+			if (o_s			!= vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
+			if (o_c			!= vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
 			if ((o_s != vo_s[i]) || (o_c != vo_c[i])) begin err++; end
 			#(0.9*1000/`CLKFREQ);
 		end
