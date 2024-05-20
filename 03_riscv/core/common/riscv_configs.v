@@ -1,10 +1,19 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: riscv_params.v
+//	* Filename		: riscv_configs.v
 //	* Description	: 
 // ==================================================
-`def
+
+// --------------------------------------------------
+//	Immidiate Generate
+// --------------------------------------------------
+`define	IMM_TYPE_I			3'b000
+`define	IMM_TYPE_S			3'b001
+`define	IMM_TYPE_B			3'b010
+`define	IMM_TYPE_U			3'b011
+`define	IMM_TYPE_J			3'b100
+
 // --------------------------------------------------
 //	ALU (Arithmetic & Logical Unit)
 // --------------------------------------------------
@@ -21,14 +30,11 @@
 `define	ALU_CTRL_AND		4'b0111
 
 // --------------------------------------------------
-//	Immidiate Generate
+//	ALUOP
 // --------------------------------------------------
-//	IMM Type
-`define	IMM_TYPE_I				3'b000
-`define	IMM_TYPE_S				3'b001
-`define	IMM_TYPE_B				3'b010
-`define	IMM_TYPE_U				3'b011
-`define	IMM_TYPE_J				3'b100
+`define	ALUOP_LOAD_STORE	2'b00
+`define	ALUOP_BRANCH		2'b01
+`define	ALUOP_RTYPE_ITYPE	2'b10
 
 // --------------------------------------------------
 //	Memory (Instruction / Data)

@@ -7,18 +7,16 @@
 
 module riscv_ctrl_aludec
 #(	
-	parameter	BW_DATA	= 32,
-	parameter	BW_ADDR	= 4,
 	parameter	BW_CTRL	= 4
 )
 (	
-	output reg	[BW_DATA-1:0]	o_data,
-	output reg					o_valid,
-	input		[BW_DATA-1:0]	i_data,
-	input		[BW_ADDR-1:0]	i_addr,
-	input		[BW_CTRL-1:0]	i_ctrl,
-	input						i_clk,
-	input						i_rstn
+	output reg	[BW_CTRL-1:0]	o_alu_ctrl,
+	input		[1:0]			i_alu_op,
+	input		[2:0]			i_funct3,
+	input						i_funct7_5b,
+	input						i_opcode_5b
 );
+
+	always @
 
 endmodule
