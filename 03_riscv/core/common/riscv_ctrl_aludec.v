@@ -18,10 +18,10 @@ module riscv_ctrl_aludec
 
 	always @(*) begin
 		case (i_alu_op)
-			`ALUOP_LOAD_STORE	: o_alu_ctrl = `ALU_CTRL_ADD;
-			`ALUOP_BRANCH		: o_alu_ctrl = `ALU_CTRL_SUB;
-			`ALUOP_RTYPE_ITYPE	: o_alu_ctrl = {i_funct7_5b, i_funct3};
-			default				: o_alu_ctrl = `ALU_CTRL_NOP;
+			`ALUOP_AUIPC_LOAD_STORE	: o_alu_ctrl = `ALU_CTRL_ADD;
+			`ALUOP_BRANCH			: o_alu_ctrl = `ALU_CTRL_SUB;
+			`ALUOP_RTYPE_ITYPE		: o_alu_ctrl = {i_funct7_5b, i_funct3};
+			default					: o_alu_ctrl = `ALU_CTRL_NOP;
 		endcase
 	end
 

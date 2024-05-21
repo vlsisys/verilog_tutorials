@@ -41,8 +41,31 @@ module riscv_ctrl_maindec
 			`OPCODE_LUI		,
 			`OPCODE_AUIPC	,
 			`OPCODE_JAL		,
-			`OPCODE_JALR	: o_reg_wr	<= 1'b1;
+			`OPCODE_JALR	,
+			`OPCODE_LOAD	,
+			`OPCODE_OP_IMM	,
+			`OPCODE_OP		: o_reg_wr	<= 1'b1;
 			default			: o_reg_wr	<= 1'b0;
+		endcase
+	end
+
+	always @(*) begin
+		case (i_opcode)
+			`OPCODE_STORE	: o_mem_wr	<= 1'b1;
+			default			: o_mem_wr	<= 1'b0;
+		endcase
+	end
+
+	always @(*) begin
+		case (i_opcode)
+			`OPCODE_LUI		: o_res_src <= `RES_SRC_ALU;	// 0 + IMM --> REG
+			`OPCODE_AUIPC	: o_res_src <= `RES_SRC_ALU;
+			`OPCODE_JAL		: o_res_src <= `RES_SRC_PC4;
+			`OPCODE_JALR	: o_res_src <= `RES_SRC_PC4;
+			`OPCODE_LOAD	: o_res_src <= `RES_SRC_DME;
+			`OPCODE_OP_IMM	: o_res_src <= `RES_SRC_ALU;
+			`OPCODE_OP		: o_res_src <= `RES_SRC_ALU;
+			default			: o_res_src <= `RES_SRC_NOP;
 		endcase
 	end
 
@@ -59,6 +82,18 @@ module riscv_ctrl_maindec
 			`OPCODE_OP		: o_imm_src <= `INSTR_R_TYPE; // R-Type
 			`OPCODE_FENCE	: o_imm_src <= `INSTR_I_TYPE; // I-Type
 			`OPCODE_SYSTEM	: o_imm_src <= `INSTR_I_TYPE; // I-Type
+		endcase
+	end
+
+	always @(*) begin
+		case (i_opcode)
+			`OPCODE_AUIPC	,
+			`OPCODE_LOAD	,
+			`OPCODE_STORE	: o_alu_op <= `ALUOP_AUIPC_LOAD_STORE;
+			`OPCODE_BRANCH	: o_alu_op <= `ALUOP_BRANCH;
+			`OPCODE_OP_IMM	,
+			`OPCODE_OP		: o_alu_op <= `ALUOP_RTYPE_ITYPE;
+			default			: o_alu_op <= `ALUOP_NOP;
 		endcase
 	end
 
