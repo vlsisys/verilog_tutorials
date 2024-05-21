@@ -58,6 +58,20 @@ module riscv_ctrl_maindec
 
 	always @(*) begin
 		case (i_opcode)
+			`OPCODE_BRANCH	: o_alu_src_a<= 1'b1;
+			default			: o_alu_src_a<= 1'b0;
+		endcase
+	end
+
+	always @(*) begin
+		case (i_opcode)
+			`OPCODE_BRANCH	: o_alu_src_b<= 1'b1;
+			default			: o_alu_src_b<= 1'b0;
+		endcase
+	end
+
+	always @(*) begin
+		case (i_opcode)
 			`OPCODE_LUI		: o_res_src <= `RES_SRC_ALU;	// 0 + IMM --> REG
 			`OPCODE_AUIPC	: o_res_src <= `RES_SRC_ALU;
 			`OPCODE_JAL		: o_res_src <= `RES_SRC_PC4;
