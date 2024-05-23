@@ -15,8 +15,8 @@
 `define	OPCODE_BRANCH		7'b1100011	//	B-Type, if (rs1 'op' rs2) pc += sext(offset)
 `define	OPCODE_LOAD			7'b0000011	//	I-Type, x[rd] = sext(M[x[rs1] + sext(offset)][31:0])
 `define	OPCODE_STORE		7'b0100011	//	S-Type, M[x[rs1] + sext(offset)] = x[rs2][31:0]
-`define	OPCODE_OP_IMM		7'b0010011	//	I-Type, x[rd] = x[rs1] 'op' x[rs2]
-`define	OPCODE_OP			7'b0110011	//	R-Type, x[rd] = x[rs1] 'op' sext(imm)
+`define	OPCODE_OP_IMM		7'b0010011	//	I-Type, x[rd] = x[rs1] 'op' sext(imm)
+`define	OPCODE_OP			7'b0110011	//	R-Type, x[rd] = x[rd] = x[rs1] 'op' x[rs2]
 `define	OPCODE_FENCE		7'b0001111	//	I-Type, 
 `define	OPCODE_SYSTEM		7'b1110011	//	I-Type, 
 

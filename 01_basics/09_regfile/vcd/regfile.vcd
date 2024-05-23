@@ -1,5 +1,5 @@
 $date
-	Wed May 15 21:10:01 2024
+	Wed May 22 14:58:43 2024
 $end
 $version
 	Icarus Verilog
@@ -36,7 +36,7 @@ $scope task init $end
 $upscope $end
 $scope task regRD $end
 $var reg 4 4 ti_reg_rd_addr0 [3:0] $end
-$var reg 32 5 ti_reg_rd_addr1 [31:0] $end
+$var reg 4 5 ti_reg_rd_addr1 [3:0] $end
 $upscope $end
 $scope task regWR $end
 $var reg 4 6 ti_reg_wr_addr [3:0] $end
@@ -443,7 +443,7 @@ b1111 H
 #235000
 b1111 H
 1#
-b11000 5
+b1000 5
 b10 ,
 #240000
 b1000 !
@@ -480,7 +480,7 @@ b1111 H
 #275000
 b1111 H
 1#
-b10000 5
+b0 5
 b0 4
 b100 ,
 #280000
@@ -501,7 +501,7 @@ b1111 H
 #295000
 b1111 H
 1#
-b10011 5
+b11 5
 b111 4
 b101 ,
 #300000
@@ -522,7 +522,7 @@ b1111 H
 #315000
 b1111 H
 1#
-b11000 5
+b1000 5
 b1110 4
 b110 ,
 #320000
@@ -606,7 +606,7 @@ b1111 H
 #395000
 b1111 H
 1#
-b11000 5
+b1000 5
 b1 4
 b1010 ,
 #400000
@@ -706,7 +706,7 @@ b1111 H
 #495000
 b1111 H
 1#
-b10000 5
+b0 5
 b110 4
 b1111 ,
 #500000
@@ -777,7 +777,6 @@ b0 $
 b0 -
 0#
 b101001001000100 *
-b0 5
 b0 4
 #575000
 b0 9

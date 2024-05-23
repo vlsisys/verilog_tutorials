@@ -4,19 +4,22 @@
 //	* Filename		: upcnt_tb.v
 //	* Description	: 
 // ==================================================
+
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	`UPBND	// Sim. Cycles
-`define	UPBND		63
+`define	SIMCYCLE	`NVEC	// Sim. Cycles
+`define BW_DATA		32		// Bitwidth of ~~
+`define NVEC		100		// # of Test Vector
+`define	UPBND		15
 
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
 `include	"upcnt.v"
 
-module	upcnt_tb;
+module upcnt_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
@@ -38,28 +41,30 @@ module	upcnt_tb;
 // --------------------------------------------------
 //	Clock
 // --------------------------------------------------
-//	reg							i_clk = 0;
 	always	#(500/`CLKFREQ)		i_clk = ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
-	reg		[4*32-1:0] taskState;	// Length is limitted to 32
+	reg		[4*32-1:0]	taskState;
+	integer				err	= 0;
 
 	task init;
 		begin
+			taskState		= "Init";
 			i_clk			= 0;
 			i_rstn			= 0;
 		end
 	endtask
 
-	task resetReleaseAfterNCycles;
-		input	[  9:0]		n;
+	task resetNCycle;
+		input	[9:0]	i;
 		begin
-			taskState	= "Reset";
-			i_rstn = 1'b0;
-			#(n*1000/`CLKFREQ);
-			i_rstn = 1'b1;
+			taskState		= "Reset";
+			i_rstn	= 1'b0;
+			#(i*1000/`CLKFREQ);
+			i_rstn	= 1'b1;
+			taskState		= "";
 		end
 	endtask
 
@@ -69,11 +74,12 @@ module	upcnt_tb;
 	integer		i, j;
 	initial begin
 		init();
-		resetReleaseAfterNCycles(4);
-		taskState	= "Count";
+		resetNCycle(4);
+
 		for (i=0; i<`SIMCYCLE; i++) begin
 			#(1000/`CLKFREQ);
 		end
+		#(1000/`CLKFREQ);
 		$finish;
 	end
 

@@ -2,6 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: upcnt.v
+//	* Date			: 2024-05-23 16:13:04
 //	* Description	: 
 // ==================================================
 

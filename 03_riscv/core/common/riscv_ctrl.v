@@ -24,33 +24,37 @@ module riscv_ctrl
 	input				i_funct7_5b
 );
 
+
 	wire				w_branch      	;
 	wire				w_jump        	;
 	wire		[1:0]	w_alu_op      	;
-	wire				w_opcode_5b   	;
-	assign	w_opcode_5b	= i_opcode[5] 	;
+
+	assign	o_pc_src	= (i_zero & w_branch) | w_jump;
+
+	riscv_ctrl_aludec
+	u_riscv_ctrl_aludec(
+		.o_alu_ctrl		(o_alu_ctrl		),
+		.i_alu_op		(i_alu_op		),
+		.i_funct3		(i_funct3		),
+		.i_funct7_5b	(i_funct7_5b	),
+		.i_opcode_5b	(i_opcode_5b	)
+	);
 
 	riscv_ctrl_maindec
 	u_riscv_ctrl_maindec(
-		.o_branch		(w_branch		),
-		.o_jump			(w_jump			),
+		.o_branch		(o_branch		),
+		.o_jump			(o_jump			),
 		.o_reg_wr		(o_reg_wr		),
 		.o_mem_wr		(o_mem_wr		),
 		.o_alu_src_a	(o_alu_src_a	),
 		.o_alu_src_b	(o_alu_src_b	),
 		.o_res_src		(o_res_src		),
 		.o_imm_src		(o_imm_src		),
-		.o_alu_op		(w_alu_op		),
+		.o_alu_op		(o_alu_op		),
 		.i_opcode		(i_opcode		)
 	);
 
-	riscv_ctrl_aludec
-	u_riscv_ctrl_aludec(
-		.o_alu_ctrl		(o_alu_ctrl		),
-		.i_alu_op		(w_alu_op		),
-		.i_funct3		(i_funct3		),
-		.i_funct7_5b	(i_funct7_5b	),
-		.i_opcode_5b	(w_opcode_5b	)
-	);
+
+
 
 endmodule

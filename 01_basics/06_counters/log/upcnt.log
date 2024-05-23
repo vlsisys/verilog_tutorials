@@ -1,0 +1,4 @@
+ERROR: upcnt_tb.v:54: $readmemb: Unable to open ./vec/o_cnt.vec for reading.
+ERROR: upcnt_tb.v:55: $readmemb: Unable to open ./vec/i_clk.vec for reading.
+ERROR: upcnt_tb.v:56: $readmemb: Unable to open ./vec/i_rstn.vec for reading.
+VCD info: dumpfile ./vcd/upcnt.vcd opened for output.

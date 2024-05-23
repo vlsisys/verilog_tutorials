@@ -1,5 +1,5 @@
 
-test:     file format elf32-littleriscv
+01_hello:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
