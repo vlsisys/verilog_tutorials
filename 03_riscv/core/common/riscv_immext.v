@@ -9,12 +9,13 @@
 
 module riscv_immext
 #(
-	parameter	BW_DATA	= 32
+	parameter	BW_DATA	= 32,
+	parameter	BW_CTRL	= 3 
 )
 (	
-	output reg	[BW_DATA-1:0]		o_imm_ext,
-	input		[BW_DATA-1:7]		i_imm_instr,
-	input		[2:0]				i_imm_src
+	output reg	[BW_DATA-1:0]	o_imm_ext,
+	input		[BW_DATA-1:0]	i_imm_instr,
+	input		[BW_CTRL-1:0]	i_imm_src
 );
 
 	always @(*) begin
