@@ -8,7 +8,7 @@
 module riscv_regfile
 #(	
 	parameter	BW_DATA	= 32,
-	parameter	BW_ADDR	= 4
+	parameter	BW_ADDR	= 5
 )
 (
 	output		[BW_DATA-1:0]	o_reg_rd_data0,
