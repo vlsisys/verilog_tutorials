@@ -8,26 +8,31 @@
 `include	"riscv_configs.v"
 
 module riscv_ctrl
+#(	
+	parameter	BW_C_ALU		= 4,
+	parameter	BW_C_IMM		= 3,
+	parameter	BW_C_RES		= 2
+)
 (	
-	output				o_ctrl_src_pc,
-	output reg			o_ctrl_src_alu_a,
-	output reg			o_ctrl_src_alu_b,
-	output reg	[2:0]	o_ctrl_src_imm,
-	output reg	[1:0]	o_ctrl_src_result,
-	output reg			o_ctrl_reg_wr,
-	output reg			o_ctrl_mem_wr,
-	output reg	[3:0]	o_ctrl_alu_ctrl,
-	input				i_ctrl_zero,
-	input		[6:0]	i_ctrl_opcode,
-	input		[2:0]	i_ctrl_funct3,
-	input				i_ctrl_funct7_5b
+	output						o_ctrl_src_pc,
+	output reg					o_ctrl_src_alu_a,
+	output reg					o_ctrl_src_alu_b,
+	output reg	[BW_C_IMM-1:0]	o_ctrl_src_imm,
+	output reg	[BW_C_RES-1:0]	o_ctrl_src_result,
+	output reg					o_ctrl_reg_wr,
+	output reg					o_ctrl_mem_wr,
+	output reg	[BW_C_ALU-1:0]	o_ctrl_alu_ctrl,
+	input						i_ctrl_alu_zero,
+	input		[6:0]			i_ctrl_opcode,
+	input		[2:0]			i_ctrl_funct3,
+	input						i_ctrl_funct7_5b
 );
 
-	reg					w_ctrl_branch      	;
-	reg					w_ctrl_jump        	;
-	reg			[1:0]	w_ctrl_alu_op      	;
+	reg							w_ctrl_branch ;
+	reg							w_ctrl_jump   ;
+	reg			[1:0]			w_ctrl_alu_op ;
 
-	assign	o_ctrl_src_pc	= (i_ctrl_zero & w_ctrl_branch) | w_ctrl_jump;
+	assign	o_ctrl_src_pc	= (i_ctrl_alu_zero & w_ctrl_branch) | w_ctrl_jump;
 
 	always @(*) begin
 		case (i_ctrl_opcode)
