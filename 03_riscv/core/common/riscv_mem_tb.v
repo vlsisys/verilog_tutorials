@@ -1,7 +1,7 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: riscv_imem_tb.v
+//	* Filename		: riscv_mem_tb.v
 //	* Description	: 
 // ==================================================
 
@@ -11,9 +11,9 @@
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	2**BW_ADDR
 
-`include	"riscv_imem.v"
+`include	"riscv_mem.v"
 
-module riscv_imem_tb;
+module riscv_mem_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
@@ -26,12 +26,13 @@ module riscv_imem_tb;
 	reg						i_mem_wr_en;
 	reg						i_clk;
 
-	riscv_imem
+	riscv_mem
 	#(
 		.BW_DATA			(BW_DATA			),
-		.BW_ADDR			(BW_ADDR			)
+		.BW_ADDR			(BW_ADDR			),
+		.INIT_FILE			("riscv_mem.init"	)
 	)
-	u_riscv_imem(
+	u_riscv_mem(
 		.o_mem_data			(o_mem_data			),
 		.i_mem_data			(i_mem_data			),
 		.i_mem_addr			(i_mem_addr			),
@@ -119,7 +120,7 @@ module riscv_imem_tb;
 			#(1000/`CLKFREQ);
 		end
 		for (i=0; i<`SIMCYCLE; i++) begin
-			memWR(i, $urandom_range(0, 2**31-1));
+			memWR(i, $urandom);
 			#(1000/`CLKFREQ);
 			memRD(i);
 			#(1000/`CLKFREQ);
@@ -135,11 +136,11 @@ module riscv_imem_tb;
 		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
 			$dumpfile(vcd_file);
 			for (i=0; i<2**BW_ADDR; i++) begin
-				$dumpvars(0, u_riscv_imem.mem_arr[i]);
+				$dumpvars(0, u_riscv_mem.mem_arr[i]);
 			end
 			$dumpvars;
 		end else begin
-			$dumpfile("memory_tb.vcd");
+			$dumpfile("riscv_mem_tb.vcd");
 			$dumpvars;
 		end
 	end

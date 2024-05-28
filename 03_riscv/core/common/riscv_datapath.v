@@ -5,9 +5,8 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_alu.v"
 `include	"riscv_configs.v"
-`include	"riscv_ctrl.v"
+`include	"riscv_alu.v"
 `include	"riscv_dff.v"
 `include	"riscv_immext.v"
 `include	"riscv_regfile.v"
