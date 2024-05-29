@@ -8,12 +8,15 @@
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
+`define	DEBUG
+
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
 `define NVEC		100		// # of Test Vector
 
 `define	BW_D_INSTR	32
-`define	BW_A_INSTR	16
+`define	BW_A_INSTR	32
+`define	BW_A_DMEM	16
 `define	BW_D_RFILE	32
 `define	BW_A_RFILE	5
 `define	BW_C_ALU	4
@@ -43,6 +46,7 @@ module riscv_top_tb;
 	#(
 		.BW_D_INSTR				(`BW_D_INSTR			),
 		.BW_A_INSTR				(`BW_A_INSTR			),
+		.BW_A_INSTR				(`BW_A_DMEM				),
 		.BW_D_RFILE				(`BW_D_RFILE			),
 		.BW_A_RFILE				(`BW_A_RFILE			),
 		.BW_C_ALU				(`BW_C_ALU				),
@@ -89,27 +93,6 @@ module riscv_top_tb;
 		end
 	endtask
 
-	task instrMonitor;
-		input	[6:0]	opcode;
-		begin
-			always @ (opcode) begin
-				case(opcode)
-					`OPCODE_LUI		: taskState	= "LUI";
-					`OPCODE_AUIPC	: taskState	= "AUIPC";
-					`OPCODE_JAL		: taskState	= "JAL";
-					`OPCODE_JALR	: taskState	= "JALR";
-					`OPCODE_BRANCH	: taskState	= "BRANCH";
-					`OPCODE_LOAD	: taskState	= "LOAD";
-					`OPCODE_STORE	: taskState	= "STORE";
-					`OPCODE_OP_IMM	: taskState	= "OP_IMM";
-					`OPCODE_OP		: taskState	= "OP";
-					`OPCODE_FENCE	: taskState	= "FENCE";
-					`OPCODE_SYSTEM	: taskState	= "SYSTEM";
-				endcase              
-			end
-		end
-	endtask
-
 // --------------------------------------------------
 //	Test Stimulus
 // --------------------------------------------------
@@ -131,12 +114,13 @@ module riscv_top_tb;
 	initial begin
 		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
 			$dumpfile(vcd_file);
-			//for (i=0; i<32; i++) begin
-			//	$dumpvars(0, u_riscv_top.u_riscv_imem.mem_arr[i]);
-			//end
 			for (i=0; i<2**`BW_A_RFILE; i++) begin
 				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.reg_arr[i]);
 			end
+			//for (i=0; i<32; i++) begin
+			//	$dumpvars(0, u_riscv_top.u_riscv_imem.mem_arr[i]);
+			//end
+//			$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_ctrl.INSTR_OPCODE);
 			$dumpvars;
 		end else begin
 			$dumpfile("riscv_top_tb.vcd");

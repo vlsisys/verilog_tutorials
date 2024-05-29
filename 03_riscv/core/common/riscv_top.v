@@ -22,7 +22,7 @@ module riscv_top
 (	
 	output		[BW_A_INSTR-1:0]	o_riscv_imem_pc,
 	output		[BW_A_INSTR-1:0]	o_riscv_imem_instr,
-	output		[BW_D_RFILE-1:0]	o_riscv_dmem_addr,
+	output		[BW_A_DMEM-1:0]		o_riscv_dmem_addr,
 	output							o_riscv_dmem_wr_en,
 	output		[BW_D_RFILE-1:0]	o_riscv_dmem_wr_data,
 	output		[BW_D_RFILE-1:0]	o_riscv_dmem_rd_data,
