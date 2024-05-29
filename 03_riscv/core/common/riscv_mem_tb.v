@@ -30,7 +30,7 @@ module riscv_mem_tb;
 	#(
 		.BW_DATA			(BW_DATA				),
 		.BW_ADDR			(BW_ADDR				),
-		.INIT_FILE			("riscv_program.init"	)
+		.INIT_FILE			("riscv_program.mif"	)
 	)
 	u_riscv_mem(
 		.o_mem_data			(o_mem_data			),

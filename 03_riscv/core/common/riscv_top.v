@@ -70,7 +70,7 @@ module riscv_top
 	#(
 		.BW_DATA			(BW_D_INSTR				),
 		.BW_ADDR			(BW_A_INSTR				),
-		.INIT_FILE			("riscv_program.init"	)
+		.INIT_FILE			("riscv_program.mif"	)
 	)
 	u_riscv_imem(
 		.o_mem_data			(w_riscv_imem_instr		),
