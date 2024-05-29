@@ -32,7 +32,7 @@ module riscv_regfile
 	always @(posedge i_clk or negedge i_rstn) begin
 		if(!i_rstn) begin
 			for (i=0; i<2**BW_ADDR-1; i++) begin
-				reg_arr[i_reg_wr_addr] <= 0;
+				reg_arr[i] <= 0;
 			end
 		end else begin
 			//	"Write" and  "Write Address != 0"

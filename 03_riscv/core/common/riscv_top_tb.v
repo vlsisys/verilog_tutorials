@@ -13,7 +13,7 @@
 `define NVEC		100		// # of Test Vector
 
 `define	BW_D_INSTR	32
-`define	BW_A_INSTR	32
+`define	BW_A_INSTR	16
 `define	BW_D_RFILE	32
 `define	BW_A_RFILE	5
 `define	BW_C_ALU	4
@@ -23,6 +23,7 @@
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
+`include	"riscv_configs.v"
 `include	"riscv_top.v"
 
 module riscv_top_tb;
@@ -64,7 +65,6 @@ module riscv_top_tb;
 // --------------------------------------------------
 	always	#(500/`CLKFREQ)		i_clk = ~i_clk;
 
-
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
@@ -86,6 +86,27 @@ module riscv_top_tb;
 			i_rstn	= 1'b0;
 			#(i*1000/`CLKFREQ);
 			i_rstn	= 1'b1;
+		end
+	endtask
+
+	task instrMonitor;
+		input	[6:0]	opcode;
+		begin
+			always @ (opcode) begin
+				case(opcode)
+					`OPCODE_LUI		: taskState	= "LUI";
+					`OPCODE_AUIPC	: taskState	= "AUIPC";
+					`OPCODE_JAL		: taskState	= "JAL";
+					`OPCODE_JALR	: taskState	= "JALR";
+					`OPCODE_BRANCH	: taskState	= "BRANCH";
+					`OPCODE_LOAD	: taskState	= "LOAD";
+					`OPCODE_STORE	: taskState	= "STORE";
+					`OPCODE_OP_IMM	: taskState	= "OP_IMM";
+					`OPCODE_OP		: taskState	= "OP";
+					`OPCODE_FENCE	: taskState	= "FENCE";
+					`OPCODE_SYSTEM	: taskState	= "SYSTEM";
+				endcase              
+			end
 		end
 	endtask
 
@@ -111,9 +132,12 @@ module riscv_top_tb;
 	initial begin
 		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
 			$dumpfile(vcd_file);
-//			for (i=0; i<32; i++) begin
-//				$dumpvars(0, u_riscv_top.u_riscv_imem.mem_arr[i]);
-//			end
+			//for (i=0; i<32; i++) begin
+			//	$dumpvars(0, u_riscv_top.u_riscv_imem.mem_arr[i]);
+			//end
+			for (i=0; i<2**`BW_A_RFILE; i++) begin
+				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.reg_arr[i]);
+			end
 			$dumpvars;
 		end else begin
 			$dumpfile("riscv_top_tb.vcd");

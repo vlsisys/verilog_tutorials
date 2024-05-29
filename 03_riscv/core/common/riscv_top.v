@@ -11,7 +11,7 @@
 module riscv_top
 #(	
 	parameter	BW_D_INSTR			= 32,
-	parameter	BW_A_INSTR			= 32,
+	parameter	BW_A_INSTR			= 16,
 	parameter	BW_A_DMEM			= 32,
 	parameter	BW_D_RFILE			= 32,
 	parameter	BW_A_RFILE			= 5,
@@ -37,6 +37,13 @@ module riscv_top
 	wire							w_riscv_dmem_wr_en;
 	wire		[BW_D_RFILE-1:0]	w_riscv_dmem_wr_data;
 	wire		[BW_D_RFILE-1:0]	w_riscv_dmem_rd_data;
+
+	assign	o_riscv_imem_pc			= w_riscv_imem_pc;
+	assign	o_riscv_imem_instr		= w_riscv_imem_instr;
+	assign	o_riscv_dmem_addr		= w_riscv_dmem_addr;
+	assign	o_riscv_dmem_wr_en		= w_riscv_dmem_wr_en;
+	assign	o_riscv_dmem_wr_data	= w_riscv_dmem_wr_data;
+	assign	o_riscv_dmem_rd_data	= w_riscv_dmem_rd_data;
 
 	riscv_cpu
 	#(
@@ -68,7 +75,7 @@ module riscv_top
 	u_riscv_imem(
 		.o_mem_data			(w_riscv_imem_instr		),
 		.i_mem_data			(32'b0					),
-		.i_mem_addr			({2'b0, w_riscv_imem_pc[31:2]}	),
+		.i_mem_addr			({2'b0, w_riscv_imem_pc[BW_A_INSTR-1:2]}	),
 		.i_mem_wr_en		(1'b0					),
 		.i_clk				(i_clk					)
 	);

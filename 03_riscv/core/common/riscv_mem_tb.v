@@ -28,9 +28,9 @@ module riscv_mem_tb;
 
 	riscv_mem
 	#(
-		.BW_DATA			(BW_DATA			),
-		.BW_ADDR			(BW_ADDR			),
-		.INIT_FILE			("riscv_mem.init"	)
+		.BW_DATA			(BW_DATA				),
+		.BW_ADDR			(BW_ADDR				),
+		.INIT_FILE			("riscv_program.init"	)
 	)
 	u_riscv_mem(
 		.o_mem_data			(o_mem_data			),

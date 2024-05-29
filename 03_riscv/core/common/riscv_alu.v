@@ -35,6 +35,6 @@ module riscv_alu
 		endcase
 	end
 
-	assign	o_alu_zero	= (o_alu_result == 0);
+	assign	o_alu_zero	= (o_alu_result == 0) ? 1'b1: 1'b0;
 
 endmodule
