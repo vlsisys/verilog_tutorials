@@ -37,4 +37,22 @@ module riscv_alu
 
 	assign	o_alu_zero	= (o_alu_result == 0) ? 1'b1: 1'b0;
 
+	`ifdef	DEBUG
+		reg			[127:0]			ALU_OP;
+		always @(*) begin
+			case(i_alu_ctrl)
+				`ALU_CTRL_ADD	:	ALU_OP	= "ADD	";
+				`ALU_CTRL_SUB	:	ALU_OP	= "SUB	";
+				`ALU_CTRL_SLL	:	ALU_OP	= "SLL	";
+				`ALU_CTRL_SLT	:	ALU_OP	= "SLT	";
+				`ALU_CTRL_SLTU	:	ALU_OP	= "SLTU	";
+				`ALU_CTRL_XOR	:	ALU_OP	= "XOR	";
+				`ALU_CTRL_SRL	:	ALU_OP	= "SRL	";
+				`ALU_CTRL_SRA	:	ALU_OP	= "SRA	";
+				`ALU_CTRL_OR	:	ALU_OP	= "OR	";
+				`ALU_CTRL_AND	:	ALU_OP	= "AND	";
+			endcase
+		end
+	`endif
+
 endmodule

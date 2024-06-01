@@ -57,10 +57,11 @@
 // --------------------------------------------------
 //	ALUOP
 // --------------------------------------------------
-`define	ALUOP_AUIPC_LOAD_STORE	2'b00
-`define	ALUOP_BRANCH			2'b01
-`define	ALUOP_RTYPE_ITYPE		2'b10
-`define	ALUOP_NOP				2'b11
+`define	ALUOP_AUIPC_LOAD_STORE	3'b000
+`define	ALUOP_BRANCH			3'b001
+`define	ALUOP_RTYPE				3'b010
+`define	ALUOP_ITYPE				3'b011
+`define	ALUOP_NOP				3'b100
 
 // --------------------------------------------------
 //	Memory (Instruction / Data)

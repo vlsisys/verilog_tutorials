@@ -29,7 +29,7 @@ module riscv_ctrl
 );
 	reg							w_ctrl_branch ;
 	reg							w_ctrl_jump   ;
-	reg			[1:0]			w_ctrl_alu_op ;
+	reg			[2:0]			w_ctrl_alu_op ;
 
 	assign	o_ctrl_src_pc	= (i_ctrl_alu_zero & w_ctrl_branch) | w_ctrl_jump;
 
@@ -122,8 +122,8 @@ module riscv_ctrl
 			`OPCODE_LOAD	,
 			`OPCODE_STORE	: w_ctrl_alu_op = `ALUOP_AUIPC_LOAD_STORE;
 			`OPCODE_BRANCH	: w_ctrl_alu_op = `ALUOP_BRANCH;
-			`OPCODE_OP_IMM	,
-			`OPCODE_OP		: w_ctrl_alu_op = `ALUOP_RTYPE_ITYPE;
+			`OPCODE_OP_IMM	: w_ctrl_alu_op	= `ALUOP_ITYPE;
+			`OPCODE_OP		: w_ctrl_alu_op = `ALUOP_RTYPE;
 			default			: w_ctrl_alu_op = `ALUOP_NOP;
 		endcase
 	end
@@ -132,7 +132,8 @@ module riscv_ctrl
 		case (w_ctrl_alu_op)
 			`ALUOP_AUIPC_LOAD_STORE	: o_ctrl_alu_ctrl = `ALU_CTRL_ADD;
 			`ALUOP_BRANCH			: o_ctrl_alu_ctrl = `ALU_CTRL_SUB;
-			`ALUOP_RTYPE_ITYPE		: o_ctrl_alu_ctrl = {i_ctrl_funct7_5b, i_ctrl_funct3};
+			`ALUOP_RTYPE			: o_ctrl_alu_ctrl = {i_ctrl_funct7_5b, i_ctrl_funct3};
+			`ALUOP_ITYPE			: o_ctrl_alu_ctrl = ({i_ctrl_funct7_5b, i_ctrl_funct3} == `ALU_CTRL_SUB) ? `ALU_CTRL_ADD : {i_ctrl_funct7_5b, i_ctrl_funct3};
 			default					: o_ctrl_alu_ctrl = `ALU_CTRL_NOP;
 		endcase
 	end

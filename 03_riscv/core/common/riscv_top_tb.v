@@ -12,10 +12,10 @@
 
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define NVEC		100		// # of Test Vector
+`define NVEC		50		// # of Test Vector
 
 `define	BW_D_INSTR	32
-`define	BW_A_INSTR	32
+`define	BW_A_INSTR	16	
 `define	BW_A_DMEM	16
 `define	BW_D_RFILE	32
 `define	BW_A_RFILE	5
@@ -34,7 +34,7 @@ module riscv_top_tb;
 //	DUT Signals & Instantiate
 // --------------------------------------------------
 	wire	[`BW_A_INSTR-1:0]	o_riscv_imem_pc;
-	wire	[`BW_A_INSTR-1:0]	o_riscv_imem_instr;
+	wire	[`BW_D_INSTR-1:0]	o_riscv_imem_instr;
 	wire	[`BW_D_RFILE-1:0]	o_riscv_dmem_addr;
 	wire	    				o_riscv_dmem_wr_en;
 	wire	[`BW_D_RFILE-1:0]	o_riscv_dmem_wr_data;
@@ -46,7 +46,7 @@ module riscv_top_tb;
 	#(
 		.BW_D_INSTR				(`BW_D_INSTR			),
 		.BW_A_INSTR				(`BW_A_INSTR			),
-		.BW_A_INSTR				(`BW_A_DMEM				),
+		.BW_A_DMEM				(`BW_A_DMEM				),
 		.BW_D_RFILE				(`BW_D_RFILE			),
 		.BW_A_RFILE				(`BW_A_RFILE			),
 		.BW_C_ALU				(`BW_C_ALU				),
@@ -117,9 +117,9 @@ module riscv_top_tb;
 			for (i=0; i<2**`BW_A_RFILE; i++) begin
 				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.reg_arr[i]);
 			end
-			//for (i=0; i<32; i++) begin
-			//	$dumpvars(0, u_riscv_top.u_riscv_imem.mem_arr[i]);
-			//end
+//			for (i=0; i<2**`BW_A_DMEM-1; i++) begin
+//				$dumpvars(0, u_riscv_top.u_riscv_dmem.mem_arr[i]);
+//			end
 //			$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_ctrl.INSTR_OPCODE);
 			$dumpvars;
 		end else begin
