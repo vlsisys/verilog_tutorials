@@ -5,8 +5,10 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_ctrl.v"
-`include	"riscv_datapath.v"
+`ifndef	DELINC
+	`include	"riscv_ctrl.v"
+	`include	"riscv_datapath.v"
+`endif
 
 module riscv_cpu
 #(	

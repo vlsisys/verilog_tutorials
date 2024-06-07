@@ -5,11 +5,13 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_configs.v"
-`include	"riscv_alu.v"
-`include	"riscv_dff.v"
-`include	"riscv_immext.v"
-`include	"riscv_regfile.v"
+`ifndef	DELINC
+	`include	"../common/riscv_configs.v"
+	`include	"../common/riscv_alu.v"
+	`include	"../common/riscv_dff.v"
+	`include	"../common/riscv_immext.v"
+	`include	"../common/riscv_regfile.v"
+`endif
 
 module riscv_datapath
 #(	

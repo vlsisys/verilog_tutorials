@@ -5,8 +5,10 @@
 //	* Description	: 
 // ==================================================
 
-`include	"riscv_cpu.v"
-`include	"riscv_mem.v"
+`ifndef	DELINC
+	`include	"riscv_cpu.v"
+	`include	"../common/riscv_mem.v"
+`endif
 
 module riscv_top
 #(	

@@ -9,6 +9,7 @@
 //	Define Global Variables
 // --------------------------------------------------
 `define	DEBUG
+`define	DELINC
 
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
@@ -26,7 +27,15 @@
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
-`include	"riscv_configs.v"
+`include	"../common/riscv_configs.v"
+`include	"../common/riscv_alu.v"
+`include	"../common/riscv_dff.v"
+`include	"../common/riscv_immext.v"
+`include	"../common/riscv_mem.v"
+`include	"../common/riscv_regfile.v"
+`include	"riscv_cpu.v"
+`include	"riscv_ctrl.v"
+`include	"riscv_datapath.v"
 `include	"riscv_top.v"
 
 module riscv_top_tb;

@@ -10,10 +10,11 @@
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	16		// Sim. Cycles
-
+`define	DELINC
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
+`include	"riscv_configs.v"
 `include	"riscv_alu.v"
 
 module	riscv_alu_tb;
