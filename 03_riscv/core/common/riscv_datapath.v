@@ -13,21 +13,19 @@
 
 module riscv_datapath
 #(	
-	parameter	BW_D_INSTR			= 32,
-	parameter	BW_A_INSTR			= 32,
-	parameter	BW_D_RFILE			= 32,
-	parameter	BW_A_RFILE			= 5,
+	parameter	BW_D_REG			= 32,
+	parameter	BW_A_REG			= 5,
 	parameter	BW_C_ALU			= 4,
 	parameter	BW_C_IMM			= 3,
 	parameter	BW_C_RES			= 2
 )
 (	
-	output		[BW_A_INSTR-1:0]	o_dp_pc,
+	output		[BW_D_REG-1:0]		o_dp_pc,
 	output							o_dp_alu_zero,
-	output		[BW_D_RFILE-1:0]	o_dp_alu_result,
-	output		[BW_D_RFILE-1:0]	o_dp_dmem_wr_data,
-	input		[BW_D_RFILE-1:0]	i_dp_dmem_rd_data,
-	input		[BW_D_INSTR-1:0]	i_dp_instr,
+	output		[BW_D_REG-1:0]		o_dp_alu_result,
+	output		[BW_D_REG-1:0]		o_dp_dmem_wr_data,
+	input		[BW_D_REG-1:0]		i_dp_dmem_rd_data,
+	input		[BW_D_REG-1:0]		i_dp_instr,
 	input							i_dp_src_pc,
 	input							i_dp_src_alu_a,
 	input							i_dp_src_alu_b,
@@ -39,16 +37,16 @@ module riscv_datapath
 	input							i_rstn
 );
 
-	wire		[BW_D_RFILE-1:0]	w_reg_rd_data0;
-	wire		[BW_D_RFILE-1:0]	w_reg_rd_data1;
-	wire		[BW_D_RFILE-1:0]	w_reg_wr_data;
-	wire		[BW_D_RFILE-1:0]	w_alu_a;
-	wire		[BW_D_RFILE-1:0]	w_alu_b;
-	wire		[BW_D_RFILE-1:0]	w_imm_ext;
+	wire		[BW_D_REG-1:0]		w_reg_rd_data0;
+	wire		[BW_D_REG-1:0]		w_reg_rd_data1;
+	wire		[BW_D_REG-1:0]		w_reg_wr_data;
+	wire		[BW_D_REG-1:0]		w_alu_a;
+	wire		[BW_D_REG-1:0]		w_alu_b;
+	wire		[BW_D_REG-1:0]		w_imm_ext;
 
-	wire		[BW_A_INSTR-1:0]	w_dp_pcnext;
-	wire		[BW_A_INSTR-1:0]	w_dp_pcplus4;
-	wire		[BW_A_INSTR-1:0]	w_dp_pctarget;
+	wire		[BW_D_REG-1:0]		w_dp_pcnext;
+	wire		[BW_D_REG-1:0]		w_dp_pcplus4;
+	wire		[BW_D_REG-1:0]		w_dp_pctarget;
 
 	assign	o_dp_dmem_wr_data		= w_reg_rd_data1;
 
@@ -64,8 +62,8 @@ module riscv_datapath
 
 	riscv_regfile
 	#(
-		.BW_DATA			(BW_D_RFILE		),
-		.BW_ADDR			(BW_A_RFILE		)
+		.BW_DATA			(BW_D_REG		),
+		.BW_ADDR			(BW_A_REG		)
 	)
 	u_riscv_regfile(
 		.o_reg_rd_data0		(w_reg_rd_data0		),
@@ -81,7 +79,7 @@ module riscv_datapath
 
 	riscv_alu
 	#(
-		.BW_DATA			(BW_D_RFILE			),
+		.BW_DATA			(BW_D_REG			),
 		.BW_CTRL			(BW_C_ALU			)
 	)
 	u_riscv_alu(
@@ -94,7 +92,7 @@ module riscv_datapath
 
 	riscv_immext
 	#(
-		.BW_DATA			(BW_D_RFILE			),
+		.BW_DATA			(BW_D_REG			),
 		.BW_CTRL			(BW_C_IMM			)
 	)
 	u_riscv_immext(
@@ -105,7 +103,7 @@ module riscv_datapath
 
 	riscv_dff
 	#(
-		.BW_DATA			(BW_A_INSTR			)
+		.BW_DATA			(BW_D_REG			)
 	)
 	u_riscv_dff(
 		.o_dff_q			(o_dp_pc			),

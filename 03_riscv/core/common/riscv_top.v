@@ -10,33 +10,33 @@
 
 module riscv_top
 #(	
-	parameter	BW_D_INSTR			= 32,
-	parameter	BW_A_INSTR			= 16,
-	parameter	BW_A_DMEM			= 32,
-	parameter	BW_D_RFILE			= 32,
-	parameter	BW_A_RFILE			= 5,
+	parameter	BW_D_IME			= 32,
+	parameter	BW_A_IME			= 16,
+	parameter	BW_A_DME			= 16,
+	parameter	BW_D_REG			= 32,
+	parameter	BW_A_REG			= 5,
 	parameter	BW_C_ALU			= 4,
 	parameter	BW_C_IMM			= 3,
 	parameter	BW_C_RES			= 2
 )
 (	
-	output		[BW_A_INSTR-1:0]	o_riscv_imem_pc,
-	output		[BW_D_INSTR-1:0]	o_riscv_imem_instr,
-	output		[BW_A_DMEM-1:0]		o_riscv_dmem_addr,
+	output		[BW_A_IME-1:0]		o_riscv_imem_pc,
+	output		[BW_D_IME-1:0]		o_riscv_imem_instr,
+	output		[BW_A_DME-1:0]		o_riscv_dmem_addr,
 	output							o_riscv_dmem_wr_en,
-	output		[BW_D_RFILE-1:0]	o_riscv_dmem_wr_data,
-	output		[BW_D_RFILE-1:0]	o_riscv_dmem_rd_data,
+	output		[BW_D_REG-1:0]		o_riscv_dmem_wr_data,
+	output		[BW_D_REG-1:0]		o_riscv_dmem_rd_data,
 	input							i_clk,
 	input							i_rstn
 );
 
-	wire		[BW_A_INSTR-1:0]	w_riscv_imem_pc;
-	wire		[BW_A_INSTR-1:0]	w_riscv_imem_addr;
-	wire		[BW_D_INSTR-1:0]	w_riscv_imem_instr;
-	wire		[BW_D_RFILE-1:0]	w_riscv_dmem_addr;
+	wire		[BW_A_IME-1:0]		w_riscv_imem_pc;
+	wire		[BW_A_IME-1:0]		w_riscv_imem_addr;
+	wire		[BW_D_IME-1:0]		w_riscv_imem_instr;
+	wire		[BW_D_REG-1:0]		w_riscv_dmem_addr;
 	wire							w_riscv_dmem_wr_en;
-	wire		[BW_D_RFILE-1:0]	w_riscv_dmem_wr_data;
-	wire		[BW_D_RFILE-1:0]	w_riscv_dmem_rd_data;
+	wire		[BW_D_REG-1:0]		w_riscv_dmem_wr_data;
+	wire		[BW_D_REG-1:0]		w_riscv_dmem_rd_data;
 
 	assign	o_riscv_imem_pc			= w_riscv_imem_pc;
 	assign	o_riscv_imem_instr		= w_riscv_imem_instr;
@@ -47,10 +47,10 @@ module riscv_top
 
 	riscv_cpu
 	#(
-		.BW_D_INSTR			(BW_D_INSTR				),
-		.BW_A_INSTR			(BW_A_INSTR				),
-		.BW_D_RFILE			(BW_D_RFILE				),
-		.BW_A_RFILE			(BW_A_RFILE				),
+		.BW_D_IME			(BW_D_IME				),
+		.BW_A_IME			(BW_A_IME				),
+		.BW_D_REG			(BW_D_REG				),
+		.BW_A_REG			(BW_A_REG				),
 		.BW_C_ALU			(BW_C_ALU				),
 		.BW_C_IMM			(BW_C_IMM				),
 		.BW_C_RES			(BW_C_RES				)
@@ -68,22 +68,22 @@ module riscv_top
 
 	riscv_mem
 	#(
-		.BW_DATA			(BW_D_INSTR				),
-		.BW_ADDR			(BW_A_INSTR				),
+		.BW_DATA			(BW_D_IME				),
+		.BW_ADDR			(BW_A_IME				),
 		.INIT_FILE			("riscv_program.mif"	)
 	)
 	u_riscv_imem(
 		.o_mem_data			(w_riscv_imem_instr		),
 		.i_mem_data			(32'b0					),
-		.i_mem_addr			({2'b0, w_riscv_imem_pc[BW_A_INSTR-1:2]}	),
+		.i_mem_addr			({2'b0, w_riscv_imem_pc[BW_A_IME-1:2]}	),
 		.i_mem_wr_en		(1'b0					),
 		.i_clk				(i_clk					)
 	);
 
 	riscv_mem
 	#(
-		.BW_DATA			(BW_D_RFILE				),
-		.BW_ADDR			(BW_A_DMEM				),
+		.BW_DATA			(BW_D_REG				),
+		.BW_ADDR			(BW_A_DME				),
 		.INIT_FILE			(""						)
 	)
 	u_riscv_dmem(

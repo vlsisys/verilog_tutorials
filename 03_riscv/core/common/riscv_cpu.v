@@ -10,21 +10,22 @@
 
 module riscv_cpu
 #(	
-	parameter	BW_D_INSTR			= 32,
-	parameter	BW_A_INSTR			= 32,
-	parameter	BW_D_RFILE			= 32,
-	parameter	BW_A_RFILE			= 5,
+	parameter	BW_D_IME			= 32,
+	parameter	BW_A_IME			= 16,
+	parameter	BW_A_DME			= 16,
+	parameter	BW_D_REG			= 32,
+	parameter	BW_A_REG			= 5,
 	parameter	BW_C_ALU			= 4,
 	parameter	BW_C_IMM			= 3,
 	parameter	BW_C_RES			= 2
 )
 (	
-	output		[BW_A_INSTR-1:0]	o_cpu_imem_pc,
-	output		[BW_D_RFILE-1:0]	o_cpu_dmem_addr,
+	output		[BW_A_IME-1:0]		o_cpu_imem_pc,
+	output		[BW_D_REG-1:0]		o_cpu_dmem_addr,
 	output							o_cpu_dmem_wr_en,
-	output		[BW_D_RFILE-1:0]	o_cpu_dmem_wr_data,
-	input		[BW_D_RFILE-1:0]	i_cpu_dmem_rd_data,
-	input		[BW_D_INSTR-1:0]	i_cpu_imem_instr,
+	output		[BW_D_REG-1:0]		o_cpu_dmem_wr_data,
+	input		[BW_D_REG-1:0]		i_cpu_dmem_rd_data,
+	input		[BW_D_IME-1:0]		i_cpu_imem_instr,
 	input							i_clk,
 	input							i_rstn
 );
@@ -61,10 +62,10 @@ module riscv_cpu
 
 	riscv_datapath
 	#(
-		.BW_D_INSTR			(BW_D_INSTR				),
-		.BW_A_INSTR			(BW_A_INSTR				),
-		.BW_D_RFILE			(BW_D_RFILE				),
-		.BW_A_RFILE			(BW_A_RFILE				),
+		.BW_D_IME			(BW_D_IME				),
+		.BW_A_IME			(BW_A_IME				),
+		.BW_D_REG			(BW_D_REG				),
+		.BW_A_REG			(BW_A_REG				),
 		.BW_C_ALU			(BW_C_ALU				),
 		.BW_C_IMM			(BW_C_IMM				),
 		.BW_C_RES			(BW_C_RES				)
