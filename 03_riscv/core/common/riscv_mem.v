@@ -11,16 +11,16 @@
 
 module riscv_mem
 #(	
-	parameter	BW_DATA				= 32,
-	parameter	BW_ADDR				= 4,
-	parameter	INIT_FILE			= ""
+	parameter	BW_DATA			= 32,
+	parameter	BW_ADDR			= 4,
+	parameter	INIT_FILE		= ""
 )
 (	
-	output		[BW_DATA-1:0]		o_mem_data,
-	input		[BW_DATA-1:0]		i_mem_data,
-	input		[BW_ADDR-1:0]		i_mem_addr,
-	input							i_mem_wr_en,
-	input							i_clk
+	output		[BW_DATA-1:0]	o_mem_data,
+	input		[BW_DATA-1:0]	i_mem_data,
+	input		[BW_ADDR-1:0]	i_mem_addr,
+	input						i_mem_wr_en,
+	input						i_clk
 );
 
 	reg			[BW_DATA-1:0]	mem_arr[0:2**BW_ADDR-1];
