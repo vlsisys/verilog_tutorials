@@ -12,26 +12,18 @@
 `define	SIMCYCLE	2		// Sim. Cycles
 `define NBIT		4		// Total BitWidth
 
-module	operators;
+module	operators_tb;
 	reg		[`NBIT-1:0]		a;
 	reg		[`NBIT-1:0]		b;
 
 	integer					i;
+
 	initial begin
 		for (i=0; i<`SIMCYCLE; i++) begin
 			a = $urandom_range(0, 2**`NBIT-1);
 			b = $urandom_range(0, 2**`NBIT-1);
 			$display("==================================================");
 			$display(" Arithmetic Operators");
-			$display("==================================================");
-			$display("  a + b  = %d(%b) +  %d(%b) = %d(%b)", a, a, b, b, a+b  , a+b );
-			$display("  a - b  = %d(%b) -  %d(%b) = %d(%b)", a, a, b, b, a-b  , a-b );
-			$display("  a * b  = %d(%b) *  %d(%b) = %d(%b)", a, a, b, b, a*b  , a*b );
-			$display("  a / b  = %d(%b) /  %d(%b) = %d(%b)", a, a, b, b, a/b  , a/b );
-			$display("  a %% b = %d(%b) %% %d(%b) = %d(%b)", a, a, b, b, a%b  , a%b );
-			$display("  a ** 2 = %d(%b) ** %d(%b) = %d(%b)", a, a, b, b, a**2 , a**2);
-			$display("==================================================");
-			$display(" Relations Operators");
 			$display("==================================================");
 			$display("  a + b  = %d(%b) +  %d(%b) = %d(%b)", a, a, b, b, a+b  , a+b );
 			$display("  a - b  = %d(%b) -  %d(%b) = %d(%b)", a, a, b, b, a-b  , a-b );

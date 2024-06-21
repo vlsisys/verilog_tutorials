@@ -2,7 +2,6 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: spsram_tb.v
-//	* Date			: 2024-05-16 00:08:06
 //	* Description	: 
 // ==================================================
 
@@ -13,7 +12,6 @@
 `define	SIMCYCLE	32		// Sim. Cycles
 `define BW_DATA		32
 `define BW_ADDR		5
-`define BW_CTRL		4
 
 `define	SPSRAM_ASYNC
 
@@ -52,13 +50,12 @@ module	spsram_tb;
 // --------------------------------------------------
 //	Clock
 // --------------------------------------------------
-//	reg							i_clk = 0;
 	always	#(500/`CLKFREQ)		i_clk = ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
-	reg		[4*32-1:0] taskState;	// Length of Text is limitted to 32
+	reg		[8*32-1:0] taskState;	// Length of Text is limitted to 32
 
 	task init;
 		begin
@@ -75,9 +72,8 @@ module	spsram_tb;
 		input	[`BW_ADDR-1:0]	ti_addr;
 		input	[`BW_DATA-1:0]	ti_data;
 		begin
-			taskState	= "WR";
 			@(negedge i_clk) begin
-				$display ("%8g Write (%d) @ #(%d) of ResisterFile", $time, ti_data, ti_addr);
+				taskState	= "WR";
 				i_data	= ti_data;
 				i_addr	= ti_addr;
 				i_wen	= 1;
@@ -90,15 +86,12 @@ module	spsram_tb;
 	task memRD;
 		input	[`BW_ADDR-1:0]	ti_addr;
 		begin
-			taskState	= "RD";
 			@(negedge i_clk) begin
+				taskState	= "RD";
 				i_addr	= ti_addr;
 				i_wen	= 0;
 				i_cen	= 1;
 				i_oen	= 1;
-			end
-			@(posedge i_clk) begin
-				$display ("%8g  Read (%d) @ #(%d) of ResisterFile", $time, o_data, i_addr);
 			end
 		end
 	endtask
@@ -112,10 +105,10 @@ module	spsram_tb;
 		#(4*1000/`CLKFREQ);
 
 		for (i=0; i<`SIMCYCLE; i++) begin
-			#(1000/`CLKFREQ)	memWR(i, i);
+			memWR(i, i);
 		end
 		for (i=0; i<`SIMCYCLE; i++) begin
-			#(1000/`CLKFREQ)	memRD(i);
+			memRD(i);
 		end
 		$finish;
 	end

@@ -4,13 +4,14 @@
 //	* Filename		: adder_tb.v
 //	* Description	: 
 // ==================================================
+
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define BW_DATA		32		// Bitwidth of ~~
-`define NVEC		100		// # of Test Vector
+`define BW_DATA		4		// Bitwidth of ~~
+`define NVEC		10		// # of Test Vector
 
 // --------------------------------------------------
 //	Includes
@@ -21,25 +22,22 @@ module adder_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-
-	//localparam	BW_DATA		= 32;
-
 	wire	[`BW_DATA-1:0]	o_s;
-	wire					o_c;
+	wire	    			o_c;
 	reg		[`BW_DATA-1:0]	i_a;
 	reg		[`BW_DATA-1:0]	i_b;
 	reg						i_c;
 
 	adder
 	#(
-		.BW_DATA		(`BW_DATA		)
+		.BW_DATA			(`BW_DATA			)
 	)
 	u_adder(
-		.o_s			(o_s			),
-		.o_c			(o_c			),
-		.i_a			(i_a			),
-		.i_b			(i_b			),
-		.i_c			(i_c			)
+		.o_s				(o_s				),
+		.o_c				(o_c				),
+		.i_a				(i_a				),
+		.i_b				(i_b				),
+		.i_c				(i_c				)
 	);
 
 // --------------------------------------------------
@@ -52,11 +50,11 @@ module adder_tb;
 	reg						vi_c[0:`NVEC-1];
 
 	initial begin
-		$readmemb("./vec/o_s.vec",		vo_s);
-		$readmemb("./vec/o_c.vec",		vo_c);
-		$readmemb("./vec/i_a.vec",		vi_a);
-		$readmemb("./vec/i_b.vec",		vi_b);
-		$readmemb("./vec/i_c.vec",		vi_c);
+		$readmemb("./vec/o_s.vec",			vo_s);
+		$readmemb("./vec/o_c.vec",			vo_c);
+		$readmemb("./vec/i_a.vec",			vi_a);
+		$readmemb("./vec/i_b.vec",			vi_b);
+		$readmemb("./vec/i_c.vec",			vi_c);
 	end
 
 // --------------------------------------------------
@@ -88,8 +86,8 @@ module adder_tb;
 		input	[$clog2(`NVEC)-1:0]	i;
 		begin
 			#(0.1*1000/`CLKFREQ);
-			if (o_s			!= vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
-			if (o_c			!= vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
+			if (o_s				!= vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
+			if (o_c				!= vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
 			if ((o_s != vo_s[i]) || (o_c != vo_c[i])) begin err++; end
 			#(0.9*1000/`CLKFREQ);
 		end
@@ -101,7 +99,6 @@ module adder_tb;
 	integer		i, j;
 	initial begin
 		init();
-
 		for (i=0; i<`SIMCYCLE; i++) begin
 			vecInsert(i);
 			vecVerify(i);

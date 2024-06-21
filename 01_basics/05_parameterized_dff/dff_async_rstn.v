@@ -17,7 +17,6 @@ module	dff_async_rstn
 );
 
 	always @(posedge i_clk or negedge i_rstn) begin
-	//	if(i_rstn == 1'b0) begin
 		if(!i_rstn) begin
 			o_q		<= 1'b0;
 		end else begin

@@ -1,120 +1,22 @@
 VCD info: dumpfile ./vcd/regfile.vcd opened for output.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[0] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[1] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[2] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[3] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[4] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[5] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[6] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[7] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[8] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[9] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[10] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[11] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[12] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[13] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[14] will conflict with an escaped identifier.
-VCD warning: array word regfile_tb.u_regfile.reg_arr[15] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[0] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[1] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[2] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[3] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[4] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[5] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[6] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[7] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[8] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[9] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[10] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[11] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[12] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[13] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[14] will conflict with an escaped identifier.
+VCD warning: array word regfile_tb.u_regfile.rf_arr[15] will conflict with an escaped identifier.
 VCD warning: ignoring signals in previously scanned scope regfile_tb.
 VCD warning: ignoring signals in previously scanned scope regfile_tb.u_regfile.
 VCD warning: ignoring signals in previously scanned scope regfile_tb.init.
 VCD warning: ignoring signals in previously scanned scope regfile_tb.regRD.
 VCD warning: ignoring signals in previously scanned scope regfile_tb.regWR.
-VCD warning: ignoring signals in previously scanned scope regfile_tb.resetReleaseAfterNCycles.
-VCD warning: ignoring signals in previously scanned scope regfile_tb.singleCycle.
-      40 Write (         0) @ #( 0) of ResisterFile
-      50 Write (         1) @ #( 1) of ResisterFile
-      60 Write (         2) @ #( 2) of ResisterFile
-      70 Write (         3) @ #( 3) of ResisterFile
-      80 Write (         4) @ #( 4) of ResisterFile
-      90 Write (         5) @ #( 5) of ResisterFile
-     100 Write (         6) @ #( 6) of ResisterFile
-     110 Write (         7) @ #( 7) of ResisterFile
-     120 Write (         8) @ #( 8) of ResisterFile
-     130 Write (         9) @ #( 9) of ResisterFile
-     140 Write (        10) @ #(10) of ResisterFile
-     150 Write (        11) @ #(11) of ResisterFile
-     160 Write (        12) @ #(12) of ResisterFile
-     170 Write (        13) @ #(13) of ResisterFile
-     180 Write (        14) @ #(14) of ResisterFile
-     190 Write (        15) @ #(15) of ResisterFile
-     205  Read (         2) @ #( 2) of ResisterFile
-     205  Read (         8) @ #( 8) of ResisterFile
-     225  Read (         0) @ #( 0) of ResisterFile
-     225  Read (         6) @ #( 6) of ResisterFile
-     245  Read (         0) @ #( 0) of ResisterFile
-     245  Read (         8) @ #( 8) of ResisterFile
-     265  Read (         6) @ #( 6) of ResisterFile
-     265  Read (         1) @ #( 1) of ResisterFile
-     285  Read (         0) @ #( 0) of ResisterFile
-     285  Read (         0) @ #( 0) of ResisterFile
-     305  Read (         7) @ #( 7) of ResisterFile
-     305  Read (         3) @ #( 3) of ResisterFile
-     325  Read (        14) @ #(14) of ResisterFile
-     325  Read (         8) @ #( 8) of ResisterFile
-     345  Read (        15) @ #(15) of ResisterFile
-     345  Read (        12) @ #(12) of ResisterFile
-     365  Read (        12) @ #(12) of ResisterFile
-     365  Read (        10) @ #(10) of ResisterFile
-     385  Read (        14) @ #(14) of ResisterFile
-     385  Read (         7) @ #( 7) of ResisterFile
-     405  Read (         1) @ #( 1) of ResisterFile
-     405  Read (         8) @ #( 8) of ResisterFile
-     425  Read (        15) @ #(15) of ResisterFile
-     425  Read (        12) @ #(12) of ResisterFile
-     445  Read (        14) @ #(14) of ResisterFile
-     445  Read (        12) @ #(12) of ResisterFile
-     465  Read (         5) @ #( 5) of ResisterFile
-     465  Read (        11) @ #(11) of ResisterFile
-     485  Read (         2) @ #( 2) of ResisterFile
-     485  Read (         6) @ #( 6) of ResisterFile
-     505  Read (         6) @ #( 6) of ResisterFile
-     505  Read (         0) @ #( 0) of ResisterFile
-     560 Write ( 538808640) @ #( 0) of ResisterFile
-     575  Read (         0) @ #( 0) of ResisterFile
-     575  Read (         0) @ #( 0) of ResisterFile
-     590 Write (1211240592) @ #( 1) of ResisterFile
-     605  Read (1211240592) @ #( 1) of ResisterFile
-     605  Read (1211240592) @ #( 1) of ResisterFile
-     620 Write (1790714581) @ #( 2) of ResisterFile
-     635  Read (1790714581) @ #( 2) of ResisterFile
-     635  Read (1790714581) @ #( 2) of ResisterFile
-     650 Write ( 661022286) @ #( 3) of ResisterFile
-     665  Read ( 661022286) @ #( 3) of ResisterFile
-     665  Read ( 661022286) @ #( 3) of ResisterFile
-     680 Write ( 630202187) @ #( 4) of ResisterFile
-     695  Read ( 630202187) @ #( 4) of ResisterFile
-     695  Read ( 630202187) @ #( 4) of ResisterFile
-     710 Write (  79813641) @ #( 5) of ResisterFile
-     725  Read (  79813641) @ #( 5) of ResisterFile
-     725  Read (  79813641) @ #( 5) of ResisterFile
-     740 Write (  56499206) @ #( 6) of ResisterFile
-     755  Read (  56499206) @ #( 6) of ResisterFile
-     755  Read (  56499206) @ #( 6) of ResisterFile
-     770 Write ( 349432617) @ #( 7) of ResisterFile
-     785  Read ( 349432617) @ #( 7) of ResisterFile
-     785  Read ( 349432617) @ #( 7) of ResisterFile
-     800 Write (1523576501) @ #( 8) of ResisterFile
-     815  Read (1523576501) @ #( 8) of ResisterFile
-     815  Read (1523576501) @ #( 8) of ResisterFile
-     830 Write ( 894637418) @ #( 9) of ResisterFile
-     845  Read ( 894637418) @ #( 9) of ResisterFile
-     845  Read ( 894637418) @ #( 9) of ResisterFile
-     860 Write (   9151745) @ #(10) of ResisterFile
-     875  Read (   9151745) @ #(10) of ResisterFile
-     875  Read (   9151745) @ #(10) of ResisterFile
-     890 Write ( 732634967) @ #(11) of ResisterFile
-     905  Read ( 732634967) @ #(11) of ResisterFile
-     905  Read ( 732634967) @ #(11) of ResisterFile
-     920 Write (1199568014) @ #(12) of ResisterFile
-     935  Read (1199568014) @ #(12) of ResisterFile
-     935  Read (1199568014) @ #(12) of ResisterFile
-     950 Write ( 870496615) @ #(13) of ResisterFile
-     965  Read ( 870496615) @ #(13) of ResisterFile
-     965  Read ( 870496615) @ #(13) of ResisterFile
-     980 Write (1220682897) @ #(14) of ResisterFile
-     995  Read (1220682897) @ #(14) of ResisterFile
-     995  Read (1220682897) @ #(14) of ResisterFile
-    1010 Write (1115992709) @ #(15) of ResisterFile
-    1025  Read (1115992709) @ #(15) of ResisterFile
-    1025  Read (1115992709) @ #(15) of ResisterFile

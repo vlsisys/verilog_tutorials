@@ -1,60 +1,83 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
-//	* Filename		: dec2_tb.v
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
+//	* Filename		: resettable_dffs_tb.v
 //	* Description	: 
 // ==================================================
+
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
-`define	SIMCYCLE	20		// Sim. Cycles
+`define	SIMCYCLE	40		// Sim. Cycles
 
-`include	"dec2.v"
+`include	"resettable_dffs.v"
 
-module	dec2_tb;
+module	resettable_dffs_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
 
-	wire 	[3:0]	o_out_dataflow;
-	wire 	[3:0]	o_out_behavior;
-	reg		[1:0]	i_in;
-	reg				i_en;
+	wire		o_q_sync;
+	wire		o_q_async;
+	reg			i_d;
+	reg			i_clk;
+	reg			i_rstn;
 
-	dec2_dataflow
-	u_dec2_dataflow(
-		.o_out		(o_out_dataflow	),
-		.i_in		(i_in			),
-		.i_en		(i_en			)
+	dff_sync
+	u_dff_sync(
+		.o_q		(o_q_sync	),
+		.i_d		(i_d		),
+		.i_clk		(i_clk		),
+		.i_rstn		(i_rstn		)
 	);
 
-	dec2_behavior
-	u_dec2_behavior(
-		.o_out		(o_out_behavior	),
-		.i_in		(i_in			),
-		.i_en		(i_en			)
+	dff_async
+	u_dff_async(
+		.o_q		(o_q_async	),
+		.i_d		(i_d		),
+		.i_clk		(i_clk		),
+		.i_rstn		(i_rstn		)
 	);
+
+// --------------------------------------------------
+//	Clock
+// --------------------------------------------------
+	always	#(500/`CLKFREQ)	i_clk = ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
 	task init;
 		begin
-			i_in	= 0;
-			i_en	= 0;
+			i_d		= 0;
+			i_clk	= 0;
+			i_rstn	= 0;
+		end
+	endtask
+
+	task resetReleaseAfterNCycles;
+		input	[  9:0]		n;
+		begin
+			#(n*1000/`CLKFREQ);
+			i_rstn = 1'b1;
 		end
 	endtask
 
 // --------------------------------------------------
 //	Test Stimulus
 // --------------------------------------------------
-	integer		i;
+	integer		i, j;
 	initial begin
 		init();
+		resetReleaseAfterNCycles(4);
+
 		for (i=0; i<`SIMCYCLE; i++) begin
-			{i_in, i_en} = $urandom_range(0, 2**3-1);
-			#(1000/`CLKFREQ);
+			j		= $urandom_range(0,10);
+			#((  (j*0.1)) * 1000/`CLKFREQ);
+			i_d		= $urandom;
+			i_rstn	= $urandom;
+			#((1-(j*0.1)) * 1000/`CLKFREQ);
 		end
 		$finish;
 	end
@@ -68,9 +91,10 @@ module	dec2_tb;
 			$dumpfile(vcd_file);
 			$dumpvars;
 		end else begin
-			$dumpfile("dec2_tb.vcd");
+			$dumpfile("resetable_dffs_tb.vcd");
 			$dumpvars;
 		end
+
 	end
 
 endmodule

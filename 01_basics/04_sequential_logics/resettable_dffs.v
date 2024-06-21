@@ -1,7 +1,7 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
-//	* Filename		: resetable_dffs.v
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
+//	* Filename		: resettable_dffs.v
 //	* Description	: 
 // ==================================================
 

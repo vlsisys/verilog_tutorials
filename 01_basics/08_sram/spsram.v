@@ -2,10 +2,8 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: spsram.v
-//	* Date			: 2024-05-15 22:06:21
 //	* Description	: 
 // ==================================================
-
 
 module spsram
 #(	
@@ -32,16 +30,22 @@ module spsram
 		end
 	end
 
+	//	Memory Read
 	`ifdef	SPSRAM_ASYNC
-		assign	o_data	= (i_cen && !i_wen && i_oen) ? mem[i_addr] : 'bz;
+		assign	o_data	=	!i_oen			? 'bz :
+							i_cen && !i_wen	? mem[i_addr] : 'bx;
 
 	`else
 		reg		[BW_DATA-1:0]	o_data;
 		always @(posedge i_clk) begin
-			if(i_cen && !i_wen && i_oen) begin
-				o_data	<= mem[i_addr];
+			if(i_oen) begin
+				if(i_cen && !i_wen) begin
+					o_data	<= mem[i_addr];
+				end else begin
+					o_data	<= 'bx;
+				end
 			end else begin
-				o_data	<= mem[i_addr];
+				o_data	<= 'bz;
 			end
 		end
 	`endif
