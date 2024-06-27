@@ -1,7 +1,8 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: adder_tb.v
+//	* Filename		: fsm_moore_tb.v
+//	* Date			: 2024-06-24 16:26:19
 //	* Description	: 
 // ==================================================
 
@@ -10,86 +11,60 @@
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define BW_DATA		4		// Bitwidth of ~~
-`define NVEC		10		// # of Test Vector
+`define BW_DATA		32		// Bitwidth of ~~
+`define BW_ADDR		5		// Bitwidth of ~~
+`define BW_CTRL		4		// Bitwidth of ~~
+`define NVEC		100		// # of Test Vector
+`define DEBUG
 
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
-`include	"adder.v"
+`include	"fsm_moore.v"
 
-module adder_tb;
+module fsm_moore_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire	[`BW_DATA-1:0]	o_s;
-	wire	    			o_c;
-	reg		[`BW_DATA-1:0]	i_a;
-	reg		[`BW_DATA-1:0]	i_b;
-	reg						i_c;
+	wire	o_out;
+	reg		i_seq;
+	reg		i_clk;
+	reg		i_rstn;
 
-	adder
-	#(
-		.BW_DATA			(`BW_DATA			)
-	)
-	u_adder(
-		.o_s				(o_s				),
-		.o_c				(o_c				),
-		.i_a				(i_a				),
-		.i_b				(i_b				),
-		.i_c				(i_c				)
+	fsm_moore
+	u_fsm_moore(
+		.o_out				(o_out				),
+		.i_seq				(i_seq				),
+		.i_clk				(i_clk				),
+		.i_rstn				(i_rstn				)
 	);
 
 // --------------------------------------------------
-//	Test Vector Configuration
+//	Clock
 // --------------------------------------------------
-	reg		[`BW_DATA-1:0]	vo_s[0:`NVEC-1];
-	reg						vo_c[0:`NVEC-1];
-	reg		[`BW_DATA-1:0]	vi_a[0:`NVEC-1];
-	reg		[`BW_DATA-1:0]	vi_b[0:`NVEC-1];
-	reg						vi_c[0:`NVEC-1];
-
-	initial begin
-		$readmemb("./vec/o_s.vec",			vo_s);
-		$readmemb("./vec/o_c.vec",			vo_c);
-		$readmemb("./vec/i_a.vec",			vi_a);
-		$readmemb("./vec/i_b.vec",			vi_b);
-		$readmemb("./vec/i_c.vec",			vi_c);
-	end
+	always	#(500/`CLKFREQ)	i_clk	= ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
-	reg		[4*32-1:0]	taskState;
-	integer				err	= 0;
+	reg		[8*16-1:0]	taskState;
 
-	task init;
+	task	init;
 		begin
-			taskState		= "Init";
-			i_a				= 0;
-			i_b				= 0;
-			i_c				= 0;
+			taskState	= "Init";
+			i_seq		= 0;
+			i_clk		= 0;
+			i_rstn		= 0;
 		end
 	endtask
 
-	task vecInsert;
-		input	[$clog2(`NVEC)-1:0]	i;
+	task	resetNCycle;
+		input	[31:0]	i;
 		begin
-			$sformat(taskState,	"VEC[%2d]", i);
-			i_a				= vi_a[i];
-			i_b				= vi_b[i];
-			i_c				= vi_c[i];
-		end
-	endtask
-
-	task vecVerify;
-		input	[$clog2(`NVEC)-1:0]	i;
-		begin
-			#(0.1*1000/`CLKFREQ);
-			if (o_s				!= vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
-			if (o_c				!= vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
-			if ((o_s != vo_s[i]) || (o_c != vo_c[i])) begin err++; end
-			#(0.9*1000/`CLKFREQ);
+			taskState	= "Reset_On";
+			#(i*1000/`CLKFREQ);
+			taskState	= "Reset_Off";
+			i_rstn		= 1;
 		end
 	endtask
 
@@ -99,9 +74,11 @@ module adder_tb;
 	integer		i, j;
 	initial begin
 		init();
+		resetNCycle(4);
+
 		for (i=0; i<`SIMCYCLE; i++) begin
-			vecInsert(i);
-			vecVerify(i);
+			i_seq	= $urandom;
+			#(1000/`CLKFREQ);
 		end
 		#(1000/`CLKFREQ);
 		$finish;
@@ -116,7 +93,7 @@ module adder_tb;
 			$dumpfile(vcd_file);
 			$dumpvars;
 		end else begin
-			$dumpfile("adder_tb.vcd");
+			$dumpfile("fsm_moore_tb.vcd");
 			$dumpvars;
 		end
 	end

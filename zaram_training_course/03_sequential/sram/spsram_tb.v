@@ -1,7 +1,7 @@
 // ==================================================
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: adder_tb.v
+//	* Filename		: spsram_tb.v
 //	* Description	: 
 // ==================================================
 
@@ -10,86 +10,86 @@
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define BW_DATA		4		// Bitwidth of ~~
-`define NVEC		10		// # of Test Vector
+`define NVEC		100		// # of Test Vector
 
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
-`include	"adder.v"
+`include	"spsram.v"
 
-module adder_tb;
+module spsram_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire	[`BW_DATA-1:0]	o_s;
-	wire	    			o_c;
-	reg		[`BW_DATA-1:0]	i_a;
-	reg		[`BW_DATA-1:0]	i_b;
-	reg						i_c;
+	parameter	 BW_DATA	=	32 ;
+	parameter	 BW_ADDR	=	5  ;
 
-	adder
+	wire 	[BW_DATA-1:0]	o_data;
+	reg		[BW_DATA-1:0]	i_data;
+	reg		[BW_ADDR-1:0]	i_addr;
+	reg						i_cen;
+	reg						i_wen;
+	reg						i_oen;
+	reg						i_clk;
+
+	spsram
 	#(
-		.BW_DATA			(`BW_DATA			)
+		.BW_DATA			(BW_DATA			),
+		.BW_ADDR			(BW_ADDR			)
 	)
-	u_adder(
-		.o_s				(o_s				),
-		.o_c				(o_c				),
-		.i_a				(i_a				),
-		.i_b				(i_b				),
-		.i_c				(i_c				)
+	u_spsram(
+		.o_data				(o_data				),
+		.i_data				(i_data				),
+		.i_addr				(i_addr				),
+		.i_cen				(i_cen				),
+		.i_wen				(i_wen				),
+		.i_oen				(i_oen				),
+		.i_clk				(i_clk				)
 	);
 
 // --------------------------------------------------
-//	Test Vector Configuration
+//	Clock
 // --------------------------------------------------
-	reg		[`BW_DATA-1:0]	vo_s[0:`NVEC-1];
-	reg						vo_c[0:`NVEC-1];
-	reg		[`BW_DATA-1:0]	vi_a[0:`NVEC-1];
-	reg		[`BW_DATA-1:0]	vi_b[0:`NVEC-1];
-	reg						vi_c[0:`NVEC-1];
-
-	initial begin
-		$readmemb("./vec/o_s.vec",			vo_s);
-		$readmemb("./vec/o_c.vec",			vo_c);
-		$readmemb("./vec/i_a.vec",			vi_a);
-		$readmemb("./vec/i_b.vec",			vi_b);
-		$readmemb("./vec/i_c.vec",			vi_c);
-	end
+	always	#(500/`CLKFREQ)	i_clk	= ~i_clk;
 
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
-	reg		[4*32-1:0]	taskState;
-	integer				err	= 0;
-
+	reg		[8*32-1:0]	taskState;
 	task init;
 		begin
-			taskState		= "Init";
-			i_a				= 0;
-			i_b				= 0;
-			i_c				= 0;
+			i_data	= 0	;
+			i_addr	= 0	;
+			i_cen	= 0	;
+			i_wen	= 0	;
+			i_oen	= 0	;
+			i_clk	= 0	;
 		end
 	endtask
 
-	task vecInsert;
-		input	[$clog2(`NVEC)-1:0]	i;
+	task memWR;
+		input	[BW_DATA-1:0]	ti_data;
+		input	[BW_ADDR-1:0]	ti_addr;
 		begin
-			$sformat(taskState,	"VEC[%2d]", i);
-			i_a				= vi_a[i];
-			i_b				= vi_b[i];
-			i_c				= vi_c[i];
+			@ (negedge i_clk) begin
+				i_data	= ti_data ;
+				i_addr	= ti_addr ;
+				i_cen	= 1       ;
+				i_wen	= 1       ;
+				i_oen	= 0       ;
+			end
 		end
 	endtask
 
-	task vecVerify;
-		input	[$clog2(`NVEC)-1:0]	i;
+	task memRD;
+		input	[BW_ADDR-1:0]	ti_addr;
 		begin
-			#(0.1*1000/`CLKFREQ);
-			if (o_s				!= vo_s[i]) begin $display("[Idx: %3d] Mismatched o_s", i); end
-			if (o_c				!= vo_c[i]) begin $display("[Idx: %3d] Mismatched o_c", i); end
-			if ((o_s != vo_s[i]) || (o_c != vo_c[i])) begin err++; end
-			#(0.9*1000/`CLKFREQ);
+			@ (negedge i_clk) begin
+				i_addr	= ti_addr ;
+				i_cen	= 1       ;
+				i_wen	= 0       ;
+				i_oen	= 1       ;
+			end
 		end
 	endtask
 
@@ -99,9 +99,13 @@ module adder_tb;
 	integer		i, j;
 	initial begin
 		init();
+		#(4*1000/`CLKFREQ);
 		for (i=0; i<`SIMCYCLE; i++) begin
-			vecInsert(i);
-			vecVerify(i);
+			memWR(i, i);
+		end
+
+		for (i=0; i<`SIMCYCLE; i++) begin
+			memRD(i);
 		end
 		#(1000/`CLKFREQ);
 		$finish;
@@ -116,7 +120,7 @@ module adder_tb;
 			$dumpfile(vcd_file);
 			$dumpvars;
 		end else begin
-			$dumpfile("adder_tb.vcd");
+			$dumpfile("spsram_tb.vcd");
 			$dumpvars;
 		end
 	end
