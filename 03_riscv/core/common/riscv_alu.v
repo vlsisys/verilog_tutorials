@@ -2,9 +2,9 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_alu.v
+//	* Date			: 2024-06-27 15:34:37
 //	* Description	: 
 // ==================================================
-
 `ifndef	DELINC
 	`include	"riscv_configs.v"
 `endif
