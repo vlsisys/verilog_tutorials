@@ -5,43 +5,39 @@
 //	* Description	: 
 // ==================================================
 
+`ifndef	XLEN
+`define	XLEN		32
+`endif
+
 module riscv_regfile
-#(	
-	parameter	BW_DATA	= 32,
-	parameter	BW_ADDR	= 5
-)
 (
-	output		[BW_DATA-1:0]	o_reg_rd_data0,
-	output		[BW_DATA-1:0]	o_reg_rd_data1,
-	input		[BW_ADDR-1:0]	i_reg_rd_addr0,
-	input		[BW_ADDR-1:0]	i_reg_rd_addr1,
-	input		[BW_DATA-1:0]	i_reg_wr_data,
-	input		[BW_ADDR-1:0]	i_reg_wr_addr,
-	input						i_reg_wr_en,
-	input						i_clk,
-	input						i_rstn
+	output		[`XLEN-1:0]		o_regfile_rs1_data,
+	output		[`XLEN-1:0]		o_regfile_rs2_data,
+	input		[      4:0]		i_regfile_rs1_addr,
+	input		[      4:0]		i_regfile_rs2_addr,
+	input		[`XLEN-1:0]		i_regfile_rd_data,
+	input		[      4:0]		i_regfile_rd_addr,
+	input						i_regfile_rd_wen,
+	input						i_clk
 );
 
-	reg			[BW_DATA-1:0]	reg_arr[0:2**BW_ADDR-1];
+	// 32 base registers
+	reg			[`XLEN-1:0]	registers[0:31];
 
-	// Async. Read 
-	assign		o_reg_rd_data0	= reg_arr[i_reg_rd_addr0];
-	assign		o_reg_rd_data1	= reg_arr[i_reg_rd_addr1];
+	// Read ports for rs1 & rs2
+	assign		o_regfile_rs1_data = registers[i_regfile_rs1_addr];
+	assign		o_regfile_rs2_data = registers[i_regfile_rs2_addr];
 
-	integer		i;
-	always @(posedge i_clk or negedge i_rstn) begin
-		if(!i_rstn) begin
-			for (i=0; i<2**BW_ADDR-1; i++) begin
-				reg_arr[i] <= 0;
-			end
+	// Hardwired X0
+	initial		registers[0] = `XLEN'b0;
+
+	always @(posedge i_clk) begin
+		//	"Write Enabled" and  "Write Address != 0"
+		if (i_regfile_rd_wen && (i_regfile_rd_addr != 0)) begin
+			registers[i_regfile_rd_addr] <= i_regfile_rd_data;
+		//	Hold Data
 		end else begin
-			//	"Write" and  "Write Address != 0"
-			if (i_reg_wr_en && (i_reg_wr_addr != 0)) begin
-				reg_arr[i_reg_wr_addr] <= i_reg_wr_data;
-			//	Hold Data
-			end else begin
-				reg_arr[i_reg_wr_addr] <= reg_arr[i_reg_wr_addr];
-			end
+			registers[i_regfile_rd_addr] <= registers[i_regfile_rd_addr];
 		end
 	end
 
