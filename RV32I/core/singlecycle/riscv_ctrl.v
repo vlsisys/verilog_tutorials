@@ -5,16 +5,9 @@
 //	* Description	: 
 // ==================================================
 
-`ifndef	DELINC
-	`include	"../common/riscv_configs.v"
-`endif
+`include	"../common/riscv_configs.v"
 
 module riscv_ctrl
-#(	
-	parameter	BW_C_ALU		= 4,
-	parameter	BW_C_IMM		= 3,
-	parameter	BW_C_RES		= 2
-)
 (	
 	output						o_ctrl_src_pc,
 	output reg					o_ctrl_src_alu_a,
