@@ -2,12 +2,10 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_regfile.v
-//	* Description	: 
+//	* Description	: Register File for RV32I
 // ==================================================
 
-`ifndef	XLEN
-`define	XLEN		32
-`endif
+`include	"riscv_configs.v"
 
 module riscv_regfile
 (

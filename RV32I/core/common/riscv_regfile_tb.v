@@ -8,7 +8,6 @@
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
-`define	XLEN		32
 `define	CLKFREQ		100			// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	32			// Sim. Cycles
 
@@ -106,6 +105,8 @@ module	riscv_regfile_tb;
 			regRD(i, i);
 			#(1000/`CLKFREQ);
 		end
+		regRD(0, 0);
+		#(1000/`CLKFREQ);
 		$finish;
 	end
 
