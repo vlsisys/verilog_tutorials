@@ -102,33 +102,3 @@
 `define	FUNCT3_ALU_SRL_SRA	3'b101
 `define	FUNCT3_ALU_SLT		3'b010
 `define	FUNCT3_ALU_SLTU		3'b011
-
-
-
-
-
-
-
-
-
-
-
-//// --------------------------------------------------
-////	ALUOP
-//// --------------------------------------------------
-//`define	ALUOP_AUIPC_LOAD_STORE	3'b000
-//`define	ALUOP_BRANCH			3'b001
-//`define	ALUOP_RTYPE				3'b010
-//`define	ALUOP_ITYPE				3'b011
-//`define	ALUOP_NOP				3'b100
-//
-//// --------------------------------------------------
-////	Memory (Instruction / Data)
-//// --------------------------------------------------
-//`define	IME_ADDR_BIT		5
-//`define	DME_ADDR_BIT		32
-//`define	IME_ADDR_BUS		`IME_ADDR_BIT-1:0
-//`define	DME_ADDR_BUS		`DME_ADDR_BIT-1:0
-//`define	IME_INIT_FILE		""
-//`define	DME_INIT_FILE		""
-

@@ -120,6 +120,16 @@ module riscv_ctrl
 					`FUNCT3_ALU_SLTU	: o_ctrl_alu_ctrl = `ALU_CTRL_SLTU                                   ;
 				endcase
 			end
+			`OPCODE_B_BRANCH	: begin
+				case (i_ctrl_funct3)
+					`FUNCT3_BRANCH_BEQ	,
+					`FUNCT3_BRANCH_BNE	: o_ctrl_alu_ctrl = `ALU_CTRL_SUB;
+					`FUNCT3_BRANCH_BLT	, 
+					`FUNCT3_BRANCH_BGE	: o_ctrl_alu_ctrl = `ALU_CTRL_SLT;
+					`FUNCT3_BRANCH_BLTU	,
+					`FUNCT3_BRANCH_BGEU	: o_ctrl_alu_ctrl = `ALU_CTRL_SLTU;
+				endcase
+			end
 		endcase
 	end
 
