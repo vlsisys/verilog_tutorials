@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_adder.v
-//	* Description	: 
+//	* Description	: Adder for Next PC
 // ==================================================
 
 `include	"riscv_configs.v"

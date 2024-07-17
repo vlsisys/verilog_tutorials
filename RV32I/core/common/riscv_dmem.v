@@ -18,6 +18,7 @@ module riscv_dmem
 );
 
 	reg			[`XLEN-1:0]	dmem_arr[0:2**(`DMEM_ADDR_BIT-2)-1];
+
 `ifdef	DMEM_INIT
 	initial		$readmemh(`DMEM_INIT_FILE, dmem_arr);
 `endif
@@ -25,7 +26,8 @@ module riscv_dmem
 	//	Memory Read (output is not switching during write)
 	assign		o_dmem_data = (i_dmem_wr_en) ? o_dmem_data : dmem_arr[i_dmem_addr];
 
-	//	Memory Write (to distinguish sb, sh, sw)
+	//	Memory Write (to support sb, sh, sw)
+	//		- i_dmem_byte_sel = sb: 4'b0001, sh: 4'b0011, sw: 4'b1111
 	integer		i;
 	always @(posedge i_clk) begin
 		if (i_dmem_wr_en) begin

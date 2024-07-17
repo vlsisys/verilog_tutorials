@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_imem.v
-//	* Description	: 
+//	* Description	: Instruction Memory
 // ==================================================
 
 `include	"riscv_configs.v"

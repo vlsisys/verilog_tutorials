@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_alu.v
-//	* Description	: 
+//	* Description	: ALU
 // ==================================================
 
 `include	"riscv_configs.v"

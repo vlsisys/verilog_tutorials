@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_immext.v
-//	* Description	: 
+//	* Description	: Immediate Extraction (Decode)
 // ==================================================
 
 `include	"riscv_configs.v"

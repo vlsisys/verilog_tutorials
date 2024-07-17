@@ -18,7 +18,6 @@ module riscv_ctrl
 	output reg					o_ctrl_mem_wr,
 	output reg	[3:0]			o_ctrl_alu_ctrl,
 	input						i_ctrl_alu_zero,
-	input						i_ctrl_alu_result_0b,
 	input		[6:0]			i_ctrl_opcode,
 	input		[2:0]			i_ctrl_funct3,
 	input						i_ctrl_funct7_5b
@@ -28,13 +27,13 @@ module riscv_ctrl
 	always @(*) begin
 		if (i_ctrl_opcode == `OPCODE_B_BRANCH) begin
 			case (i_ctrl_funct3)
-				`FUNCT3_BEQ		: take_branch =  i_ctrl_alu_zero      ;
-				`FUNCT3_BNE 	: take_branch = !i_ctrl_alu_zero      ;
-				`FUNCT3_BLT 	: take_branch =  i_ctrl_alu_result_0b ;
-				`FUNCT3_BGE 	: take_branch = !i_ctrl_alu_result_0b ;
-				`FUNCT3_BLTU	: take_branch =  i_ctrl_alu_result_0b ;
-				`FUNCT3_BGEU	: take_branch = !i_ctrl_alu_result_0b ;
-				default			: take_branch = 1'b0;
+				`FUNCT3_BRANCH_BEQ	: take_branch =  i_ctrl_alu_zero;
+				`FUNCT3_BRANCH_BNE 	: take_branch = !i_ctrl_alu_zero;
+				`FUNCT3_BRANCH_BLT 	: take_branch = !i_ctrl_alu_zero;
+				`FUNCT3_BRANCH_BGE 	: take_branch =  i_ctrl_alu_zero;
+				`FUNCT3_BRANCH_BLTU	: take_branch = !i_ctrl_alu_zero;
+				`FUNCT3_BRANCH_BGEU	: take_branch =  i_ctrl_alu_zero;
+				default				: take_branch = 1'b0;
 			endcase
 		end else begin
 			take_branch	= 1'b0;
@@ -108,8 +107,19 @@ module riscv_ctrl
 
 	always @(*) begin
 		case (i_ctrl_opcode)
-			`OPCODE_S_STORE		: o_ctrl_alu_ctrl	= 1'b1;
-			default				: o_ctrl_alu_ctrl	= 1'b0;
+			`OPCODE_R_OP		,
+			`OPCODE_I_OP		: begin
+				case (i_ctrl_funct3)
+					`FUNCT3_ALU_ADD_SUB	: o_ctrl_alu_ctrl = i_ctrl_funct7_5b ? `ALU_CTRL_SUB : `ALU_CTRL_ADD ;
+					`FUNCT3_ALU_XOR		: o_ctrl_alu_ctrl = `ALU_CTRL_XOR                                    ;
+					`FUNCT3_ALU_OR		: o_ctrl_alu_ctrl = `ALU_CTRL_OR                                     ;
+					`FUNCT3_ALU_AND		: o_ctrl_alu_ctrl = `ALU_CTRL_AND                                    ;
+					`FUNCT3_ALU_SLL		: o_ctrl_alu_ctrl = `ALU_CTRL_SLL                                    ;
+					`FUNCT3_ALU_SRL_SRA	: o_ctrl_alu_ctrl = i_ctrl_funct7_5b ? `ALU_CTRL_SRA : `ALU_CTRL_SRL ;
+					`FUNCT3_ALU_SLT		: o_ctrl_alu_ctrl = `ALU_CTRL_SLT                                    ;
+					`FUNCT3_ALU_SLTU	: o_ctrl_alu_ctrl = `ALU_CTRL_SLTU                                   ;
+				endcase
+			end
 		endcase
 	end
 

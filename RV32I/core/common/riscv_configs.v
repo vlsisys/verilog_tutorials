@@ -84,24 +84,24 @@
 // --------------------------------------------------
 // Funct3 for Branch
 // --------------------------------------------------
-`define FUNCT3_BEQ			3'b000
-`define FUNCT3_BNE			3'b001
-`define FUNCT3_BLT			3'b100
-`define FUNCT3_BGE			3'b101
-`define FUNCT3_BLTU			3'b110
-`define FUNCT3_BGEU			3'b111
+`define FUNCT3_BRANCH_BEQ	3'b000
+`define FUNCT3_BRANCH_BNE	3'b001
+`define FUNCT3_BRANCH_BLT	3'b100
+`define FUNCT3_BRANCH_BGE	3'b101
+`define FUNCT3_BRANCH_BLTU	3'b110
+`define FUNCT3_BRANCH_BGEU	3'b111
 
 // --------------------------------------------------
 // Funct3 for ALU
 // --------------------------------------------------
-`define	FUNCT3_ADD_SUB		3'b000
-`define	FUNCT3_XOR			3'b100
-`define	FUNCT3_OR			3'b110
-`define	FUNCT3_AND			3'b111
-`define	FUNCT3_SLL			3'b001
-`define	FUNCT3_SRL_SRA		3'b101
-`define	FUNCT3_SLT			3'b010
-`define	FUNCT3_SLTU			3'b011
+`define	FUNCT3_ALU_ADD_SUB	3'b000
+`define	FUNCT3_ALU_XOR		3'b100
+`define	FUNCT3_ALU_OR		3'b110
+`define	FUNCT3_ALU_AND		3'b111
+`define	FUNCT3_ALU_SLL		3'b001
+`define	FUNCT3_ALU_SRL_SRA	3'b101
+`define	FUNCT3_ALU_SLT		3'b010
+`define	FUNCT3_ALU_SLTU		3'b011
 
 
 

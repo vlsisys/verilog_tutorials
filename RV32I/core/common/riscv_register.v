@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_register.v
-//	* Description	: 
+//	* Description	: Rigister for PC & Pipelining
 // ==================================================
 
 `include	"riscv_configs.v"

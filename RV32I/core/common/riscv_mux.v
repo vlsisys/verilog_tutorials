@@ -2,7 +2,7 @@
 //	[ VLSISYS Lab. ]
 //	* Author		: Woong Choi (woongchoi@sm.ac.kr)
 //	* Filename		: riscv_mux.v
-//	* Description	: 
+//	* Description	: Multi-Input Multiplexer
 // ==================================================
 
 `include	"riscv_configs.v"
