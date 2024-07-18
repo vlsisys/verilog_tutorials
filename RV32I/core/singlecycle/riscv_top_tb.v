@@ -8,65 +8,56 @@
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
-`define	DEBUG
-`define	DELINC
-
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define NVEC		50		// # of Test Vector
-
-`define	BW_D_INSTR	32
-`define	BW_A_INSTR	16	
-`define	BW_A_DMEM	16
-`define	BW_D_RFILE	32
-`define	BW_A_RFILE	5
-`define	BW_C_ALU	4
-`define	BW_C_IMM	3
-`define	BW_C_RES	2
+`define NVEC		100		// # of Test Vector
+`define	IMEM_INIT
+`define	IMEM_INIT_FILE		"/home/woong/projects/verilog_tutorials/RV32I/core/singlecycle/riscv_program.mif"
+`define NOINC
+`define DEBUG
 
 // --------------------------------------------------
 //	Includes
 // --------------------------------------------------
 `include	"../common/riscv_configs.v"
+`include	"../common/riscv_adder.v"
 `include	"../common/riscv_alu.v"
-`include	"../common/riscv_dff.v"
+`include	"../common/riscv_dmem.v"
+`include	"../common/riscv_dmem_interface.v"
+`include	"../common/riscv_imem.v"
 `include	"../common/riscv_immext.v"
-`include	"../common/riscv_mem.v"
+`include	"../common/riscv_mux.v"
 `include	"../common/riscv_regfile.v"
+`include	"../common/riscv_register.v"
+`include	"riscv_top.v"
 `include	"riscv_cpu.v"
 `include	"riscv_ctrl.v"
 `include	"riscv_datapath.v"
-`include	"riscv_top.v"
 
 module riscv_top_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire	[`BW_A_INSTR-1:0]	o_riscv_imem_pc;
-	wire	[`BW_D_INSTR-1:0]	o_riscv_imem_instr;
-	wire	[`BW_D_RFILE-1:0]	o_riscv_dmem_addr;
-	wire	    				o_riscv_dmem_wr_en;
-	wire	[`BW_D_RFILE-1:0]	o_riscv_dmem_wr_data;
-	wire	[`BW_D_RFILE-1:0]	o_riscv_dmem_rd_data;
+	wire		[`XLEN-1:0]		o_riscv_imem_pc;
+	wire		[`XLEN-1:0]		o_riscv_imem_instr;
+	wire		[`XLEN-1:0]		o_riscv_dmem_addr;
+	wire		 				o_riscv_dmem_wr_en;
+	wire		[      3:0]		o_riscv_dmem_byte_sel;
+	wire		[`XLEN-1:0]		o_riscv_dmem_wr_data;
+	wire		[`XLEN-1:0]		o_riscv_dmem_rd_data;
 	reg							i_clk;
 	reg							i_rstn;
 
 	riscv_top
 	#(
-		.BW_D_INSTR				(`BW_D_INSTR			),
-		.BW_A_INSTR				(`BW_A_INSTR			),
-		.BW_A_DMEM				(`BW_A_DMEM				),
-		.BW_D_RFILE				(`BW_D_RFILE			),
-		.BW_A_RFILE				(`BW_A_RFILE			),
-		.BW_C_ALU				(`BW_C_ALU				),
-		.BW_C_IMM				(`BW_C_IMM				),
-		.BW_C_RES				(`BW_C_RES				)
+		.REGISTER_INIT			(0)
 	)
 	u_riscv_top(
 		.o_riscv_imem_pc		(o_riscv_imem_pc		),
 		.o_riscv_imem_instr		(o_riscv_imem_instr		),
 		.o_riscv_dmem_addr		(o_riscv_dmem_addr		),
 		.o_riscv_dmem_wr_en		(o_riscv_dmem_wr_en		),
+		.o_riscv_dmem_byte_sel	(o_riscv_dmem_byte_sel	),
 		.o_riscv_dmem_wr_data	(o_riscv_dmem_wr_data	),
 		.o_riscv_dmem_rd_data	(o_riscv_dmem_rd_data	),
 		.i_clk					(i_clk					),
@@ -81,14 +72,14 @@ module riscv_top_tb;
 // --------------------------------------------------
 //	Tasks
 // --------------------------------------------------
-	reg		[4*32-1:0]	taskState;
+	reg		[8*32-1:0]	taskState;
 	integer				err	= 0;
 
 	task init;
 		begin
 			taskState		= "Init";
-			i_clk				= 0;
-			i_rstn				= 0;
+			i_clk					= 0;
+			i_rstn					= 0;
 		end
 	endtask
 
@@ -109,6 +100,7 @@ module riscv_top_tb;
 	initial begin
 		init();
 		resetNCycle(4);
+
 		for (i=0; i<`SIMCYCLE; i++) begin
 			#(1000/`CLKFREQ);
 		end
@@ -123,14 +115,13 @@ module riscv_top_tb;
 	initial begin
 		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
 			$dumpfile(vcd_file);
-			for (i=0; i<2**`BW_A_RFILE; i++) begin
-				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.reg_arr[i]);
-			end
-//			for (i=0; i<2**`BW_A_DMEM-1; i++) begin
-//				$dumpvars(0, u_riscv_top.u_riscv_dmem.mem_arr[i]);
-//			end
-//			$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_ctrl.INSTR_OPCODE);
 			$dumpvars;
+			for (i=0; i<2**(`DMEM_ADDR_BIT-2)-1; i++) begin
+				$dumpvars(0, u_riscv_top.u_riscv_dmem.dmem_arr[i]);
+			end
+			for (i=0; i<32; i++) begin
+				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.registers[i]);
+			end
 		end else begin
 			$dumpfile("riscv_top_tb.vcd");
 			$dumpvars;

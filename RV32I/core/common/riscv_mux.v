@@ -5,7 +5,9 @@
 //	* Description	: Multi-Input Multiplexer
 // ==================================================
 
+`ifndef		NOINC
 `include	"riscv_configs.v"
+`endif
 
 module riscv_mux
 #(

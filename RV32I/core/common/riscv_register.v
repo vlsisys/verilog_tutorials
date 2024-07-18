@@ -5,7 +5,9 @@
 //	* Description	: Rigister for PC & Pipelining
 // ==================================================
 
+`ifndef		NOINC
 `include	"riscv_configs.v"
+`endif
 
 module riscv_register
 #(

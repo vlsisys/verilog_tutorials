@@ -5,7 +5,9 @@
 //	* Description	: Adder for Next PC
 // ==================================================
 
+`ifndef		NOINC
 `include	"riscv_configs.v"
+`endif
 
 module riscv_adder
 (	

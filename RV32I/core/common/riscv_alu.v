@@ -5,7 +5,9 @@
 //	* Description	: ALU
 // ==================================================
 
+`ifndef		NOINC
 `include	"riscv_configs.v"
+`endif
 
 module riscv_alu
 (	
@@ -13,7 +15,7 @@ module riscv_alu
 	output						o_alu_zero,
 	input		[`XLEN-1:0]		i_alu_a,
 	input		[`XLEN-1:0]		i_alu_b,
-	input		[      4:0]		i_alu_ctrl
+	input		[      3:0]		i_alu_ctrl
 );
 
 	always @(*) begin
