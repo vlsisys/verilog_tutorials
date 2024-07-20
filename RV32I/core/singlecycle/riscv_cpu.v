@@ -37,8 +37,10 @@ module riscv_cpu
 	wire						reg_wr_en;
 	wire		[3:0]			alu_ctrl;
 
+	wire		[`XLEN-1:0]		dmem_addr;
 	wire		[`XLEN-1:0]		dmem_rd_data;
 	wire		[`XLEN-1:0]		dmem_wr_data;
+	wire						dmem_wr_en;
 	wire		[3:0]			dmem_byte_sel;
 
 	riscv_datapath
@@ -48,7 +50,7 @@ module riscv_cpu
 	u_riscv_datapath(
 		.o_dp_pc				(o_cpu_imem_pc				),
 		.o_dp_alu_zero			(alu_zero					),
-		.o_dp_mem_addr			(o_cpu_dmem_addr			),
+		.o_dp_mem_addr			(dmem_addr					),
 		.o_dp_mem_wr_data		(dmem_wr_data				),
 		.i_dp_mem_rd_data		(dmem_rd_data				),
 		.i_dp_instr				(i_cpu_imem_instr			),
@@ -71,7 +73,7 @@ module riscv_cpu
 		.o_ctrl_src_alu_a		(src_alu_a					),
 		.o_ctrl_src_alu_b		(src_alu_b					),
 		.o_ctrl_reg_wr_en		(reg_wr_en					),
-		.o_ctrl_mem_wr_en		(o_cpu_dmem_wr_en			),
+		.o_ctrl_mem_wr_en		(dmem_wr_en					),
 		.o_ctrl_mem_byte_sel	(dmem_byte_sel				),
 		.o_ctrl_alu_ctrl		(alu_ctrl					),
 		.i_ctrl_alu_zero		(alu_zero					),
@@ -82,13 +84,16 @@ module riscv_cpu
 
 	riscv_dmem_interface
 	u_riscv_dmem_interface(
+		.o_dmem_intf_addr		(o_cpu_dmem_addr			),
+		.o_dmem_intf_wen		(o_cpu_dmem_wr_en			),
+		.i_dmem_intf_addr		(dmem_addr					),
+		.i_dmem_intf_wen		(dmem_wr_en					),
 		.o_dmem_intf_wr_data	(o_cpu_dmem_wr_data			),
 		.o_dmem_intf_byte_sel	(o_cpu_dmem_byte_sel		),
 		.o_dmem_intf_rd_data	(dmem_rd_data				),
 		.i_dmem_intf_wr_data	(dmem_wr_data				),
 		.i_dmem_intf_byte_sel	(dmem_byte_sel				),
 		.i_dmem_intf_rd_data	(i_cpu_dmem_rd_data			),
-		.i_dmem_intf_addr		(o_cpu_dmem_addr			),
 		.i_dmem_intf_func3		(i_cpu_imem_instr[14:12]	),
 		.i_clk					(i_clk						)
 	);

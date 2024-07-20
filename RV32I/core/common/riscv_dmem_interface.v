@@ -11,6 +11,12 @@
 
 module riscv_dmem_interface
 (	
+	//	Bypass Signal
+	output		[  `XLEN-1:0]	o_dmem_intf_addr,
+	output						o_dmem_intf_wen,
+	input		[  `XLEN-1:0]	i_dmem_intf_addr,
+	input						i_dmem_intf_wen,
+
 	//	To Data Memory
 	output		[  `XLEN-1:0]	o_dmem_intf_wr_data,
 	output		[`XLEN/8-1:0]	o_dmem_intf_byte_sel,
@@ -22,10 +28,13 @@ module riscv_dmem_interface
 	//	From Memory
 	input		[  `XLEN-1:0]	i_dmem_intf_rd_data,
 	//	Controll & Clock
-	input		[  `XLEN-1:0]	i_dmem_intf_addr,
 	input		[        2:0]	i_dmem_intf_func3,
 	input						i_clk
 );
+
+	//	Bypass Signal
+	assign		o_dmem_intf_addr	= i_dmem_intf_addr;
+	assign		o_dmem_intf_wen		= i_dmem_intf_wen;
 
 	//	To Data Memory
 	assign		o_dmem_intf_wr_data		= i_dmem_intf_wr_data 	<< (8*i_dmem_intf_addr[1:0]);
