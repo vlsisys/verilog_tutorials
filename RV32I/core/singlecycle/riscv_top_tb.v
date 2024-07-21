@@ -10,7 +10,7 @@
 // --------------------------------------------------
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define NVEC		100		// # of Test Vector
+`define NVEC		200		// # of Test Vector
 `define	IMEM_INIT
 `define	IMEM_INIT_FILE		"/home/woong/projects/verilog_tutorials/RV32I/core/singlecycle/riscv_program.mif"
 `define NOINC

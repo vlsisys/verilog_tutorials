@@ -1,0 +1,65 @@
+
+program:     file format elf32-littleriscv
+
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 program.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l    d  .note.GNU-stack	00000000 .note.GNU-stack
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .eh_frame	00000000 .eh_frame
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 g     F .text	00000054 main
+00000054 g     F .text	00000050 diffofsums
+00000000         *UND*	00000000 printf
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00112e23          	sw	ra,28(sp)
+   8:	00812c23          	sw	s0,24(sp)
+   c:	02010413          	addi	s0,sp,32
+  10:	00500693          	li	a3,5
+  14:	00400613          	li	a2,4
+  18:	00300593          	li	a1,3
+  1c:	00200513          	li	a0,2
+  20:	00000097          	auipc	ra,0x0
+  24:	000080e7          	jalr	ra # 20 <main+0x20>
+  28:	fea42623          	sw	a0,-20(s0)
+  2c:	fec42583          	lw	a1,-20(s0)
+  30:	000007b7          	lui	a5,0x0
+  34:	00078513          	mv	a0,a5
+  38:	00000097          	auipc	ra,0x0
+  3c:	000080e7          	jalr	ra # 38 <main+0x38>
+  40:	00000013          	nop
+  44:	01c12083          	lw	ra,28(sp)
+  48:	01812403          	lw	s0,24(sp)
+  4c:	02010113          	addi	sp,sp,32
+  50:	00008067          	ret
+
+00000054 <diffofsums>:
+  54:	fd010113          	addi	sp,sp,-48
+  58:	02812623          	sw	s0,44(sp)
+  5c:	03010413          	addi	s0,sp,48
+  60:	fca42e23          	sw	a0,-36(s0)
+  64:	fcb42c23          	sw	a1,-40(s0)
+  68:	fcc42a23          	sw	a2,-44(s0)
+  6c:	fcd42823          	sw	a3,-48(s0)
+  70:	fdc42703          	lw	a4,-36(s0)
+  74:	fd842783          	lw	a5,-40(s0)
+  78:	00f70733          	add	a4,a4,a5
+  7c:	fd442683          	lw	a3,-44(s0)
+  80:	fd042783          	lw	a5,-48(s0)
+  84:	00f687b3          	add	a5,a3,a5
+  88:	40f707b3          	sub	a5,a4,a5
+  8c:	fef42623          	sw	a5,-20(s0)
+  90:	fec42783          	lw	a5,-20(s0)
+  94:	00078513          	mv	a0,a5
+  98:	02c12403          	lw	s0,44(sp)
+  9c:	03010113          	addi	sp,sp,48
+  a0:	00008067          	ret
