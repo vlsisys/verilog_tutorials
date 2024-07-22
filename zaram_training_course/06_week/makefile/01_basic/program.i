@@ -34,10 +34,9 @@
 
 # 1 "/home/woong/utils/riscv/sysroot/usr/include/bits/wordsize.h" 1 3 4
 # 6 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs.h" 2 3 4
-
-
-# 1 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs-ilp32.h" 1 3 4
-# 9 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs.h" 2 3 4
+# 17 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs.h" 3 4
+# 1 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs-lp64d.h" 1 3 4
+# 18 "/home/woong/utils/riscv/sysroot/usr/include/gnu/stubs.h" 2 3 4
 # 528 "/home/woong/utils/riscv/sysroot/usr/include/features.h" 2 3 4
 # 34 "/home/woong/utils/riscv/sysroot/usr/include/bits/libc-header-start.h" 2 3 4
 # 29 "/home/woong/utils/riscv/sysroot/usr/include/stdio.h" 2 3 4
@@ -50,7 +49,7 @@
 # 214 "/home/woong/utils/riscv/lib/gcc/riscv64-unknown-linux-gnu/13.2.0/include/stddef.h" 3 4
 
 # 214 "/home/woong/utils/riscv/lib/gcc/riscv64-unknown-linux-gnu/13.2.0/include/stddef.h" 3 4
-typedef unsigned int size_t;
+typedef long unsigned int size_t;
 # 35 "/home/woong/utils/riscv/sysroot/usr/include/stdio.h" 2 3 4
 
 
@@ -80,11 +79,11 @@ typedef unsigned short int __uint16_t;
 typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
 
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
 
 
 
-__extension__ typedef signed long long int __int64_t;
-__extension__ typedef unsigned long long int __uint64_t;
 
 
 
@@ -99,11 +98,8 @@ typedef __uint64_t __uint_least64_t;
 
 
 
-
-
-
-__extension__ typedef long long int __quad_t;
-__extension__ typedef unsigned long long int __u_quad_t;
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
 
 
 
@@ -111,8 +107,8 @@ __extension__ typedef unsigned long long int __u_quad_t;
 
 
 
-__extension__ typedef long long int __intmax_t;
-__extension__ typedef unsigned long long int __uintmax_t;
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
 # 141 "/home/woong/utils/riscv/sysroot/usr/include/bits/types.h" 3 4
 # 1 "/home/woong/utils/riscv/sysroot/usr/include/bits/typesizes.h" 1 3 4
 # 142 "/home/woong/utils/riscv/sysroot/usr/include/bits/types.h" 2 3 4
@@ -120,61 +116,61 @@ __extension__ typedef unsigned long long int __uintmax_t;
 # 143 "/home/woong/utils/riscv/sysroot/usr/include/bits/types.h" 2 3 4
 
 
-__extension__ typedef __uint64_t __dev_t;
-__extension__ typedef unsigned int __uid_t;
-__extension__ typedef unsigned int __gid_t;
-__extension__ typedef __uint64_t __ino_t;
-__extension__ typedef __uint64_t __ino64_t;
-__extension__ typedef unsigned int __mode_t;
-__extension__ typedef unsigned int __nlink_t;
-__extension__ typedef __int64_t __off_t;
-__extension__ typedef __int64_t __off64_t;
-__extension__ typedef int __pid_t;
-__extension__ typedef struct { int __val[2]; } __fsid_t;
-__extension__ typedef long int __clock_t;
-__extension__ typedef __uint64_t __rlim_t;
-__extension__ typedef __uint64_t __rlim64_t;
-__extension__ typedef unsigned int __id_t;
-__extension__ typedef __int64_t __time_t;
-__extension__ typedef unsigned int __useconds_t;
-__extension__ typedef __int64_t __suseconds_t;
-__extension__ typedef __int64_t __suseconds64_t;
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+typedef long int __suseconds64_t;
 
-__extension__ typedef int __daddr_t;
-__extension__ typedef int __key_t;
-
-
-__extension__ typedef int __clockid_t;
+typedef int __daddr_t;
+typedef int __key_t;
 
 
-__extension__ typedef void * __timer_t;
+typedef int __clockid_t;
 
 
-__extension__ typedef int __blksize_t;
+typedef void * __timer_t;
+
+
+typedef int __blksize_t;
 
 
 
 
-__extension__ typedef __int64_t __blkcnt_t;
-__extension__ typedef __int64_t __blkcnt64_t;
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
 
 
-__extension__ typedef __uint64_t __fsblkcnt_t;
-__extension__ typedef __uint64_t __fsblkcnt64_t;
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
 
 
-__extension__ typedef __uint64_t __fsfilcnt_t;
-__extension__ typedef __uint64_t __fsfilcnt64_t;
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
 
 
-__extension__ typedef int __fsword_t;
+typedef long int __fsword_t;
 
-__extension__ typedef int __ssize_t;
+typedef long int __ssize_t;
 
 
-__extension__ typedef long int __syscall_slong_t;
+typedef long int __syscall_slong_t;
 
-__extension__ typedef unsigned long int __syscall_ulong_t;
+typedef unsigned long int __syscall_ulong_t;
 
 
 
@@ -182,10 +178,10 @@ typedef __off64_t __loff_t;
 typedef char *__caddr_t;
 
 
-__extension__ typedef int __intptr_t;
+typedef long int __intptr_t;
 
 
-__extension__ typedef unsigned int __socklen_t;
+typedef unsigned int __socklen_t;
 
 
 

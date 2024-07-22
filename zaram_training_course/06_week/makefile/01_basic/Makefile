@@ -1,32 +1,32 @@
+# ------------------------------------------------------------
+#	Makefile Example for RV32I
+# ------------------------------------------------------------
 
-#GCC		= gcc
-#FLAGS	= 
-GCC		= riscv64-unknown-linux-gnu-gcc
-FLAGS	= -march=rv32i -mabi=ilp32
-DOT_C	= $(notdir $(wildcard *.c))
-DOT_I	= $(patsubst %.c, %.i, $(DOT_C))
-DOT_S	= $(patsubst %.c, %.s, $(DOT_C))
-DOT_O	= $(patsubst %.c, %.o, $(DOT_C))
-NODOT	= $(patsubst %.c, %, $(DOT_C))
+.SUFFIXES:
+#CC		= riscv64-unknown-linux-gnu-gcc
+#CFLAGS	= -march=rv32i -mabi=ilp32
 
-all:	gcc_e gcc_s gcc_c gcc_o
+%.i:	%.c
+	$(CC)				-E $<	-o $@
 
-gcc_e:
-	$(GCC)	-E $(DOT_C) -o $(DOT_I)
+%.s:	%.i
+	$(CC)	$(FLAGS)	-S $<	-o $@
 
-gcc_s:
-	$(GCC)	$(FLAGS) -S $(DOT_I) -o $(DOT_S)
+%.o:	%.s
+	$(CC)				-c $<	-o $@
 
-gcc_c:
-	$(GCC)	$(FLAGS) -c $(DOT_S) -o $(DOT_O)
+%:		%.o
+	$(CC)	$(FLAGS)	$<		-o $@
 
-gcc_o:
-	$(GCC)	$(FLAGS) $(DOT_O) -o $(NODOT)
+all: program
 
-gcc_all:
-	$(GCC)	$(FLAGS) -o $(NODOT) $(DOT_C) --save-temps
-#gcc_e:
-#	$(GCC)	-S $(DOT_I) -o $(DOT_S)
+program.i:	program.c
+program.s:	program.i
+program.o:	program.s
+program:	program.o
+
+build:
+	$(CC)	-o program	program.c --save-temps
 
 clean:
-	rm -rf $(DOT_I) $(DOT_S) $(DOT_O) $(NODOT)
+	$(RM)	*.i *.s *.o program
