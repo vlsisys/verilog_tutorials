@@ -50,6 +50,7 @@ module riscv_dmem_interface
 			`FUNCT3_MEM_WORD	: o_dmem_intf_rd_data	= {										byte_aligned_dmem_rd_data[31:0]};
 			`FUNCT3_MEM_BYTEU	: o_dmem_intf_rd_data	= {{24{                         1'b0}},	byte_aligned_dmem_rd_data[ 7:0]};
 			`FUNCT3_MEM_HALFU	: o_dmem_intf_rd_data	= {{16{                         1'b0}},	byte_aligned_dmem_rd_data[15:0]};
+			default				: o_dmem_intf_rd_data	= 32'dx;
 		endcase
 	end
 

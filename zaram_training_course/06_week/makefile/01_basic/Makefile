@@ -3,22 +3,27 @@
 # ------------------------------------------------------------
 
 .SUFFIXES:
-#CC		= riscv64-unknown-linux-gnu-gcc
-#CFLAGS	= -march=rv32i -mabi=ilp32
+CC		= riscv64-unknown-linux-gnu-gcc
+OBJDUMP	= riscv64-unknown-linux-gnu-objdump
+CFLAGS	= -march=rv32im -mabi=ilp32
 
 %.i:	%.c
 	$(CC)				-E $<	-o $@
 
 %.s:	%.i
-	$(CC)	$(FLAGS)	-S $<	-o $@
+	$(CC)	$(CFLAGS)	-S $<	-o $@
 
 %.o:	%.s
-	$(CC)				-c $<	-o $@
+	$(CC)	$(CFLAGS)	-c $<	-o $@
 
 %:		%.o
-	$(CC)	$(FLAGS)	$<		-o $@
+	$(CC)	$(CFLAGS) -static $<	-o $@
 
-all: program
+%.dump:	%.o
+	$(OBJDUMP)	-d --visualize-jumps -M no-aliases $<	>  $@
+	#$(OBJDUMP)	-d -z -M no-aliases $<	>  $@
+
+all: program program.dump
 
 program.i:	program.c
 program.s:	program.i
@@ -29,4 +34,4 @@ build:
 	$(CC)	-o program	program.c --save-temps
 
 clean:
-	$(RM)	*.i *.s *.o program
+	$(RM)	*.i *.s *.o *.dump program
