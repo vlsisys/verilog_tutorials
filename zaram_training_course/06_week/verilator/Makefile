@@ -5,23 +5,26 @@
 #	* Description	: 
 # ==================================================
 
-MODULE	= counter
+MODULE		= counter
+#RUN_FLAGS	= +vcd
 
 all:	gtkwave
 
-V$(MODULE).mk: $(MODULE).v $(MODULE).tb.cpp
-	verilator -Wall --trace -cc $(MODULE).v --exe $(MODULE).tb.cpp
+#V$(MODULE).mk: $(MODULE).v $(MODULE).tb.cpp
+verilate: $(MODULE).v tb.cpp
+	#verilator -Wall --trace -cc $(MODULE).v --exe $(MODULE).tb.cpp
+	verilator -Wall --trace -cc $(MODULE).v --exe tb.cpp
 
-V$(MODULE): V$(MODULE).mk
+build: verilate
 	make -C obj_dir -f V$(MODULE).mk
 
-$(MODULE).vcd: V$(MODULE)
-	./obj_dir/v$(module)
+run: build
+	./obj_dir/V$(MODULE) $(RUN_FLAGS)
 
-gtkwave: $(MODULE).vcd
+gtkwave: run ./counter.vcd
 	gtkwave	$(MODULE).vcd &
 
 clean:
-	rm -rf ./obj_dir
+	rm -rf ./obj_dir *.vcd
 
 .PHONY:	gtkwave clean $(MODULE).vcd
