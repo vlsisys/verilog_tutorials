@@ -100,7 +100,6 @@ module riscv_top_tb;
 	initial begin
 		init();
 		resetNCycle(4);
-
 		for (i=0; i<`SIMCYCLE; i++) begin
 			#(1000/`CLKFREQ);
 		end

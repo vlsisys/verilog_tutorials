@@ -50,4 +50,3 @@ all: ${MIFS}
 
 clean:
 	rm -f ${OBJS} ${ELFS} ${BINS} ${MIFS}
-
