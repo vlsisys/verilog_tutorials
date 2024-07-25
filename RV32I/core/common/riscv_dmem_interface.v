@@ -28,8 +28,7 @@ module riscv_dmem_interface
 	//	From Memory
 	input		[  `XLEN-1:0]	i_dmem_intf_rd_data,
 	//	Controll & Clock
-	input		[        2:0]	i_dmem_intf_func3,
-	input						i_clk
+	input		[        2:0]	i_dmem_intf_func3
 );
 
 	//	Bypass Signal

@@ -8,13 +8,15 @@
 // --------------------------------------------------
 //	RISC-V Integer Bit & Memory Specification
 // --------------------------------------------------
+`define	DEBUG
 `define	XLEN				32
-`define	DMEM_ADDR_BIT		10
-`define	IMEM_ADDR_BIT		10
+`define	DMEM_ADDR_BIT		16
+`define	IMEM_ADDR_BIT		16
 
-//`define	DMEM_INIT
+`define	DMEM_INIT
+`define	IMEM_INIT
+
 //`define	DMEM_INIT_FILE		"/home/woong/projects/verilog_tutorials/RV32I/core/common/riscv_dmem.mif"
-//`define	IMEM_INIT
 //`define	IMEM_INIT_FILE		"/home/woong/projects/verilog_tutorials/RV32I/core/common/riscv_imem.mif"
 
 // --------------------------------------------------

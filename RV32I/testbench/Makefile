@@ -16,15 +16,16 @@ PRJ_PATH	=	/home/woong/projects/verilog_tutorials/RV32I
 CPU_TYPE	=	singlecycle
 RTL_PATH	=	$(PRJ_PATH)/core
 RTL_NAME	=	riscv_top
-RTL_SRCS	=	$(wildcard $(RTL_PATH)/common/*.v)	
-RTL_SRCS	+=	$(wildcard $(RTL_PATH)/$(CPU_TYPE)/*.v)	
+RTL_FILE	=	$(RTL_PATH)/$(CPU_TYPE)/$(RTL_NAME).v
 
 # --------------------------------------------------
 #	Verilator
 # --------------------------------------------------
-VRL_INCDIR	=	/usr/share/verilator/include
-VRL_FLAGS	=	-I$(RTL_PATH)/common
+VRL_TBCPP	=	tb.cpp
+VRL_FLAGS	=	-Wno-fatal --trace
+VRL_FLAGS	+=	-I$(RTL_PATH)/common
 VRL_FLAGS	+=	-I$(RTL_PATH)/$(CPU_TYPE)
+VCD_FLAG	=	+vcd
 
 # --------------------------------------------------
 #	C++ Compile
@@ -36,20 +37,24 @@ CXX_OBJS	=	$(CPP_SRCS:.cpp=.o)
 # --------------------------------------------------
 #	RISC-V Test
 # --------------------------------------------------
-TEST_PATH	=	$(PRJ_PATH)/testbench
-TEST_VECS	=	$(basename $(wildcard $(TEST_PATH)/*.S))
+TEST_PATH	=	$(PRJ_PATH)/testbench/mif
+TEST_VECS	=	$(notdir $(basename $(wildcard $(TEST_PATH)/*.S)))
 
-disp:
-	clear;
-	@echo	"PRJ_PATH	: $(PRJ_PATH)	";
-	@echo	"CPU_TYPE	: $(CPU_TYPE)	";
-	@echo	"RTL_PATH	: $(RTL_PATH)	";
-	@echo	"RTL_NAME	: $(RTL_NAME)	";
-	@echo	"RTL_SRCS	: $(RTL_SRCS)	";
-	@echo	"VRL_INCDIR	: $(VRL_INCDIR)	";
-	@echo	"VRL_FLAGS	: $(VRL_FLAGS)	";
-	@echo	"CXX_FLAGS	: $(CXX_FLAGS)	";
-	@echo	"CXX_SRCS	: $(CXX_SRCS)	";
-	@echo	"CXX_OBJS	: $(CXX_OBJS)	";
-	@echo	"TEST_PATH	: $(TEST_PATH)	";
-	@echo	"TEST_VECS	: $(TEST_VEC)	";
+all:		run
+
+verilate:	$(RTL_FILE) $(VRL_TBCPP)
+	@verilator $(VRL_FLAGS) --cc $(RTL_FILE) --exe $(VRL_TBCPP) --Mdir $(CPU_TYPE)
+
+build:		verilate
+	@make -C $(CPU_TYPE) -f V$(RTL_NAME).mk
+
+%.run:		build
+	@./$(CPU_TYPE)/V$(RTL_NAME) $(VCD_FLAG) +data_mif="$(TEST_PATH)/$(@:.run=).data.mif" +text_mif="$(TEST_PATH)/$(@:.run=).text.mif"
+	@mkdir -p vcd
+	@mv dut.vcd ./vcd/$(@:.run=).vcd
+	@echo ":$(@:.run=)"
+
+run:		$(addsuffix .run, $(TEST_VECS))
+
+clean:
+	rm -rf $(CPU_TYPE) ./vcd

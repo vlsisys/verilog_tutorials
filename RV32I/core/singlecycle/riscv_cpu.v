@@ -94,8 +94,7 @@ module riscv_cpu
 		.i_dmem_intf_wr_data	(dmem_wr_data				),
 		.i_dmem_intf_byte_sel	(dmem_byte_sel				),
 		.i_dmem_intf_rd_data	(i_cpu_dmem_rd_data			),
-		.i_dmem_intf_func3		(i_cpu_imem_instr[14:12]	),
-		.i_clk					(i_clk						)
+		.i_dmem_intf_func3		(i_cpu_imem_instr[14:12]	)
 	);
 
 endmodule

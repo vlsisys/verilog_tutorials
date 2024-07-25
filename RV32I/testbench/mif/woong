@@ -1,0 +1,3730 @@
+make: Nothing to be done for 'all'.
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Jul 25 20:32:12 2024
+
+# Variables
+
+# environment
+SSH_TTY = /dev/pts/1
+# default
+PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+# default
+COMPILE.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+ARFLAGS = rv
+# default
+AS = as
+# default
+AR = ar
+# default
+OBJC = cc
+# environment
+WSLENV = 
+# default
+LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# default
+LINK.s = $(CC) $(ASFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# default
+COFLAGS = 
+# default
+COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
+# default
+.VARIABLES := 
+# environment
+PWD = /home/woong/projects/verilog_tutorials/RV32I/testbench/mif
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+PS1 = [\[\e[0;36m\]\u - \[\e[0;37m\]\D{%Y.%m.%d} \t\[\e[0;39m\]]\n\[\e[0;31m\]${PWD}: \[\e[0;39m\]
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# default
+LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+OLDPWD = /home/woong/projects/verilog_tutorials/RV32I/testbench
+# default
+TEXI2DVI = texi2dvi
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# default
+LEX.l = $(LEX) $(LFLAGS) -t
+# environment
+LANG = C.UTF-8
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# default
+COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+GNOME_TERMINAL_SERVICE = :1.4
+# makefile
+MAKEFLAGS = p
+# default
+LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 27)
+SRECCAT = srec_cat
+# default
+TANGLE = tangle
+# makefile
+CURDIR := /home/woong/projects/verilog_tutorials/RV32I/testbench/mif
+# default
+PREPROCESS.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -F
+# makefile (from 'Makefile', line 13)
+SRCS = $(wildcard *.S)
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -p
+# default
+COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+.SHELLFLAGS := -c
+# default
+M2C = m2c
+# default
+COMPILE.cpp = $(COMPILE.cc)
+# default
+TEX = tex
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# default
+F77FLAGS = $(FFLAGS)
+# automatic
+@F = $(notdir $@)
+# makefile (from 'Makefile', line 28)
+ELFS = $(SRCS:.S=.elf)
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# default
+COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+# default
+CTANGLE = ctangle
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# default
+COMPILE.C = $(COMPILE.cc)
+# default
+YACC.m = $(YACC) $(YFLAGS)
+# default
+LINK.C = $(LINK.cc)
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# default
+LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 21)
+OBJS = $(SRCS:.S=.o)
+# makefile
+SHELL = /bin/sh
+# default
+LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/96ff5bc1_2774_4fcf_9426_f7d474dcb128
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+FC = f77
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/최웅/AppData/Roaming/MobaXterm/slash/bin:/mnt/c/Windows/:/mnt/c/Windows/system32/:/mnt/c/Program Files/Oculus/Support/oculus-runtime:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files/dotnet/:/mnt/c/Users/최웅/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/최웅/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/최웅/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/최웅/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/최웅/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/intelFPGA/18.1/modelsim_ase/win32aloem:/mnt/c/Windows/sysnative/:/snap/bin:/home/woong/utils/riscv/bin/:/home/woong/utils/riscv/bin/
+# default
+LINT = lint
+# default
+PC = pc
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# default
+LEX.m = $(LEX) $(LFLAGS) -t
+# default
+.LIBPATTERNS = lib%.so lib%.a
+# environment
+SSH_CLIENT = 127.0.0.1 51262 22004
+# default
+CPP = $(CC) -E
+# default
+LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 29)
+BINS = $(SRCS:.S=.text.bin) $(SRCS:.S=.data.bin)
+# default
+CHECKOUT,v = +$(if $(wildcard $@),,$(CO) $(COFLAGS) $< $@)
+# makefile (from 'Makefile', line 30)
+MIFS = $(SRCS:.S=.text.mif) $(SRCS:.S=.data.mif)
+# default
+COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+# default
+COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# default
+COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+# environment
+GDK_SCALE = 1
+# automatic
+?F = $(notdir $?)
+# default
+GET = get
+# environment
+NAME = RNPZ-THINKSTATION-P3
+# default
+LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+HOSTTYPE = x86_64
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
++F = $(notdir $+)
+# environment
+WSL_INTEROP = /run/WSL/830_interop
+# default
+MAKEINFO = makeinfo
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+define BASH_FUNC_iv%%
+() {  echo '======================================================================';
+ echo ' Icarus Verilog w/o GTKWave for' [${1}];
+ echo '======================================================================';
+ rm -rf vcd log;
+ mkdir -p vcd log;
+ ln -fs ~/templates/verilog/timescale.v timescale.v;
+ if [ -f $1_tb.f ]; then
+ iverilog -o $1.vvp -c $1_tb.f;
+ else
+ iverilog -o $1.vvp timescale.v $1_tb.v;
+ fi;
+ vvp $1.vvp +vcd_file=./vcd/$1.vcd > ./log/$1.log;
+ rm $1.vvp
+}
+endef
+# default
+PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+# default
+LINK.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+LOGNAME = woong
+# default
+LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+LIBGL_ALWAYS_INDIRECT = 1
+# default
+YACC = yacc
+# makefile
+.DEFAULT_GOAL := all
+# default
+RM = rm -f
+# default
+WEAVE = weave
+# environment
+DISPLAY = 172.17.192.1:0
+# environment
+USER = woong
+# default
+MAKE_VERSION := 4.3
+# default
+F77 = $(FC)
+# makefile (from 'Makefile', line 20)
+LDFLAGS = -melf32lriscv
+# default
+CWEAVE = cweave
+# environment
+_ = /usr/bin/make
+# default
+YACC.y = $(YACC) $(YFLAGS)
+# default
+LINK.cpp = $(LINK.cc)
+# default
+CO = co
+# makefile (from 'Makefile', line 12)
+CFLAGS = -mabi=ilp32 -march=rv32i
+# environment
+COLORTERM = truecolor
+# default
+OUTPUT_OPTION = -o $@
+# default
+COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+# default
+MAKE_TERMERR := /dev/pts/2
+# environment
+HOME = /home/woong
+# default
+LEX = lex
+# environment
+TERM = xterm-256color
+# default
+LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+# default
+COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+# environment
+define BASH_FUNC_ivg%%
+() {  echo '======================================================================';
+ echo ' Icarus Verilog w/ GTKWave for' [${1}];
+ echo '======================================================================';
+ rm -rf vcd log;
+ mkdir -p vcd log;
+ ln -fs ~/templates/verilog/timescale.v timescale.v;
+ if [ -f $1_tb.f ]; then
+ iverilog -o $1.vvp -c $1_tb.f;
+ else
+ iverilog -o $1.vvp timescale.v $1_tb.v;
+ fi;
+ vvp $1.vvp +vcd_file=./vcd/$1.vcd > ./log/$1.log;
+ rm $1.vvp;
+ gtkwave -f ./vcd/$1.vcd -T ~/utils/scripts/gtkwv.tcl &
+}
+endef
+# makefile (from 'Makefile', line 18)
+LD = riscv64-unknown-linux-gnu-ld
+# environment
+VTE_VERSION = 6800
+# environment
+WSL_DISTRO_NAME = Ubuntu-22.04
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# default
+CXX = g++
+# makefile (from 'Makefile', line 11)
+CC = riscv64-unknown-linux-gnu-gcc
+# makefile (from 'Makefile', line 26)
+OBJCOPY = riscv64-unknown-linux-gnu-objcopy
+# default
+COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+SSH_CONNECTION = 127.0.0.1 51262 127.0.0.1 22004
+# variable set hash-table stats:
+# Load=139/1024=14%, Rehash=0, Collisions=16/175=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# RCS: could not be stat'd.
+# SCCS: could not be stat'd.
+# . (device 2064, inode 442213): 128 files, 38 impossibilities.
+
+# 128 files, 38 impossibilities in 3 directories.
+
+# Implicit Rules
+
+%.o: %.S test_macros.h riscv_test.h
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+%.elf: %.o
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+%.text.bin: %.elf
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+%.data.bin: %.elf
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+%.mif: %.bin
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+%.out:
+
+%.a:
+
+%.ln:
+
+%.o:
+
+%: %.o
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.c:
+
+%: %.c
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.ln: %.c
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+%.o: %.c
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+%.cc:
+
+%: %.cc
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.cc
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+%.C:
+
+%: %.C
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.C
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+%.cpp:
+
+%: %.cpp
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.cpp
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+%.p:
+
+%: %.p
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.p
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+%.f:
+
+%: %.f
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.f
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+%.F:
+
+%: %.F
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.F
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+%.f: %.F
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+%.m:
+
+%: %.m
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.m
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+%.r:
+
+%: %.r
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.r
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+%.f: %.r
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+%.y:
+
+%.ln: %.y
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+%.c: %.y
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+%.l:
+
+%.ln: %.l
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+%.c: %.l
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+%.r: %.l
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+%.ym:
+
+%.m: %.ym
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+%.yl:
+
+%.s:
+
+%: %.s
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.s
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+%.S:
+
+%: %.S
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.S
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+%.s: %.S
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+%.mod:
+
+%: %.mod
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+%.o: %.mod
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+%.sym:
+
+%.def:
+
+%.sym: %.def
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+%.h:
+
+%.info:
+
+%.dvi:
+
+%.tex:
+
+%.dvi: %.tex
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+%.texinfo:
+
+%.info: %.texinfo
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.texinfo
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.texi:
+
+%.info: %.texi
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.texi
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.txinfo:
+
+%.info: %.txinfo
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.txinfo
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.w:
+
+%.c: %.w
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+%.tex: %.w
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+%.ch:
+
+%.web:
+
+%.p: %.web
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+%.tex: %.web
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+%.sh:
+
+%: %.sh
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+%.elc:
+
+%.el:
+
+(%): %
+#  recipe to execute (built-in):
+	$(AR) $(ARFLAGS) $@ $<
+
+%.out: %
+#  recipe to execute (built-in):
+	@rm -f $@ 
+	 cp $< $@
+
+%.c: %.w %.ch
+#  recipe to execute (built-in):
+	$(CTANGLE) $^ $@
+
+%.tex: %.w %.ch
+#  recipe to execute (built-in):
+	$(CWEAVE) $^ $@
+
+%:: %,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+%:: SCCS/s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+# 97 implicit rules, 5 (5.2%) terminal.
+# Files
+
+# Not a target:
+.cpp:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+jal.text.mif: jal.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal.text'
+#  Last modified 2024-07-25 20:30:18.898161815
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lbu.text.mif: lbu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu.text'
+#  Last modified 2024-07-25 20:30:19.178161811
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+srai.text.mif: srai.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai.text'
+#  Last modified 2024-07-25 20:30:20.73816179
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+jalr.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+blt.text.bin: blt.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+lbu.elf: lbu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+srl.text.bin: srl.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.c.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+sb.data.mif: sb.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb.data'
+#  Last modified 2024-07-25 20:30:21.638161778
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+sltiu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+bgeu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+sw.elf: sw.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lb.elf: lb.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+xori.text.bin: xori.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.h:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bltu.o: bltu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+xor.elf: xor.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lhu.data.mif: lhu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu.data'
+#  Last modified 2024-07-25 20:30:21.558161779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+bne.text.mif: bne.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne.text'
+#  Last modified 2024-07-25 20:30:18.808161816
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+xori.text.mif: xori.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori.text'
+#  Last modified 2024-07-25 20:30:21.278161783
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lb.data.mif: lb.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb.data'
+#  Last modified 2024-07-25 20:30:21.50816178
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.sh:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+beq.o: beq.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+blt.o: blt.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+bgeu.o: bgeu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+srl.text.mif: srl.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl.text'
+#  Last modified 2024-07-25 20:30:20.828161789
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.ch:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bltu.elf: bltu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.r.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sll.elf: sll.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.def.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+lui.data.mif: lui.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui.data'
+#  Last modified 2024-07-25 20:30:21.568161779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+and.elf: and.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+srl.elf: srl.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+bgeu.text.mif: bgeu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu.text'
+#  Last modified 2024-07-25 20:30:18.53816182
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+andi.elf: andi.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.m.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+bge.elf: bge.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+sh.data.bin: sh.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+slt.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+xor.text.mif: xor.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor.text'
+#  Last modified 2024-07-25 20:30:21.188161784
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lui.text.mif: lui.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui.text'
+#  Last modified 2024-07-25 20:30:19.448161807
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+ori.text.bin: ori.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.lm.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.m) $< > $@
+
+# Not a target:
+.p.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+bgeu.text.bin: bgeu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sb.data.bin: sb.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+and.text.bin: and.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.texinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.C:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+slli.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+addi.elf: addi.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.web:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srai.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+simple.data.mif: simple.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple.data'
+#  Last modified 2024-07-25 20:31:58.898160483
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sub.text.bin: sub.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+slt.text.mif: slt.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt.text'
+#  Last modified 2024-07-25 20:30:20.268161796
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+add.text.mif: add.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add.text'
+#  Last modified 2024-07-25 20:30:17.898161828
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lhu.text.bin: lhu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+beq.data.mif: beq.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq.data'
+#  Last modified 2024-07-25 20:30:21.378161782
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+srai.data.mif: srai.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai.data'
+#  Last modified 2024-07-25 20:31:59.608160474
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sw.data.bin: sw.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.elc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.y.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+lh.text.bin: lh.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+add.data.mif: add.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add.data'
+#  Last modified 2024-07-25 20:30:21.298161783
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+xor.o: xor.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sltu.text.bin: sltu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.l.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+# Not a target:
+bne.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+slli.elf: slli.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-25 20:30:10.668161924
+#  File has been updated.
+#  Successfully updated.
+
+beq.text.bin: beq.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+add.data.bin: add.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+bge.o: bge.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sb.text.mif: sb.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb.text'
+#  Last modified 2024-07-25 20:30:19.808161803
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sub.data.bin: sub.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.r.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.mod:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+# Not a target:
+.def:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+srai.o: srai.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+slt.text.bin: slt.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sltiu.data.bin: sltiu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+lw.text.bin: lw.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.S:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+blt.text.mif: blt.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt.text'
+#  Last modified 2024-07-25 20:30:18.628161818
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+beq.data.bin: beq.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.texi.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+sra.elf: sra.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+auipc.o: auipc.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+srli.text.bin: srli.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+lw.text.mif: lw.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw.text'
+#  Last modified 2024-07-25 20:30:19.538161806
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+auipc.data.mif: auipc.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc.data'
+#  Last modified 2024-07-25 20:30:21.358161782
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.txinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+bltu.text.mif: bltu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu.text'
+#  Last modified 2024-07-25 20:30:18.718161817
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+bltu.data.mif: bltu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu.data'
+#  Last modified 2024-07-25 20:30:21.438161781
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sw.text.bin: sw.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+lhu.o: lhu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.y.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 52):
+	rm -f ${OBJS} ${ELFS} ${BINS} ${MIFS}
+
+ori.o: ori.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.cpp.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+# Not a target:
+lhu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+auipc.data.bin: auipc.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+srli.o: srli.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.el:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+jal.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.cc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+jal.o: jal.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+srai.data.bin: srai.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+addi.o: addi.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+jalr.elf: jalr.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+xori.o: xori.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sltu.data.bin: sltu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+or.data.mif: or.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or.data'
+#  Last modified 2024-07-25 20:30:21.608161779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+sw.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.F:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.web.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+# Not a target:
+.texinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+blt.elf: blt.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+bltu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+lui.text.bin: lui.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sh.elf: sh.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+and.o: and.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+sub.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.ym.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+srli.text.mif: srli.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli.text'
+#  Last modified 2024-07-25 20:30:20.918161788
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+xor.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+simple.data.bin: simple.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+bge.data.bin: bge.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+sb.text.bin: sb.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+slti.text.mif: slti.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti.text'
+#  Last modified 2024-07-25 20:30:20.358161795
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sub.elf: sub.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+srli.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+sltu.data.mif: sltu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu.data'
+#  Last modified 2024-07-25 20:31:59.428160476
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lh.text.mif: lh.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh.text'
+#  Last modified 2024-07-25 20:30:19.26816181
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+addi.data.mif: addi.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi.data'
+#  Last modified 2024-07-25 20:30:21.308161783
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+blt.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+lh.o: lh.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+lbu.o: lbu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+addi.data.bin: addi.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+addi.text.bin: addi.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+slti.text.bin: slti.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+xori.data.mif: xori.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori.data'
+#  Last modified 2024-07-25 20:32:00.148160466
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+slt.o: slt.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+lh.data.mif: lh.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh.data'
+#  Last modified 2024-07-25 20:30:21.53816178
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.l:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+slti.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+bge.text.bin: bge.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+lh.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+bne.text.bin: bne.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+and.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+sb.o: sb.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sub.o: sub.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sll.data.bin: sll.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+jal.text.bin: jal.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.texi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sub.text.mif: sub.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub.text'
+#  Last modified 2024-07-25 20:30:21.008161787
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+sh.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+jal.data.mif: jal.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal.data'
+#  Last modified 2024-07-25 20:30:21.468161781
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+srli.data.bin: srli.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+auipc.text.mif: auipc.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc.text'
+#  Last modified 2024-07-25 20:30:18.258161823
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sra.text.mif: sra.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra.text'
+#  Last modified 2024-07-25 20:30:20.648161791
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+add.elf: add.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+addi.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+andi.data.bin: andi.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+srai.text.bin: srai.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+jal.elf: jal.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lhu.data.bin: lhu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+sltu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+andi.o: andi.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+xor.data.mif: xor.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor.data'
+#  Last modified 2024-07-25 20:32:00.048160468
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+blt.data.bin: blt.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+lh.elf: lh.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+add.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+add.text.bin: add.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.a:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+auipc.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+lhu.text.mif: lhu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu.text'
+#  Last modified 2024-07-25 20:30:19.358161809
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+srli.data.mif: srli.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli.data'
+#  Last modified 2024-07-25 20:31:59.788160471
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+andi.data.mif: andi.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi.data'
+#  Last modified 2024-07-25 20:30:21.338161782
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+all: add.text.mif addi.text.mif and.text.mif andi.text.mif auipc.text.mif beq.text.mif bge.text.mif bgeu.text.mif blt.text.mif bltu.text.mif bne.text.mif jal.text.mif jalr.text.mif lb.text.mif lbu.text.mif lh.text.mif lhu.text.mif lui.text.mif lw.text.mif or.text.mif ori.text.mif sb.text.mif sh.text.mif simple.text.mif sll.text.mif slli.text.mif slt.text.mif slti.text.mif sltiu.text.mif sltu.text.mif sra.text.mif srai.text.mif srl.text.mif srli.text.mif sub.text.mif sw.text.mif xor.text.mif xori.text.mif add.data.mif addi.data.mif and.data.mif andi.data.mif auipc.data.mif beq.data.mif bge.data.mif bgeu.data.mif blt.data.mif bltu.data.mif bne.data.mif jal.data.mif jalr.data.mif lb.data.mif lbu.data.mif lh.data.mif lhu.data.mif lui.data.mif lw.data.mif or.data.mif ori.data.mif sb.data.mif sh.data.mif simple.data.mif sll.data.mif slli.data.mif slt.data.mif slti.data.mif sltiu.data.mif sltu.data.mif sra.data.mif srai.data.mif srl.data.mif srli.data.mif sub.data.mif sw.data.mif xor.data.mif xori.data.mif
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+slt.elf: slt.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.w.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+or.text.mif: or.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or.text'
+#  Last modified 2024-07-25 20:30:19.628161805
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sltiu.text.mif: sltiu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu.text'
+#  Last modified 2024-07-25 20:30:20.458161794
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+jalr.data.mif: jalr.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr.data'
+#  Last modified 2024-07-25 20:30:21.48816178
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.s.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+# Not a target:
+.txinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+srli.elf: srli.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lb.text.mif: lb.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb.text'
+#  Last modified 2024-07-25 20:30:19.088161812
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.c.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+# Not a target:
+.tex.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+sll.data.mif: sll.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll.data'
+#  Last modified 2024-07-25 20:31:58.988160482
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+sra.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bge.text.mif: bge.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge.text'
+#  Last modified 2024-07-25 20:30:18.438161821
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sltu.text.mif: sltu.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu.text'
+#  Last modified 2024-07-25 20:30:20.558161793
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.out:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sltiu.data.mif: sltiu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu.data'
+#  Last modified 2024-07-25 20:31:59.348160477
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.texinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+blt.data.mif: blt.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'blt.data'
+#  Last modified 2024-07-25 20:30:21.418161781
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+lbu.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+srl.data.mif: srl.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl.data'
+#  Last modified 2024-07-25 20:31:59.698160472
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+xori.elf: xori.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lbu.text.bin: lbu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sra.text.bin: sra.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.F.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+bge.data.mif: bge.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bge.data'
+#  Last modified 2024-07-25 20:30:21.388161782
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+simple.text.bin: simple.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sh.data.mif: sh.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh.data'
+#  Last modified 2024-07-25 20:31:58.798160484
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+slti.o: slti.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+jalr.data.bin: jalr.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+riscv_test.h:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+slli.text.mif: slli.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli.text'
+#  Last modified 2024-07-25 20:30:20.178161798
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lw.data.mif: lw.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw.data'
+#  Last modified 2024-07-25 20:30:21.588161779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+bgeu.data.mif: bgeu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu.data'
+#  Last modified 2024-07-25 20:30:21.408161781
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lui.data.bin: lui.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+bgeu.data.bin: bgeu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+ori.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+slt.data.mif: slt.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt.data'
+#  Last modified 2024-07-25 20:31:59.16816048
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sh.o: sh.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sltu.elf: sltu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lbu.data.bin: lbu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.yl:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+or.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+andi.text.bin: andi.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+lb.text.bin: lb.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+srl.data.bin: srl.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+jalr.text.bin: jalr.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+auipc.text.bin: auipc.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+# Not a target:
+.S.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+# Not a target:
+bge.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+andi.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+slti.data.bin: slti.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+srl.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+add.o: add.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'add'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+xori.data.bin: xori.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+sra.o: sra.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+lw.data.bin: lw.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+sub.data.mif: sub.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sub.data'
+#  Last modified 2024-07-25 20:31:59.87816047
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+slt.data.bin: slt.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slt'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+simple.elf: simple.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+sh.text.bin: sh.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+slti.elf: slti.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.C.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+# Not a target:
+xori.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+srl.o: srl.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srl'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.txinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+lui.o: lui.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+bgeu.elf: bgeu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bgeu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+sh.text.mif: sh.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sh.text'
+#  Last modified 2024-07-25 20:30:19.908161801
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.texi.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+ori.text.mif: ori.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori.text'
+#  Last modified 2024-07-25 20:30:19.718161804
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+bltu.data.bin: bltu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+sll.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+auipc.elf: auipc.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auipc'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+srai.elf: srai.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'srai'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+bne.data.bin: bne.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+lhu.elf: lhu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lhu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+sra.data.bin: sra.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+lbu.data.mif: lbu.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lbu.data'
+#  Last modified 2024-07-25 20:30:21.51816178
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+or.text.bin: or.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+sw.text.mif: sw.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw.text'
+#  Last modified 2024-07-25 20:30:21.098161785
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+lui.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.y:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+lw.elf: lw.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+andi.text.mif: andi.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'andi.text'
+#  Last modified 2024-07-25 20:30:18.168161824
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+simple.o: simple.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+jalr.text.mif: jalr.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr.text'
+#  Last modified 2024-07-25 20:30:18.998161813
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+ori.data.mif: ori.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori.data'
+#  Last modified 2024-07-25 20:30:21.618161779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+test_macros.h:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+sb.elf: sb.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+or.elf: or.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+xor.text.bin: xor.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+slli.data.bin: slli.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+beq.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+and.data.bin: and.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+sra.data.mif: sra.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sra.data'
+#  Last modified 2024-07-25 20:31:59.518160475
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.l.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+sll.text.mif: sll.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll.text'
+#  Last modified 2024-07-25 20:30:20.088161799
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+jalr.o: jalr.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jalr'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+or.o: or.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+lb.o: lb.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.l.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+sll.text.bin: sll.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+jal.data.bin: jal.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'jal'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+slli.text.bin: slli.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+bne.o: bne.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+sb.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+slli.data.mif: slli.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli.data'
+#  Last modified 2024-07-25 20:31:59.078160481
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.w:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bne.data.mif: bne.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne.data'
+#  Last modified 2024-07-25 20:30:21.458161781
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+xor.data.bin: xor.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'xor'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.SUFFIXES: .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+slti.data.mif: slti.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slti.data'
+#  Last modified 2024-07-25 20:31:59.258160478
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sltiu.elf: sltiu.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+lb.data.bin: lb.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lb'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+sltu.o: sltu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+lw.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+lh.data.bin: lh.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lh'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+# Not a target:
+.mod.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+beq.elf: beq.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+ori.data.bin: ori.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+bne.elf: bne.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bne'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+and.data.mif: and.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and.data'
+#  Last modified 2024-07-25 20:30:21.328161782
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.web.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+simple.text.mif: simple.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'simple.text'
+#  Last modified 2024-07-25 20:30:19.9981618
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+sltiu.text.bin: sltiu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+lw.o: lw.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+beq.text.mif: beq.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'beq.text'
+#  Last modified 2024-07-25 20:30:18.348161822
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.S.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+addi.text.mif: addi.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'addi.text'
+#  Last modified 2024-07-25 20:30:17.988161827
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+lui.elf: lui.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lui'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+sw.o: sw.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+slli.o: slli.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'slli'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+.f.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+sll.o: sll.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sll'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+sw.data.mif: sw.data.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sw.data'
+#  Last modified 2024-07-25 20:31:59.958160469
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+bltu.text.bin: bltu.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'bltu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
+	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
+
+or.data.bin: or.elf
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'or'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
+	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
+
+and.text.mif: and.text.bin
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'and.text'
+#  Last modified 2024-07-25 20:30:18.078161826
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
+	${SRECCAT} $< -binary -byte-swap 4 -O $@ -VMem 32
+
+# Not a target:
+.ym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.cc.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+# Not a target:
+simple.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.F.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+lb.S:
+#  Implicit rule search has been done.
+#  Last modified 2024-07-23 15:32:29.480801872
+#  File has been updated.
+#  Successfully updated.
+
+sltiu.o: sltiu.S test_macros.h riscv_test.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sltiu'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+ori.elf: ori.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ori'
+#  File is an intermediate prerequisite.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	${LD} ${LDFLAGS} $< -o $@
+
+# Not a target:
+.w.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+# files hash-table stats:
+# Load=343/1024=33%, Rehash=0, Collisions=1232/4189=29%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 3 (2) / strings = 1716 / storage = 22006 B / avg = 12 B
+# current buf: size = 8162 B / used = 5696 B / count = 383 / avg = 14 B
+# other used: total = 16310 B / count = 1333 / avg = 12 B
+# other free: total = 14 B / max = 8 B / min = 6 B / avg = 7 B
+
+# strcache performance: lookups = 2785 / hit rate = 38%
+# hash-table stats:
+# Load=1716/8192=21%, Rehash=0, Collisions=298/2785=11%
+# Finished Make data base on Thu Jul 25 20:32:12 2024
+
