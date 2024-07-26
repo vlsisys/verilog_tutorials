@@ -71,11 +71,9 @@ int main(int argc, char** argv, char** env)
 		if (sim_flag == 0) break;
         if (dut->o_riscv_dmem_wr_en && dut->o_riscv_dmem_addr == 0xfffffff0) {
             if (dut->o_riscv_dmem_wr_data) {
-				printf("PASS Simulation");
-                //std::cout << "PASS" << std::endl;
+				printf("PASS:");
             } else {
-				printf("FAIL Simulation");
-                //std::cout << "FAIL" << std::endl;
+				printf("FAIL:");
             }
 			sim_flag	= 0;
         }

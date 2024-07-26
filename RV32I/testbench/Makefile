@@ -28,13 +28,6 @@ VRL_FLAGS	+=	-I$(RTL_PATH)/$(CPU_TYPE)
 VCD_FLAG	=	+vcd
 
 # --------------------------------------------------
-#	C++ Compile
-# --------------------------------------------------
-CXX_FLAGS	=	-I ${VRL_INC} -I ${VRL_INC}/vltstd
-CXX_SRCS	=	$(wildcard *.cpp)
-CXX_OBJS	=	$(CPP_SRCS:.cpp=.o)
-	
-# --------------------------------------------------
 #	RISC-V Test
 # --------------------------------------------------
 TEST_PATH	=	$(PRJ_PATH)/testbench/mif

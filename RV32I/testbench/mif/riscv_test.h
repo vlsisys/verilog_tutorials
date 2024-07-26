@@ -3,23 +3,23 @@
 #define TESTNUM x28
 #define DEBUG_REG 0xfffffff0
 
-#define RVTEST_CODE_BEGIN		\
-	.text;				\
+#define RVTEST_CODE_BEGIN	\
+	.text;					\
 	.global test;			\
 test:
 
 #define RVTEST_PASS			\
-.pass:					\
+.pass:						\
 	li	a0,DEBUG_REG;		\
-	li	a1,0x1;			\
-	sw	a1,0(a0);		\
+	li	a1,0x1;				\
+	sw	a1,0(a0);			\
 	j .pass;
 
 #define RVTEST_FAIL			\
-.fail:					\
+.fail:						\
 	li	a0,DEBUG_REG;		\
-	li	a1,0x0;			\
-	sw	a1,0(a0);		\
+	li	a1,0x0;				\
+	sw	a1,0(a0);			\
 	j .fail;
 
 #define RVTEST_CODE_END

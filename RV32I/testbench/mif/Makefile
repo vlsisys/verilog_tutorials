@@ -17,7 +17,6 @@ SRCS		= $(wildcard *.S)
 # --------------------------------------------------
 LD			= riscv64-unknown-linux-gnu-ld
 LDFLAGS		= -Tlink.ld -melf32lriscv
-#LDFLAGS		= -melf32lriscv
 OBJS		= $(SRCS:.S=.o)
 
 # --------------------------------------------------
@@ -38,11 +37,9 @@ all: ${MIFS}
 	${LD} ${LDFLAGS} $< -o $@
 
 %.text.bin: %.elf
-	#${OBJCOPY} -O binary $< $@ -j .init -j .text --change-addresses -0x400000
 	${OBJCOPY} -O binary $< $@ -j .text --change-addresses -0x400000
 
 %.data.bin: %.elf
-	#${OBJCOPY} -O binary $< $@ -j .data -j .eh_frame -j .fini_array -j .init_array --change-addresses -0x80000000
 	${OBJCOPY} -O binary $< $@ -j .data --change-addresses -0x80000000
 
 %.mif: %.bin
