@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1723383536" />
+    <testcase name="dff_simple_test" classname="test_dff" file="/home/woong/projects/verilog_tutorials/cocotb/dff/test_dff.py" lineno="17" time="0.0013570785522460938" sim_time_ns="115000.001" ratio_time="84740858.08051722" />
+  </testsuite>
+</testsuites>

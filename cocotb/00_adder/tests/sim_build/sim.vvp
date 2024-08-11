@@ -8,23 +8,32 @@
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
-S_0x55cebb62cdc0 .scope package, "$unit" "$unit" 2 1;
+S_0x563fb31026b0 .scope package, "$unit" "$unit" 2 1;
  .timescale 0 0;
-S_0x55cebb62cf50 .scope module, "adder" "adder" 3 10;
+S_0x563fb3115b10 .scope module, "adder" "adder" 3 11;
  .timescale -9 -12;
     .port_info 0 /OUTPUT 32 "o_s";
     .port_info 1 /INPUT 32 "i_a";
     .port_info 2 /INPUT 32 "i_b";
-P_0x55cebb62d0e0 .param/l "BW_DATA" 0 3 12, +C4<00000000000000000000000000100000>;
-o0x7fd095c57018 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v0x55cebb63ebd0_0 .net "i_a", 31 0, o0x7fd095c57018;  0 drivers
-o0x7fd095c57048 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v0x55cebb6747c0_0 .net "i_b", 31 0, o0x7fd095c57048;  0 drivers
-v0x55cebb6748a0_0 .net "o_s", 31 0, L_0x55cebb674a10;  1 drivers
-L_0x55cebb674a10 .arith/sum 32, o0x7fd095c57018, o0x7fd095c57048;
+P_0x563fb3115ca0 .param/l "BW_DATA" 0 3 13, +C4<00000000000000000000000000100000>;
+o0x7f047a395018 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x563fb30edbf0_0 .net "i_a", 31 0, o0x7f047a395018;  0 drivers
+o0x7f047a395048 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x563fb3101dd0_0 .net "i_b", 31 0, o0x7f047a395048;  0 drivers
+v0x563fb3125340_0 .net "o_s", 31 0, L_0x563fb31254b0;  1 drivers
+L_0x563fb31254b0 .arith/sum 32, o0x7f047a395018, o0x7f047a395048;
+S_0x563fb3115d90 .scope module, "cocotb_iverilog_dump" "cocotb_iverilog_dump" 4 1;
+ .timescale -9 -12;
+    .scope S_0x563fb3115d90;
+T_0 ;
+    %vpi_call/w 4 3 "$dumpfile", "/home/woong/projects/verilog_tutorials/cocotb/00_adder/tests/sim_build/adder.fst" {0 0 0};
+    %vpi_call/w 4 4 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x563fb3115b10 {0 0 0};
+    %end;
+    .thread T_0;
 # The file index is used to find the file name in the following table.
-:file_names 4;
+:file_names 5;
     "N/A";
     "<interactive>";
     "-";
     "/home/woong/projects/verilog_tutorials/cocotb/00_adder/hdl/adder.v";
+    "/home/woong/projects/verilog_tutorials/cocotb/00_adder/tests/sim_build/cocotb_iverilog_dump.v";

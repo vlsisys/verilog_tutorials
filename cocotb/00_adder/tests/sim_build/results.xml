@@ -1,7 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1723381593" />
-    <testcase name="adder_basic_test" classname="tb_adder" file="/home/woong/projects/verilog_tutorials/cocotb/00_adder/tests/tb_adder.py" lineno="17" time="0.0002498626708984375" sim_time_ns="2.001" ratio_time="8008.399145038167" />
-    <testcase name="adder_randomised_test" classname="tb_adder" file="/home/woong/projects/verilog_tutorials/cocotb/00_adder/tests/tb_adder.py" lineno="32" time="0.00047087669372558594" sim_time_ns="20.000999999999998" ratio_time="42476.08825518987" />
+    <property name="random_seed" value="1723382914" />
+    <testcase name="adder_randomised_test" classname="tb_adder" file="/home/woong/projects/verilog_tutorials/cocotb/00_adder/tests/tb_adder.py" lineno="34" time="0.0006265640258789062" sim_time_ns="20.001" ratio_time="31921.7177716895" />
   </testsuite>
 </testsuites>

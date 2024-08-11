@@ -7,14 +7,12 @@
 // ==================================================
 
 `timescale	1ns/1ps
+
 module adder
-#(	
-	parameter	BW_DATA			= 32
-)
 (	
-	output 		[BW_DATA-1:0]	o_s,
-	input		[BW_DATA-1:0]	i_a,
-	input		[BW_DATA-1:0]	i_b
+	output 		[32:0]	o_s,
+	input		[31:0]	i_a,
+	input		[31:0]	i_b
 );
 
 	assign		o_s	= i_a + i_b;
