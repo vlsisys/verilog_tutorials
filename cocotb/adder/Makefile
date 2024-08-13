@@ -5,7 +5,7 @@ PWD				= $(shell pwd)
 SIM				= icarus
 WAVES			= 1
 TOPLEVEL_LANG	= verilog
-VERILOG_SOURCES	+= ./src/addr.v
+VERILOG_SOURCES	+= addr.v
 TOPLEVEL		= adder					# verilog top module
 MODULE			= tb_adder				# python name
 
