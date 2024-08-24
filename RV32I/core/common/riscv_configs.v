@@ -112,3 +112,10 @@
 `define	FUNCT3_MEM_WORD		3'b010
 `define	FUNCT3_MEM_BYTEU	3'b100
 `define	FUNCT3_MEM_HALFU	3'b101
+
+// --------------------------------------------------
+// Data Forwarding for Data Hazard
+// --------------------------------------------------
+`define	HZD_FORWARD_RSD			2'd0	// RS Data
+`define	HZD_FORWARD_ALU			2'd1	// ALU Output
+`define	HZD_FORWARD_RLT			2'd2	// Result
