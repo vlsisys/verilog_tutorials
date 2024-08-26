@@ -12,7 +12,7 @@
 module riscv_immext
 (	
 	output reg	[`XLEN-1:0]	o_imm_ext,
-	input		[`XLEN-1:0]	i_imm_instr,
+	input		[`XLEN-1:7]	i_imm_instr,
 	input		[      2:0]	i_imm_src
 );
 

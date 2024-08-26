@@ -116,6 +116,6 @@
 // --------------------------------------------------
 // Data Forwarding for Data Hazard
 // --------------------------------------------------
-`define	HZD_FORWARD_RSD			2'd0	// RS Data
-`define	HZD_FORWARD_ALU			2'd1	// ALU Output
-`define	HZD_FORWARD_RLT			2'd2	// Result
+`define	HZD_FORWARD_RSD		2'b00	// RS Data
+`define	HZD_FORWARD_ALU		2'b01	// ALU Output
+`define	HZD_FORWARD_RLT		2'b10	// Regfile RD Data

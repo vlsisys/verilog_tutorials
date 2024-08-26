@@ -11,46 +11,17 @@
 
 module riscv_ctrl
 (	
-	output reg	[1:0]			o_ctrl_src_pc,
-	output reg	[2:0]			o_ctrl_src_imm,
+	output reg					o_ctrl_reg_wr_en,
 	output reg	[1:0]			o_ctrl_src_rd,
+	output reg					o_ctrl_mem_wr_en,
+	output reg	[3:0]			o_ctrl_alu_ctrl,
 	output reg					o_ctrl_src_alu_a,
 	output reg					o_ctrl_src_alu_b,
-	output reg					o_ctrl_reg_wr_en,
-	output reg					o_ctrl_mem_wr_en,
-	output reg	[3:0]			o_ctrl_mem_strb,
-	output reg	[3:0]			o_ctrl_alu_ctrl,
-	input						i_ctrl_alu_zero,
+	output reg	[2:0]			o_ctrl_src_imm,
 	input		[6:0]			i_ctrl_opcode,
 	input		[2:0]			i_ctrl_funct3,
 	input						i_ctrl_funct7_5b
 );
-
-	reg							take_branch;
-	always @(*) begin
-		if (i_ctrl_opcode == `OPCODE_B_BRANCH) begin
-			case (i_ctrl_funct3)
-				`FUNCT3_BRANCH_BEQ	: take_branch =  i_ctrl_alu_zero;
-				`FUNCT3_BRANCH_BNE 	: take_branch = !i_ctrl_alu_zero;
-				`FUNCT3_BRANCH_BLT 	: take_branch = !i_ctrl_alu_zero;
-				`FUNCT3_BRANCH_BGE 	: take_branch =  i_ctrl_alu_zero;
-				`FUNCT3_BRANCH_BLTU	: take_branch = !i_ctrl_alu_zero;
-				`FUNCT3_BRANCH_BGEU	: take_branch =  i_ctrl_alu_zero;
-				default				: take_branch = 1'b0;
-			endcase
-		end else begin
-			take_branch	= 1'b0;
-		end
-	end
-
-	always @(*) begin
-		case (i_ctrl_opcode)
-			`OPCODE_B_BRANCH	: o_ctrl_src_pc		= (take_branch) ? `SRC_PC_PC_IMM: `SRC_PC_PC_4;
-			`OPCODE_J_JAL		: o_ctrl_src_pc		= `SRC_PC_PC_IMM;
-			`OPCODE_I_JALR		: o_ctrl_src_pc		= `SRC_PC_RS_IMM;
-			default				: o_ctrl_src_pc		= `SRC_PC_PC_4;
-		endcase
-	end
 
 	always @(*) begin
 		case (i_ctrl_opcode)
@@ -107,23 +78,6 @@ module riscv_ctrl
 		case (i_ctrl_opcode)
 			`OPCODE_S_STORE		: o_ctrl_mem_wr_en	= 1'b1;
 			default				: o_ctrl_mem_wr_en	= 1'b0;
-		endcase
-	end
-
-	always @(*) begin
-		case (i_ctrl_opcode)
-			`OPCODE_I_LOAD		,
-			`OPCODE_S_STORE		: begin
-				case (i_ctrl_funct3)
-					`FUNCT3_MEM_BYTE	,
-					`FUNCT3_MEM_BYTEU	: o_ctrl_mem_byte_sel	= 4'b0001;
-					`FUNCT3_MEM_HALF	,
-					`FUNCT3_MEM_HALFU	: o_ctrl_mem_byte_sel	= 4'b0011;
-					`FUNCT3_MEM_WORD	: o_ctrl_mem_byte_sel	= 4'b1111;
-					default				: o_ctrl_mem_byte_sel	= 4'b1111;
-				endcase
-			end
-			default				: o_ctrl_mem_byte_sel	= 4'b1111;
 		endcase
 	end
 

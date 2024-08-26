@@ -11,23 +11,15 @@
 
 module riscv_dmem_interface
 (	
-	//	Bypass Signal
 	output		[  `XLEN-1:0]	o_dmem_intf_addr,
 	output						o_dmem_intf_wen,
-	input		[  `XLEN-1:0]	i_dmem_intf_addr,
-	input						i_dmem_intf_wen,
-
-	//	To Data Memory
 	output		[  `XLEN-1:0]	o_dmem_intf_wr_data,
 	output		[`XLEN/8-1:0]	o_dmem_intf_byte_sel,
-	//	To CPU
 	output reg	[  `XLEN-1:0]	o_dmem_intf_rd_data,
-	//	From CPU
+	input		[  `XLEN-1:0]	i_dmem_intf_addr,
+	input						i_dmem_intf_wen,
 	input		[  `XLEN-1:0]	i_dmem_intf_wr_data,
-	input		[`XLEN/8-1:0]	i_dmem_intf_byte_sel,
-	//	From Memory
 	input		[  `XLEN-1:0]	i_dmem_intf_rd_data,
-	//	Controll & Clock
 	input		[        2:0]	i_dmem_intf_func3
 );
 
@@ -35,9 +27,22 @@ module riscv_dmem_interface
 	assign		o_dmem_intf_addr	= i_dmem_intf_addr;
 	assign		o_dmem_intf_wen		= i_dmem_intf_wen;
 
+	reg		[3:0]	dmem_intf_strb;
+	//	Strobe Signal
+	always @(*) begin
+		case (i_dmem_intf_func3)
+			`FUNCT3_MEM_BYTE	,
+			`FUNCT3_MEM_BYTEU	: dmem_intf_strb	= 4'b0001;
+			`FUNCT3_MEM_HALF	,
+			`FUNCT3_MEM_HALFU	: dmem_intf_strb	= 4'b0011;
+			`FUNCT3_MEM_WORD	: dmem_intf_strb	= 4'b1111;
+			default				: dmem_intf_strb	= 4'b1111;
+		endcase
+	end
+
 	//	To Data Memory
 	assign		o_dmem_intf_wr_data		= i_dmem_intf_wr_data 	<< (8*i_dmem_intf_addr[1:0]);
-	assign		o_dmem_intf_byte_sel	= i_dmem_intf_byte_sel	<< (1*i_dmem_intf_addr[1:0]);
+	assign		o_dmem_intf_byte_sel	= dmem_intf_strb		<< (1*i_dmem_intf_addr[1:0]);
 
 	wire	[`XLEN-1:0]	byte_aligned_dmem_rd_data;
 	assign		byte_aligned_dmem_rd_data = i_dmem_intf_rd_data >> (8*i_dmem_intf_addr[1:0]);
