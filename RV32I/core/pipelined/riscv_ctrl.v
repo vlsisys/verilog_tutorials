@@ -94,6 +94,7 @@ module riscv_ctrl
 					`FUNCT3_ALU_SRL_SRA	: o_ctrl_alu_ctrl = i_ctrl_funct7_5b ? `ALU_CTRL_SRA : `ALU_CTRL_SRL ;
 					`FUNCT3_ALU_SLT		: o_ctrl_alu_ctrl = `ALU_CTRL_SLT                                    ;
 					`FUNCT3_ALU_SLTU	: o_ctrl_alu_ctrl = `ALU_CTRL_SLTU                                   ;
+					default				: o_ctrl_alu_ctrl = `ALU_CTRL_NOP									 ;
 				endcase
 			end
 			`OPCODE_B_BRANCH	: begin
@@ -125,6 +126,7 @@ module riscv_ctrl
 					`FUNCT3_ALU_SRL_SRA	: DEBUG_INSTR = i_ctrl_funct7_5b ? "sra" : "srl" ;
 					`FUNCT3_ALU_SLT		: DEBUG_INSTR = "slt"                            ;
 					`FUNCT3_ALU_SLTU	: DEBUG_INSTR = "sltu"                           ;
+					default				: DEBUG_INSTR = "-"								 ;
 				endcase
 			end
 			`OPCODE_I_OP		: begin
@@ -137,6 +139,7 @@ module riscv_ctrl
 					`FUNCT3_ALU_SRL_SRA	: DEBUG_INSTR = i_ctrl_funct7_5b ? "srai" : "srli" ;
 					`FUNCT3_ALU_SLT		: DEBUG_INSTR = "slti"                             ;
 					`FUNCT3_ALU_SLTU	: DEBUG_INSTR = "sltui"                            ;
+					default				: DEBUG_INSTR = "-"							       ;
 				endcase
 			end
 			`OPCODE_I_LOAD		: begin
@@ -146,6 +149,7 @@ module riscv_ctrl
 					`FUNCT3_MEM_WORD	: DEBUG_INSTR = "lw"  ;
 					`FUNCT3_MEM_BYTEU	: DEBUG_INSTR = "lbu" ;
 					`FUNCT3_MEM_HALFU	: DEBUG_INSTR = "lhu" ;
+					default				: DEBUG_INSTR = "-"	  ;
 				endcase
 			end
 			`OPCODE_S_STORE		: begin
@@ -153,6 +157,7 @@ module riscv_ctrl
 					`FUNCT3_MEM_BYTE	: DEBUG_INSTR = "sb";
 					`FUNCT3_MEM_HALF	: DEBUG_INSTR = "sh";
 					`FUNCT3_MEM_WORD	: DEBUG_INSTR = "sw";
+					default				: DEBUG_INSTR = "-"	;
 				endcase
 			end
 			`OPCODE_B_BRANCH	: begin
@@ -163,12 +168,14 @@ module riscv_ctrl
 					`FUNCT3_BRANCH_BGE	: DEBUG_INSTR = "bge"  ;
 					`FUNCT3_BRANCH_BLTU	: DEBUG_INSTR = "bltu" ;
 					`FUNCT3_BRANCH_BGEU	: DEBUG_INSTR = "bgeu" ;
+					default				: DEBUG_INSTR = "-"	   ;
 				endcase
 			end
 			`OPCODE_J_JAL		: DEBUG_INSTR = "jal"   ;
 			`OPCODE_I_JALR		: DEBUG_INSTR = "jalr"  ;
 			`OPCODE_U_LUI		: DEBUG_INSTR = "lui"   ;
 			`OPCODE_U_AUIPC		: DEBUG_INSTR = "auipc" ;
+			default				: DEBUG_INSTR = "-"	    ;
 		endcase
 	end
 
