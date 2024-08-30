@@ -163,7 +163,7 @@ module bfm_axi #(parameter MST_ID   =0         // Master ID
            //-----------------------------------------------------
 if (EN) begin
    // single-burst with different size
-   if (0) begin
+   if (1) begin
    test_raw( 32'h1  //input [31:0] id;
            , 32'h0  //input [31:0] saddr; // start address
            , 32'h10 //input [31:0] depth; // size in byte
@@ -189,7 +189,7 @@ if (EN) begin
    end
    //---------------------------------------------------------
    // single-burst with different size
-   if (0) begin
+   if (1) begin
    test_raw_all( 32'h4  //input [31:0] id;
                , 32'h30 //input [31:0] saddr; // start address
                , 32'h10 //input [31:0] depth; // size in byte
@@ -211,34 +211,6 @@ if (EN) begin
                , 32'h10 //input [31:0] depth; // size in byte
                , 32'h1  //input [31:0] bsize; // burst size in byte
                , 32'h1  //input [31:0] bleng; // burst length
-   );
-   end
-   //---------------------------------------------------------
-   // burst with different size
-   if (1) begin
-   blen  = 4;
-   bsize = 4;
-   test_raw_burst ( 32'h7  //input [31:0] id;
-                  , 32'h30 //input [31:0] saddr; // start address
-                  , bsize*blen*2//input [31:0] depth; // size in byte
-                  , bsize  //input [31:0] bsize; // burst size in byte
-                  , blen   //input [31:0] bleng; // burst length
-   );
-   end
-   if (0) begin
-   test_raw_burst ( 32'h8  //input [31:0] id;
-                  , 32'h40 //input [31:0] saddr; // start address
-                  , 32'h10 //input [31:0] depth; // size in byte
-                  , 32'h2  //input [31:0] bsize; // burst size in byte
-                  , 32'h4  //input [31:0] bleng; // burst length
-   );
-   end
-   if (0) begin
-   test_raw_burst ( 32'h9  //input [31:0] id;
-                  , 32'h50 //input [31:0] saddr; // start address
-                  , 32'h10 //input [31:0] depth; // size in byte
-                  , 32'h1  //input [31:0] bsize; // burst size in byte
-                  , 32'h4  //input [31:0] bleng; // burst length
    );
    end
 end

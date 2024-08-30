@@ -1,0 +1,28 @@
+top.u_mem_axi INFO 004K (004096) byte memory
+VCD info: dumpfile wave.vcd opened for output.
+                 105 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 160 top.u_bfm_axi.test_raw OK A:0x00000000 D:0x01
+                 160 top.u_bfm_axi.test_raw OK A:0x00000001 D:0x02
+                 160 top.u_bfm_axi.test_raw OK A:0x00000002 D:0x03
+                 160 top.u_bfm_axi.test_raw OK A:0x00000003 D:0x04
+                 195 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 250 top.u_bfm_axi.test_raw OK A:0x00000004 D:0x05
+                 250 top.u_bfm_axi.test_raw OK A:0x00000005 D:0x06
+                 250 top.u_bfm_axi.test_raw OK A:0x00000006 D:0x07
+                 250 top.u_bfm_axi.test_raw OK A:0x00000007 D:0x08
+                 285 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 340 top.u_bfm_axi.test_raw OK A:0x00000008 D:0x09
+                 340 top.u_bfm_axi.test_raw OK A:0x00000009 D:0x0a
+                 340 top.u_bfm_axi.test_raw OK A:0x0000000a D:0x0b
+                 340 top.u_bfm_axi.test_raw OK A:0x0000000b D:0x0c
+                 375 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 430 top.u_bfm_axi.test_raw OK A:0x0000000c D:0x0d
+                 430 top.u_bfm_axi.test_raw OK A:0x0000000d D:0x0e
+                 430 top.u_bfm_axi.test_raw OK A:0x0000000e D:0x0f
+                 430 top.u_bfm_axi.test_raw OK A:0x0000000f D:0x10
+                 430 top.u_bfm_axi.test_raw test_raw from 0x00000000 to 0x0000000f 004-size 001-leng OK
+                 465 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 505 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 545 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 585 top.u_bfm_axi.write_resp_channel OK response for write-resp-channel: OKAY
+                 790 top.u_bfm_axi.test_raw_all test_raw_all from 0x00000030 to 0x0000003f 004-size 001-leng OK

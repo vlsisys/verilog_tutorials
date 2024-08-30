@@ -31,13 +31,13 @@ begin
             dataWB[idx] = idy + idx + 1;
         end
 //$display($time,,"%m idy=%03d", idy);
-        write_task( id //input [31:0]         id;
+        write_task( id	  //input [31:0]         id;
                   , addr  //addr;
                   , bsize //size; // 1 ~ 128 byte in a beat
                   , bleng //leng; // 1 ~ 16  beats in a burst
                   , 0     //type; // burst type
                   );
-        read_task ( id //input [31:0]         id;
+        read_task ( id    //input [31:0]         id;
                   , addr  //addr;
                   , bsize //size; // 1 ~ 128 byte in a beat
                   , bleng //leng; // 1 ~ 16  beats in a burst
@@ -125,9 +125,23 @@ task read_address_channel;
      input [31:0]         size; // 1 ~ 128 byte in a beat
      input [31:0]         leng; // 1 ~ 16  beats in a burst
      input [31:0]         type; // burst type
-begin
-     // fill your code here
-end
+	begin
+        @ (posedge ACLK);
+            ARID <= #1 id;
+            ARADDR <= #1 addr;
+            ARLEN <= #1 leng-1;
+            ARLOCK <= #1 'b0;
+            ARSIZE <= #1 get_size(size);
+            ARBURST <= #1 type[1:0];
+            `ifdef AMBA_AXI_PROT
+            ARPROT <= #1 'h0; // data, secure, normal
+            `endif
+            ARVALID <= #1 'b1;
+        @ (posedge ACLK);
+            while (ARREADY==1'b0) @ (posedge ACLK);
+            ARVALID <= #1 'b0;
+        @ (negedge ACLK);
+	end
 endtask
 //----------------------------------------------------------------
 task read_data_channel;
@@ -185,7 +199,11 @@ task write_task;
      input [31:0]         leng; // 1 ~ 16  beats in a burst
      input [31:0]         type; // burst type
 begin
-     // fill your code here
+     fork
+     write_address_channel(id,addr,size,leng,type);
+     write_data_channel(id,addr,size,leng,type);
+     write_resp_channel(id);
+     join
 end
 endtask
 //----------------------------------------------------------------
@@ -196,7 +214,21 @@ task write_address_channel;
      input [31:0]         leng; // 1 ~ 16  beats in a burst
      input [31:0]         type; // burst type
 begin
-    // fill your code here
+     @ (posedge ACLK);
+     AWID <= #1 id;
+     AWADDR <= #1 addr;
+     AWLEN <= #1 leng-1;
+     AWLOCK <= #1 'b0;
+     AWSIZE <= #1 get_size(size);
+     AWBURST <= #1 type[1:0];
+     `ifdef AMBA_AXI_PROT
+     AWPROT <= #1 'h0; // data, secure, normal
+     `endif
+     AWVALID <= #1 'b1;
+     @ (posedge ACLK);
+     while (AWREADY==1'b0) @ (posedge ACLK);
+     AWVALID <= #1 'b0;
+     @ (negedge ACLK);
 end
 endtask
 //----------------------------------------------------------------
@@ -230,7 +262,25 @@ endtask
 task write_resp_channel;
      input [31:0] id;
 begin
-     // fill your code here
+        BREADY <= #1 'b1;
+        @ (posedge ACLK);
+        while (BVALID==1'b0) @ (posedge ACLK);
+        if (id!=BID) begin
+        $display($time,,"%m Error id mis-match for write-respchannel 0x%x/0x%x", id, BID);
+        end else begin
+        case (BRESP)
+        2'b00: begin
+        `ifdef DEBUG
+        $display($time,,"%m OK response for write-resp-channel: OKAY");
+        `endif
+        end
+        2'b01: $display($time,,"%m OK response for write-respchannel: EXOKAY");
+        2'b10: $display($time,,"%m Error response for write-respchannel: SLVERR");
+        2'b11: $display($time,,"%m Error response for write-respchannel: DECERR");
+        endcase
+        end
+        BREADY <= #1 'b0;
+        @ (negedge ACLK);
 end
 endtask
 //----------------------------------------------------------------

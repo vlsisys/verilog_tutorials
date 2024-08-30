@@ -9,7 +9,12 @@
 //----------------------------------------------------------------
 // VERSION: 2013.02.03.
 //----------------------------------------------------------------
-`timescale 1ns/1ns
+//`timescale 1ns/1ns
+`define	SIM
+`define	VCD
+`define	DEBUG
+`define	RIGOR
+`define LOW_POWER
 
 `ifndef WIDTH_AD
 `define WIDTH_AD   32 // address width
@@ -20,6 +25,9 @@
 `ifndef ADDR_LENGTH
 `define ADDR_LENGTH 12
 `endif
+
+`include	"./mem_axi.v"
+`include	"./bfm_axi.v"
 
 module top ;
    //---------------------------------------------------------
@@ -45,8 +53,8 @@ module top ;
             , ADDR_BASE1  =(ADDR_BASE0+(1<<ADDR_LENGTH0))
             , ADDR_LENGTH1=`ADDR_LENGTH;
    //---------------------------------------------------------
-   reg                      ARESETn;
-   reg                      ACLK   ;
+   reg                       ARESETn;
+   reg                       ACLK   ;
    //--------------------------------------------------------------
    wire  [WIDTH_CID-1:0]     MID        ;
    wire  [WIDTH_ID-1:0]      AWID       ;
@@ -138,8 +146,8 @@ module top ;
                     ,.WIDTH_AD (WIDTH_AD ) // address width
                     ,.WIDTH_DA (WIDTH_DA ))// data width
         u_bfm_axi(
-              .ARESETn   (ARESETn        )
-            , .ACLK      (ACLK           )
+              .ARESETn   (ARESETn      )
+            , .ACLK      (ACLK         )
             , .MID       (MID          )
             , .AWID      (AWID         )
             , .AWADDR    (AWADDR       )
